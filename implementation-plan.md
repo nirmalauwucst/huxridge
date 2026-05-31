@@ -42,8 +42,8 @@ Phase 3  — AI Chatbot & Marketing Automation       (Month 5+)
 
 #### 2. CI/CD Pipeline
 - [x] Create GitHub Actions workflow: type-check → lint → build on every push *(also runs `format:check`)*
-- [ ] Connect repository to Vercel; enable automatic preview deployments on all branches
-- [ ] Verify a `develop` branch deployment is accessible at a stable preview URL
+- [x] Connect repository to Vercel; enable automatic preview deployments on all branches
+- [x] Verify a `develop` branch deployment is accessible at a stable preview URL
 
 #### 3. Design Token System
 Extract brand tokens from the client's existing colour scheme and build into Tailwind config:
