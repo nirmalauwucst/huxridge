@@ -234,28 +234,28 @@ Build one sample post to validate the template:
 ### QA — Phase 1B
 
 #### Functional
-- [ ] All nav links resolve to the correct page (no broken links)
-- [ ] All "Book a Consultation" CTAs link to `/book`
-- [ ] All service cards on home / services hub link to correct service pages
-- [ ] All industry cards link to correct industry pages
-- [ ] Breadcrumbs show correct trail on all pages
-- [ ] Mobile hamburger menu: opens, closes, links navigate correctly
-- [ ] 404 page appears for an unknown URL
+- [x] All nav links resolve to the correct page (no broken links)
+- [x] All "Book a Consultation" CTAs link to `/book`
+- [x] All service cards on home / services hub link to correct service pages
+- [x] All industry cards link to correct industry pages
+- [x] Breadcrumbs show correct trail on all pages
+- [x] Mobile hamburger menu: opens, closes, links navigate correctly
+- [x] 404 page appears for an unknown URL
 
 #### Visual / Responsive
-- [ ] Test all pages at three breakpoints: 375px (mobile), 768px (tablet), 1280px (desktop)
-- [ ] No horizontal overflow / scroll on any page at mobile width
-- [ ] Images are not distorted or cropped incorrectly
-- [ ] Typography is readable at all sizes (minimum 16px body on mobile)
-- [ ] CTAs are tappable on mobile (44px minimum touch target)
-- [ ] Footer links are not overlapping on small screens
+- [x] Test all pages at three breakpoints: 375px (mobile), 768px (tablet), 1280px (desktop)
+- [x] No horizontal overflow / scroll on any page at mobile width
+- [x] Images are not distorted or cropped incorrectly
+- [x] Typography is readable at all sizes (minimum 16px body on mobile)
+- [x] CTAs are tappable on mobile (44px minimum touch target)
+- [x] Footer links are not overlapping on small screens
 
 #### Design Fidelity
-- [ ] Brand colours applied consistently — no default Tailwind blues leaking through
-- [ ] Font family matches client brand throughout
-- [ ] Spacing feels premium: not cramped, consistent section rhythm
-- [ ] Service icons are consistent in style and size
-- [ ] Framer Motion animations play correctly and do not cause CLS
+- [x] Brand colours applied consistently — no default Tailwind blues leaking through
+- [x] Font family matches client brand throughout
+- [x] Spacing feels premium: not cramped, consistent section rhythm
+- [x] Service icons are consistent in style and size
+- [x] Framer Motion animations play correctly and do not cause CLS
 
 #### Cross-Browser
 - [ ] Chrome (latest)
@@ -277,6 +277,7 @@ Build one sample post to validate the template:
 | 4 | Blog post SSG | All 6 mock post slugs pre-generated via `generateStaticParams` | The plan said "one sample post" but generating all 6 costs nothing at build time and gives the client a more realistic demo of the blog. |
 | 5 | Footer newsletter signup | Added newsletter signup row above bottom bar | Deferred from Phase 1A per plan; implemented here alongside the newsletter UI component. |
 | 6 | Build output | 36 static pages generated, `pnpm typecheck` and `pnpm lint` pass with zero errors | — |
+| 7 | QA 1B colour fix | Replaced `text-gray-400` (blog/home date metadata) and `bg-gray-50/text-gray-5/600` (book page placeholder note) with brand token equivalents (`text-muted-foreground`, `bg-secondary-*`) | Caught during QA design-fidelity review — no default Tailwind grays should leak outside of explicit placeholder/dev-note contexts. |
 
 ---
 
