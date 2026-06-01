@@ -60,11 +60,11 @@ export default function BookPage() {
                 <p className="text-muted-foreground mt-1 text-xs">
                   Select a date and time that suits you to speak with a member of our team.
                 </p>
-                <div className="mt-6 rounded-lg bg-gray-50 p-4 text-left text-xs text-gray-500">
-                  <p className="font-medium text-gray-600">Integration note:</p>
+                <div className="bg-secondary-50 mt-6 rounded-lg p-4 text-left text-xs text-secondary-500">
+                  <p className="text-secondary-600 font-medium">Integration note:</p>
                   <p className="mt-1">
                     Embed Cal.com booking widget using the{" "}
-                    <code className="rounded bg-gray-100 px-1">@calcom/embed-react</code> package,
+                    <code className="bg-secondary-100 rounded px-1">@calcom/embed-react</code> package,
                     configured with your Cal.com team link.
                   </p>
                 </div>

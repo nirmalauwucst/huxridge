@@ -285,7 +285,7 @@ export default function HomePage() {
                   </Link>
                 </CardTitle>
                 <CardDescription className="mt-2 flex-1">{post.excerpt}</CardDescription>
-                <CardFooter className="mt-4 text-xs text-gray-400">
+                <CardFooter className="mt-4 text-xs text-muted-foreground">
                   <span>{post.date}</span>
                   <span className="mx-2">·</span>
                   <span>{post.readingTime}</span>

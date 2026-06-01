@@ -79,7 +79,7 @@ export default function BlogPage() {
                   </Link>
                 </CardTitle>
                 <CardDescription className="mt-2 flex-1 text-base">{post.excerpt}</CardDescription>
-                <CardFooter className="mt-5 gap-4 text-xs text-gray-400">
+                <CardFooter className="mt-5 gap-4 text-xs text-muted-foreground">
                   <span className="flex items-center gap-1">
                     <CalendarDays className="h-3.5 w-3.5" aria-hidden="true" />
                     {post.date}

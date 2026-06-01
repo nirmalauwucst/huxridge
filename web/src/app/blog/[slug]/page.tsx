@@ -130,7 +130,7 @@ export default async function BlogPostPage({ params }: Props) {
                   </Link>
                 </CardTitle>
                 <CardDescription className="mt-2 flex-1">{rp.excerpt}</CardDescription>
-                <CardFooter className="mt-4 text-xs text-gray-400">
+                <CardFooter className="mt-4 text-xs text-muted-foreground">
                   <span>{rp.date}</span>
                   <span className="mx-2">·</span>
                   <span>{rp.readingTime}</span>
