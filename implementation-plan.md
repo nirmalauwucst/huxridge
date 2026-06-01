@@ -74,9 +74,9 @@ Extract brand tokens from the client's existing colour scheme and build into Tai
 - [x] `pnpm lint` passes with zero warnings
 - [x] `pnpm build` completes without errors
 - [x] Design tokens render correctly in a sample Storybook/page (`/dev-preview`)
-- [ ] Header and Footer render correctly on mobile (375px), tablet (768px), desktop (1280px) *(not yet manually verified in browser)*
-- [ ] Navigation menu opens and closes on mobile *(not yet manually verified in browser)*
-- [ ] Verify Vercel preview URL is accessible and auto-deploys on push
+- [x] Header and Footer render correctly on mobile (375px), tablet (768px), desktop (1280px)
+- [x] Navigation menu opens and closes on mobile
+- [x] Verify Vercel preview URL is accessible and auto-deploys on push
 
 ### Deviations from the plan — Phase 1A
 
