@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model ContactSubmission {
+  id            String   @id @default(cuid())
+  name          String
+  email         String
+  phone         String?
+  serviceSlug   String?
+  message       String
+  sourcePage    String?
+  referrer      String?
+  utmSource     String?
+  utmMedium     String?
+  utmCampaign   String?
+  syncedToCrm   Boolean  @default(false)
+  hubspotId     String?
+  createdAt     DateTime @default(now())
+
+  @@map("contact_submissions")
+}
+
+model NewsletterSubscriber {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String?
+  status       String   @default("pending") // pending | confirmed | unsubscribed
+  source       String?
+  confirmedAt  DateTime?
+  createdAt    DateTime @default(now())
+
+  @@map("newsletter_subscribers")
+}
+
+model BookingEvent {
+  id          String   @id @default(cuid())
+  calEventId  String   @unique
+  name        String
+  email       String
+  service     String?
+  startTime   DateTime?
+  endTime     DateTime?
+  status      String   @default("confirmed") // confirmed | cancelled | rescheduled
+  metadata    Json?
+  createdAt   DateTime @default(now())
+
+  @@map("booking_events")
+}
