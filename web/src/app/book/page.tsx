@@ -2,8 +2,9 @@ import Link from "next/link";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
+import { CalBookingWidget } from "@/components/cal-booking-widget";
 import { site } from "@/lib/site";
-import { CalendarDays, CheckCircle2, Clock, Mail, Phone } from "lucide-react";
+import { CheckCircle2, Clock, Mail, Phone } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -49,26 +50,9 @@ export default function BookPage() {
       <Section background="muted">
         <Container>
           <div className="grid gap-12 lg:grid-cols-5">
-            {/* Cal.com placeholder */}
+            {/* Cal.com widget */}
             <div className="lg:col-span-3">
-              <div className="bg-background rounded-2xl border-2 border-dashed border-gray-300 p-10 text-center shadow-sm">
-                <CalendarDays className="text-primary-300 mx-auto mb-4 h-14 w-14" aria-hidden="true" />
-                <p className="text-primary-900 text-xl font-semibold">Booking Calendar</p>
-                <p className="text-muted-foreground mt-2 text-sm">
-                  Booking calendar loads here — powered by Cal.com
-                </p>
-                <p className="text-muted-foreground mt-1 text-xs">
-                  Select a date and time that suits you to speak with a member of our team.
-                </p>
-                <div className="bg-secondary-50 mt-6 rounded-lg p-4 text-left text-xs text-secondary-500">
-                  <p className="text-secondary-600 font-medium">Integration note:</p>
-                  <p className="mt-1">
-                    Embed Cal.com booking widget using the{" "}
-                    <code className="bg-secondary-100 rounded px-1">@calcom/embed-react</code> package,
-                    configured with your Cal.com team link.
-                  </p>
-                </div>
-              </div>
+              <CalBookingWidget />
             </div>
 
             {/* Supporting copy */}
@@ -114,17 +98,11 @@ export default function BookPage() {
                   If you would rather speak directly, contact us through any of the details below.
                 </p>
                 <div className="mt-4 space-y-2">
-                  <a
-                    href={`tel:${site.contact.phone}`}
-                    className="flex items-center gap-2 text-sm text-primary-700 hover:underline"
-                  >
+                  <a href={`tel:${site.contact.phone}`} className="flex items-center gap-2 text-sm text-primary-700 hover:underline">
                     <Phone className="h-4 w-4" aria-hidden="true" />
                     {site.contact.phone}
                   </a>
-                  <a
-                    href={`mailto:${site.contact.email}`}
-                    className="flex items-center gap-2 text-sm text-primary-700 hover:underline"
-                  >
+                  <a href={`mailto:${site.contact.email}`} className="flex items-center gap-2 text-sm text-primary-700 hover:underline">
                     <Mail className="h-4 w-4" aria-hidden="true" />
                     {site.contact.email}
                   </a>

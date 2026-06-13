@@ -364,61 +364,61 @@ Create the following Sanity document schemas:
 ### Tasks
 
 #### Contact Form (Server Action)
-- [ ] Wire up contact form (`/contact`) to a Server Action
-- [ ] Zod schema validation on server side (name, email, phone, message, service interest)
-- [ ] Cloudflare Turnstile integration for bot protection (server-side token verification)
-- [ ] Rate limiting via Upstash Redis: max 10 submissions per IP per hour on all form endpoints
-- [ ] On success: write record to Supabase `contact_submissions` table (with UTM params if present)
-- [ ] On success: send notification email to firm via Resend (branded email template)
-- [ ] On success: send confirmation email to the enquirer via Resend
-- [ ] On success: sync lead to HubSpot CRM via REST API (Server Action)
-- [ ] Form: success and error states with user-friendly messages
-- [ ] Form: loading/submitting state with spinner on button
+- [x] Wire up contact form (`/contact`) to a Server Action
+- [x] Zod schema validation on server side (name, email, phone, message, service interest)
+- [x] Cloudflare Turnstile integration for bot protection (server-side token verification)
+- [x] Rate limiting via Upstash Redis: max 10 submissions per IP per hour on all form endpoints
+- [x] On success: write record to Supabase `contact_submissions` table (with UTM params if present)
+- [x] On success: send notification email to firm via Resend (branded email template)
+- [x] On success: send confirmation email to the enquirer via Resend
+- [x] On success: sync lead to HubSpot CRM via REST API (Server Action)
+- [x] Form: success and error states with user-friendly messages
+- [x] Form: loading/submitting state with spinner on button
 
 #### Supabase Setup
-- [ ] Create Supabase project
-- [ ] Set up Prisma schema with Phase 1 tables: `contact_submissions`, `newsletter_subscribers`, `booking_events`
-- [ ] Run initial migration (`prisma migrate deploy`)
-- [ ] Configure Prisma client in Next.js with connection pooling via Supabase pgBouncer URL
+- [ ] Create Supabase project *(requires external account — developer action)*
+- [x] Set up Prisma schema with Phase 1 tables: `contact_submissions`, `newsletter_subscribers`, `booking_events`
+- [ ] Run initial migration (`prisma migrate deploy`) *(requires `DATABASE_URL` to be set)*
+- [x] Configure Prisma client in Next.js with connection pooling via `@prisma/adapter-pg`
 
 #### Newsletter Signup
-- [ ] Build newsletter signup component (used in footer and inline on pages)
-- [ ] Server Action: validate email, check for duplicate, insert into `newsletter_subscribers`, send welcome email via Resend
-- [ ] Double opt-in: send confirmation email with a verification link
-- [ ] Verification route (`/api/newsletter/confirm`) updates subscriber status to `confirmed`
+- [x] Build newsletter signup component (used in footer and inline on pages)
+- [x] Server Action: validate email, check for duplicate, insert into `newsletter_subscribers`, send welcome email via Resend
+- [x] Double opt-in: send confirmation email with a verification link
+- [x] Verification route (`/api/newsletter/confirm`) updates subscriber status to `confirmed`
 
 #### Booking Integration (Cal.com)
-- [ ] Set up Cal.com account and configure "Free Initial Consultation" event type
-- [ ] Embed Cal.com inline booking widget on `/book` page (replace placeholder)
-- [ ] Configure Cal.com webhook → `booking_events` table in Supabase on booking confirmed
-- [ ] Send booking confirmation email via Resend with appointment details
-- [ ] Notify firm of new booking via email
+- [ ] Set up Cal.com account and configure "Free Initial Consultation" event type *(requires external account — developer action)*
+- [x] Embed Cal.com inline booking widget on `/book` page (replace placeholder) — shows widget when `NEXT_PUBLIC_CALCOM_LINK` is set
+- [x] Configure Cal.com webhook → `booking_events` table in Supabase on booking confirmed (`/api/webhooks/calcom`)
+- [x] Send booking confirmation email via Resend with appointment details
+- [x] Notify firm of new booking via email
 
 #### HubSpot CRM
-- [ ] Set up HubSpot free account and obtain API key
-- [ ] Create HubSpot contact from every form submission via REST API
-- [ ] Map fields: name, email, phone, service interest, source page, UTM parameters
-- [ ] Tag contacts by source (website enquiry, newsletter signup, booking)
+- [ ] Set up HubSpot free account and obtain API key *(requires external account — developer action)*
+- [x] Create HubSpot contact from every form submission via REST API
+- [x] Map fields: name, email, phone, service interest, source page, UTM parameters
+- [x] Tag contacts by source (website enquiry, newsletter signup, booking)
 
 #### Email Templates (React Email)
-- [ ] Enquiry notification to firm (name, contact, service, message)
-- [ ] Enquiry confirmation to prospect ("Thank you for your enquiry")
-- [ ] Newsletter welcome email
-- [ ] Newsletter double opt-in confirmation email
-- [ ] Booking confirmation email
+- [x] Enquiry notification to firm (name, contact, service, message)
+- [x] Enquiry confirmation to prospect ("Thank you for your enquiry")
+- [x] Newsletter welcome email
+- [x] Newsletter double opt-in confirmation email
+- [x] Booking confirmation email
 
 #### Cookie Consent (GDPR)
-- [ ] Implement cookie consent banner: necessary, analytics, marketing categories
-- [ ] Store consent in a cookie, reload preferences on return visits
-- [ ] PostHog and analytics scripts only load after analytics consent is granted
-- [ ] Marketing scripts only load after marketing consent is granted
-- [ ] "Manage preferences" link in footer opens consent modal
+- [x] Implement cookie consent banner: necessary, analytics, marketing categories
+- [x] Store consent in a cookie, reload preferences on return visits
+- [x] PostHog and analytics scripts only load after analytics consent is granted
+- [x] Marketing scripts only load after marketing consent is granted
+- [x] "Manage preferences" link in footer opens consent modal
 
 #### Analytics & Monitoring
-- [ ] Install PostHog: page view tracking, form submission events, service page engagement
-- [ ] Install Sentry: error boundary on root layout, API route error capture, session replay
-- [ ] Verify PostHog events fire on form submit, booking click, newsletter signup
-- [ ] Verify Sentry catches a test error and reports it to the dashboard
+- [x] Install PostHog: page view tracking, form submission events, service page engagement (`src/components/providers.tsx`)
+- [x] Install Sentry: error boundary on root layout, API route error capture, session replay (`sentry.*.config.ts`, `withSentryConfig` in `next.config.ts`)
+- [ ] Verify PostHog events fire on form submit, booking click, newsletter signup *(requires live env vars)*
+- [ ] Verify Sentry catches a test error and reports it to the dashboard *(requires live env vars)*
 
 ### QA — Phase 1D
 
@@ -456,6 +456,17 @@ Create the following Sanity document schemas:
 - [ ] All email templates render correctly in email clients: Gmail, Apple Mail, Outlook
 - [ ] Emails are not flagged as spam (check SPF/DKIM records for Resend domain)
 - [ ] Plain-text fallback included in all emails
+
+### Deviations from the plan — Phase 1D
+
+| # | Item | What we did | Why |
+|---|---|---|---|
+| 1 | Prisma version | Used **Prisma v7** (latest) with `@prisma/adapter-pg` driver adapter | Prisma v7 requires either a driver adapter or Accelerate URL — `new PrismaClient()` without arguments is no longer valid. Used the official pg adapter for standard PostgreSQL/Supabase connections. |
+| 2 | Sanity revalidation webhook | Implemented in Phase 1D as `/api/webhooks/revalidate` | The webhook route is needed by Phase 1C; building it here is zero extra effort and avoids backtracking. |
+| 3 | Cal.com widget env var | Added `NEXT_PUBLIC_CALCOM_LINK` env var — widget shows a styled placeholder when not set | Allows the site to build and run without a Cal.com account; the placeholder guides the developer on what to configure. |
+| 4 | Account-dependent items | Three items left un-checked: Supabase project creation, Cal.com account setup, HubSpot account setup | These are external account actions that require browser-based sign-up by the developer; all code integration is complete and activated when `DATABASE_URL` / `NEXT_PUBLIC_CALCOM_LINK` / `HUBSPOT_API_KEY` are populated. |
+| 5 | DB migration | `prisma migrate deploy` left to developer | Requires `DATABASE_URL` pointing to a live Supabase instance; schema is fully defined in `prisma/schema.prisma`. Run `pnpm prisma migrate dev` locally first, then `pnpm prisma migrate deploy` against production. |
+| 6 | `pnpm typecheck` + `pnpm lint` + `pnpm build` | All pass with zero errors | — |
 
 ---
 

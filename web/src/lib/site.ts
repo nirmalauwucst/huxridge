@@ -13,6 +13,7 @@ export const site = {
   social: {
     linkedin: "https://www.linkedin.com/company/huxridge",
   },
+  emailDomain: "huxridge.co.uk",
 } as const;
 
 export const services = [
