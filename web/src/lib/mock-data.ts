@@ -581,22 +581,24 @@ export const mockServices = [
 
 export const mockIndustries = [
   {
-    slug: "healthcare",
-    title: "Accountants for Healthcare Professionals",
-    tagline: "Specialist financial support for dentists, vets, and care providers.",
+    slug: "dentists",
+    title: "Dentists",
+    tagline: "Practice owners, associates & squat practices, NHS & private.",
     description:
-      "Healthcare professionals face a unique set of financial and tax challenges — from mixed NHS and private income to CQC registration and costly equipment purchases. We provide specialist accountancy tailored to dentists, veterinary practices, care homes, and other registered healthcare providers.",
+      "Dental finances are unlike any other profession. Whether you are a principal running an NHS contract, an associate building a private patient list, or setting up a squat practice from scratch, the tax and compliance landscape is genuinely complex. We work exclusively with dental professionals and understand every aspect of your financial picture — from UDA targets and associate self-employment to CQC registration and NHS pension annual allowance charges.",
     challenges: [
-      "Managing complex income streams including NHS contracts, private fees, and associate payments",
-      "Capital allowances and financing for expensive clinical equipment",
-      "CQC compliance and the financial reporting requirements that come with registration",
-      "Superannuation contributions and the NHS Pension Scheme reporting obligations",
+      "Splitting and correctly reporting NHS contract income alongside private fees and associate payments",
+      "Managing NHS pension annual allowance charges, which can create unexpected tax bills for high-earning principals",
+      "Navigating the financial and contractual implications of setting up a squat practice",
+      "Deciding on the most tax-efficient structure — sole principal, partnership, or limited company — given NHS contract restrictions",
+      "Capital allowances on expensive dental equipment, digital scanning systems, and practice fit-outs",
     ],
     howWeHelp: [
-      "Preparing accurate accounts that correctly split NHS and private income for tax purposes",
-      "Maximising capital allowances on equipment, fit-outs, and digital systems",
-      "Advising on the most tax-efficient operating structure — sole practitioner, partnership, or limited company",
-      "Handling NHS pension annual allowance calculations and managing the annual charge where it applies",
+      "Preparing practice accounts that correctly separate NHS and private income streams for HMRC",
+      "Calculating NHS pension annual allowance usage and planning around or funding any annual allowance charge",
+      "Advising squat practice founders on financing, CQC registration timelines, and the optimal legal structure from day one",
+      "Maximising capital allowances on equipment purchases, fit-outs, and surgery refurbishments",
+      "Preparing Self Assessment returns for associate dentists, ensuring lab fees, CPD, indemnity, and subscriptions are fully claimed",
     ],
     relatedServiceSlugs: [
       "bookkeeping",
@@ -608,42 +610,147 @@ export const mockIndustries = [
       {
         question: "Is dental treatment subject to VAT?",
         answer:
-          "Most dental treatment is exempt from VAT. However, some cosmetic procedures and associated goods may be standard-rated. We will review your income streams and advise on your VAT position.",
+          "Most dental treatment is exempt from VAT as a medical service. However, certain cosmetic procedures and associated goods may be standard-rated. We review your income streams in detail and confirm your VAT position so you are neither over-charging patients nor exposing the practice to a liability.",
       },
       {
-        question: "Should a dental practice operate as a limited company?",
+        question: "Should my dental practice operate as a limited company?",
         answer:
-          "This depends on the NHS contract position and profit level. Limited company structures can offer significant tax savings but there are NHS contract implications to consider. We model both structures before making a recommendation.",
+          "This is the most important structural question for practice owners. Limited company status can deliver significant tax savings once profits reach a certain level, but there are NHS contract implications — notably that the contract holder must remain a registered dental professional. We model both structures side by side before making a recommendation tailored to your practice.",
       },
       {
         question: "How do you handle associate dentist accounts?",
         answer:
-          "Associate dentists are typically self-employed and require a Self Assessment return. We prepare these returns efficiently, ensuring all lab fees, CPD costs, and professional subscriptions are claimed.",
+          "Associate dentists are typically self-employed and require an annual Self Assessment return. We prepare these efficiently and ensure all allowable expenses are claimed — lab fees, CPD costs, indemnity insurance, professional subscriptions, and equipment purchased for clinical use.",
       },
       {
-        question: "Can you help with CQC financial reporting?",
+        question: "What is the NHS pension annual allowance charge and how do I manage it?",
         answer:
-          "Yes. We are familiar with the financial information requirements of CQC registration and ongoing compliance and can prepare and submit the necessary documentation.",
+          "The NHS Pension Scheme is a defined benefit scheme, and growth in pensionable pay can trigger an annual allowance charge even if you have not made additional contributions. For higher-earning dentists this can mean an unexpected tax bill of tens of thousands of pounds. We calculate your pension input amount each year and help you plan or fund any charge that arises.",
+      },
+      {
+        question: "Can you help with the financial side of setting up a squat practice?",
+        answer:
+          "Yes. We advise squat practice founders on everything from the business plan and financing approach through to the correct legal and tax structure, CQC registration requirements, and initial bookkeeping setup. Getting the foundations right at the start saves significant cost and complexity later.",
+      },
+    ],
+  },
+  {
+    slug: "care-homes",
+    title: "Care Homes",
+    tagline: "Residential and domiciliary care operators of all sizes.",
+    description:
+      "Running a care home or domiciliary care agency means operating in one of the most regulated and financially pressured sectors in the UK. Fee rates set by local authorities, rising staffing costs, CQC compliance obligations, and the capital intensity of property ownership all create a complex financial environment. We provide specialist accountancy and tax advice to residential care homes, nursing homes, and domiciliary care providers across the UK.",
+    challenges: [
+      "Managing thin operating margins under local authority fee-rate pressure while maintaining CQC compliance standards",
+      "High staffing costs and the complexity of payroll for large, shift-based care workforces",
+      "Capital allowances and financing for property acquisitions, refurbishments, and new build developments",
+      "VAT complexity arising from the exempt status of care services alongside any standard-rated ancillary income",
+      "CQC registration, ongoing compliance reporting, and the financial due diligence required for ownership changes",
+    ],
+    howWeHelp: [
+      "Preparing accurate annual accounts and management accounts that give a clear picture of occupancy, fee income, and staffing costs",
+      "Handling payroll for care home staff including pension auto-enrolment, holiday pay calculations, and HMRC reporting",
+      "Advising on the most tax-efficient ownership structure — whether the property and trading business should be held separately",
+      "Maximising capital allowances on fixtures, fittings, equipment, and qualifying refurbishment expenditure",
+      "Supporting the financial due diligence and reporting requirements associated with CQC registration and ownership transfers",
+    ],
+    relatedServiceSlugs: [
+      "bookkeeping",
+      "annual-accounts",
+      "corporation-tax",
+      "vat-services",
+    ],
+    faqs: [
+      {
+        question: "Are care home fees subject to VAT?",
+        answer:
+          "The provision of residential or domiciliary care is exempt from VAT as a welfare service. This means you do not charge VAT on fees, but it also means you cannot reclaim VAT on most of your costs. We review your services in detail to confirm the correct VAT treatment and advise on any partially standard-rated activities.",
+      },
+      {
+        question: "Should I hold the care home property separately from the trading business?",
+        answer:
+          "Holding property in a separate entity from the trading operation is a common and often tax-efficient structure. It can protect the property asset from trading liabilities and create flexibility for future sale or succession planning. We assess the pros and cons for your specific situation including Stamp Duty Land Tax, Capital Gains Tax, and the impact on any mortgage arrangements.",
+      },
+      {
+        question: "How do you handle payroll for a large care workforce?",
+        answer:
+          "We manage payroll for care home operators with teams ranging from a handful of staff to several hundred. This includes calculating pay for different shift patterns, managing pension auto-enrolment, holiday pay accruals for part-time workers, and ensuring accurate and timely RTI submissions to HMRC.",
+      },
+      {
+        question: "What financial information does CQC require?",
+        answer:
+          "CQC requires registered providers to demonstrate ongoing financial viability. We prepare the financial statements and supporting information required for initial registration and assist with the annual Provider Information Return and any ad hoc requests during inspections or ownership change applications.",
+      },
+    ],
+  },
+  {
+    slug: "nurses-clinicians",
+    title: "Nurses & Clinicians",
+    tagline: "Employed, locum, and agency healthcare professionals.",
+    description:
+      "Healthcare professionals who work across employed, locum, and agency roles face a tax position that is more complicated than most. Multiple income sources, uncertainty over employment status, NHS pension contributions, and expenses rules that differ between employed and self-employed work all require careful management. We help nurses, doctors, allied health professionals, and clinical staff at every career stage get their tax right and keep more of what they earn.",
+    challenges: [
+      "Managing tax and National Insurance across multiple income sources — NHS employment, bank shifts, locum work, and private practice",
+      "Correctly determining employment status for agency and locum engagements and understanding the IR35 implications",
+      "NHS pension annual allowance charges for clinicians with rapidly growing pensionable pay",
+      "Claiming the right expenses for professional registration, indemnity, CPD, uniforms, and equipment",
+      "Completing Self Assessment returns that bring together all income sources and ensure the correct tax is paid",
+    ],
+    howWeHelp: [
+      "Preparing Self Assessment returns that correctly capture all employment income, locum earnings, bank shifts, and any private practice income",
+      "Advising on employment status for locum and agency engagements and the tax consequences of inside versus outside IR35 arrangements",
+      "Calculating NHS pension annual allowance usage and planning around any annual allowance charge before it becomes a bill",
+      "Identifying and claiming all allowable expenses — NMC or GMC fees, indemnity insurance, CPD costs, specialist equipment, and professional subscriptions",
+      "Setting up simple bookkeeping systems for clinicians who take on private practice or consultancy work alongside their NHS role",
+    ],
+    relatedServiceSlugs: [
+      "personal-tax",
+      "bookkeeping",
+      "corporation-tax",
+      "vat-services",
+    ],
+    faqs: [
+      {
+        question: "Do I need to complete a Self Assessment return as a nurse or clinician?",
+        answer:
+          "You will need to file a Self Assessment return if you have income from locum, bank, agency, or private work in addition to your main NHS employment, if your income exceeds £100,000 in any year, or if you have been issued with a P800 showing underpaid tax. We prepare and file your return accurately and on time.",
+      },
+      {
+        question: "Am I employed or self-employed when working through an agency?",
+        answer:
+          "This depends on how your engagement is structured. Many agency workers in healthcare are treated as employed for tax purposes, meaning tax and NI are deducted at source. Locum arrangements may be genuinely self-employed. We review your contracts and working arrangements and advise on the correct position.",
+      },
+      {
+        question: "Can I claim expenses for my NMC or GMC registration fees?",
+        answer:
+          "Yes. Professional registration fees, indemnity insurance, and costs that are wholly and exclusively incurred for your professional practice are deductible. The rules differ slightly depending on whether you are employed or self-employed, and we ensure you claim through the correct route in each case.",
+      },
+      {
+        question: "How do I deal with an NHS pension annual allowance charge?",
+        answer:
+          "If your NHS pension input exceeds the annual allowance in a given tax year, you will face a tax charge on the excess. You can pay this yourself or ask the NHS Pension Scheme to pay it on your behalf in exchange for a reduced pension — a mechanism called Scheme Pays. We calculate your position, compare the options, and help you elect correctly.",
       },
     ],
   },
   {
     slug: "landlords",
-    title: "Accountants for Landlords & Property Investors",
-    tagline: "Maximise your rental income, minimise your tax liability.",
+    title: "Landlords",
+    tagline: "Buy-to-let, HMO, and property portfolio holders.",
     description:
-      "Property tax rules have become increasingly complex following the phasing out of mortgage interest relief, the introduction of Section 24, and rising Stamp Duty Land Tax rates for additional properties. We help residential and commercial landlords navigate these changes and build tax-efficient property portfolios.",
+      "Property tax rules have become increasingly complex following the phasing out of mortgage interest relief, the introduction of Section 24, and rising Stamp Duty Land Tax rates for additional properties. Whether you own a single buy-to-let flat, a portfolio of HMOs, or are building a larger property investment business, we help you navigate the tax landscape and make informed decisions about structure, timing, and strategy.",
     challenges: [
-      "The impact of Section 24 mortgage interest restriction on higher-rate taxpayers",
-      "Stamp Duty Land Tax surcharges on additional residential properties",
-      "Capital Gains Tax on property disposals, including principal private residence relief",
-      "Deciding whether to hold property personally or within a limited company",
+      "The impact of Section 24 mortgage interest restriction on higher and additional rate taxpayers",
+      "Stamp Duty Land Tax surcharges on additional residential properties and HMO acquisitions",
+      "Capital Gains Tax on property disposals, including principal private residence relief and letting relief",
+      "Deciding whether to hold property personally or within a limited company given your tax rate, mortgage position, and long-term plans",
+      "Managing the additional compliance requirements of HMO licensing, selective licensing, and larger portfolio administration",
     ],
     howWeHelp: [
-      "Preparing accurate rental accounts with all allowable expenses correctly claimed",
-      "Advising on the financial impact of incorporating your property portfolio into a limited company",
-      "Calculating and advising on Capital Gains Tax exposure before you sell",
-      "Structuring portfolios to make the most of spousal transfers and other available reliefs",
+      "Preparing accurate rental accounts with all allowable expenses correctly claimed and Section 24 correctly applied",
+      "Modelling the financial impact of incorporating your property portfolio into a limited company against the costs of transfer",
+      "Calculating and advising on Capital Gains Tax exposure before you sell, including available reliefs and optimal timing",
+      "Structuring portfolios to make the most of spousal transfers, family trusts, and other available planning opportunities",
+      "Advising HMO landlords on the additional tax and compliance considerations specific to multi-let properties",
     ],
     relatedServiceSlugs: [
       "personal-tax",
@@ -655,42 +762,49 @@ export const mockIndustries = [
       {
         question: "Should I own my buy-to-let properties personally or through a limited company?",
         answer:
-          "This is the most common question we receive from landlords. The answer depends on your tax rate, number of properties, mortgage position, and long-term intentions. We prepare a detailed financial model for each client before making a recommendation.",
+          "This is the most common question we receive from landlords. The answer depends on your income tax rate, the number of properties you hold, your mortgage position, and your long-term intentions. We prepare a detailed financial model for each client that shows the after-tax position under both structures before making a recommendation.",
       },
       {
         question: "What expenses can I offset against my rental income?",
         answer:
-          "Allowable expenses include mortgage interest (subject to Section 24 restrictions), letting agent fees, repairs and maintenance, insurance, accountancy fees, and certain legal costs. You cannot claim capital expenditure such as improvements.",
+          "Allowable expenses include mortgage interest (subject to Section 24 restrictions for personal ownership), letting agent fees, repairs and maintenance, insurance, accountancy fees, and certain legal costs. You cannot claim capital expenditure such as extensions or improvements, though these may reduce your Capital Gains Tax liability when you sell.",
       },
       {
-        question: "How much Capital Gains Tax will I pay when I sell?",
+        question: "How much Capital Gains Tax will I pay when I sell a rental property?",
         answer:
-          "Residential property gains are taxed at 18% (basic rate) or 24% (higher rate) after deducting your annual CGT exemption. We calculate the exact liability and advise on timing to minimise the charge.",
+          "Residential property gains are taxed at 18% (basic rate) or 24% (higher rate) after deducting your annual CGT exemption. We calculate the exact liability in advance, identify all available reliefs, and advise on timing to minimise the charge.",
       },
       {
         question: "Do I need to file a Capital Gains Tax return quickly after selling?",
         answer:
-          "Yes. UK residents must report and pay CGT on UK residential property within 60 days of completion. We prepare these returns promptly to ensure you meet the deadline.",
+          "Yes. UK residents must report and pay CGT on UK residential property within 60 days of completion. We prepare these returns promptly to ensure you meet the deadline and avoid late filing penalties.",
+      },
+      {
+        question: "Are there additional tax considerations for HMO landlords?",
+        answer:
+          "HMOs can generate higher yields but also attract additional scrutiny. The correct treatment of furnishings, shared facilities, and utility costs, as well as the interaction with local authority licensing requirements, all need careful handling. We advise HMO landlords on both the tax and compliance side of their portfolios.",
       },
     ],
   },
   {
     slug: "contractors",
-    title: "Accountants for Contractors & Freelancers",
-    tagline: "Expert support for the self-employed and limited company contractor.",
+    title: "Contractors",
+    tagline: "Limited company & umbrella contractors.",
     description:
-      "Contracting and freelancing offer freedom and higher earning potential, but they also come with complex tax and compliance obligations. From IR35 assessments and limited company management to expenses optimisation and dividend planning, we are the accountants of choice for UK contractors.",
+      "Contracting offers freedom and significantly higher earning potential compared to permanent employment, but it comes with real tax and compliance complexity. IR35 rules, off-payroll working legislation, limited company administration, dividend planning, and VAT all require active management. Whether you operate through your own limited company or work under an umbrella arrangement, we provide the specialist support you need to stay compliant and keep more of your earnings.",
     challenges: [
-      "Understanding and managing IR35 status — inside or outside the rules",
-      "Optimising the salary and dividend mix to minimise income tax and National Insurance",
-      "Claiming all legitimate business expenses to reduce taxable profit",
-      "Keeping on top of VAT, Self Assessment, and corporation tax deadlines across multiple engagements",
+      "Understanding and managing IR35 status — determining whether engagements fall inside or outside the off-payroll working rules",
+      "Optimising the salary and dividend mix each year to minimise income tax and National Insurance contributions",
+      "Deciding whether a personal service company or umbrella arrangement is the right vehicle for your contracting career",
+      "Claiming all legitimate business expenses to reduce taxable profit within HMRC guidelines",
+      "Keeping on top of VAT, Self Assessment, corporation tax, and Companies House deadlines across multiple concurrent engagements",
     ],
     howWeHelp: [
-      "Providing IR35 contract reviews and written status opinions to support your outside-IR35 position",
-      "Calculating the optimal salary and dividend split each tax year based on your personal allowances and higher-rate thresholds",
-      "Preparing monthly or quarterly management accounts to track profitability and cash flow",
-      "Handling all compliance filings — VAT, Self Assessment, corporation tax, and confirmation statements",
+      "Reviewing contracts and working arrangements and providing written IR35 status opinions to support your outside-IR35 position",
+      "Calculating the optimal salary and dividend split each tax year based on your personal allowances, higher-rate thresholds, and pension contributions",
+      "Advising on the financial difference between limited company and umbrella contracting for your specific rate and circumstances",
+      "Preparing quarterly VAT returns, annual corporation tax computations, and Self Assessment returns accurately and on time",
+      "Handling all Companies House filings including confirmation statements and annual accounts",
     ],
     relatedServiceSlugs: [
       "corporation-tax",
@@ -702,69 +816,27 @@ export const mockIndustries = [
       {
         question: "Am I inside or outside IR35?",
         answer:
-          "IR35 status depends on your working practices — control, substitution, and mutuality of obligation are the key tests. We review your contracts and working arrangements and provide a written opinion to support your position.",
+          "IR35 status depends on your actual working practices — the key tests are control (who decides how the work is done), substitution (whether you can send someone else), and mutuality of obligation (whether the client must offer work and you must accept it). We review your contracts and day-to-day working arrangements and provide a written status opinion that you can use to support your position.",
       },
       {
-        question: "How much should I pay myself as a salary?",
+        question: "How much should I pay myself as a salary from my limited company?",
         answer:
-          "Most contractors take a salary at the Secondary National Insurance threshold (£9,100 in 2025/26) to maintain their NI record while avoiding employer and employee NI contributions. Above this, dividends are more efficient.",
+          "Most contractors take a salary at or around the Secondary National Insurance threshold (£9,100 in 2025/26) to preserve their NI record while avoiding employer and employee NI contributions. Above this level, dividends are generally more tax-efficient. We calculate the optimal split for your personal circumstances each tax year.",
       },
       {
-        question: "Can I claim my home office as an expense?",
+        question: "Should I use a limited company or an umbrella company?",
         answer:
-          "Yes. You can claim a use-of-home allowance or actual costs proportionate to business use. We will assess which method produces the higher deduction for your circumstances.",
+          "A limited company typically retains more of your earnings at higher day rates and gives you greater control, but it requires active administration. An umbrella arrangement is simpler — you are an employee of the umbrella — but you will pay more in tax and NI. We model both options for your specific rate and work pattern before you decide.",
       },
       {
-        question: "Do I need to register for VAT?",
+        question: "Can I claim my home office costs as an expense?",
         answer:
-          "You must register once your annual taxable turnover exceeds £90,000. Many contractors register voluntarily earlier and use the Flat Rate Scheme to generate a small profit on VAT.",
-      },
-    ],
-  },
-  {
-    slug: "startups",
-    title: "Accountants for Start-Ups & New Businesses",
-    tagline: "Financial foundations that scale with your ambition.",
-    description:
-      "Starting a business is exciting. Getting the financial and tax structure right from the outset — and then maintaining accurate records and compliant filings as you grow — gives you the best possible foundation for success. We work with founders at every stage, from idea to investment-ready.",
-    challenges: [
-      "Choosing the right legal structure (sole trader, partnership, or limited company)",
-      "Understanding and managing your tax obligations from day one",
-      "Building financial processes that scale without creating administrative overhead",
-      "Presenting credible financial information to investors or lenders",
-    ],
-    howWeHelp: [
-      "Advising on the most appropriate legal and tax structure for your business model and goals",
-      "Incorporating your company and handling all initial HMRC registrations",
-      "Setting up cloud accounting software and automating your bookkeeping workflows",
-      "Preparing investor-ready financial models, pitch deck financials, and R&D tax credit claims",
-    ],
-    relatedServiceSlugs: [
-      "company-formation",
-      "bookkeeping",
-      "management-accounts",
-      "corporation-tax",
-    ],
-    faqs: [
-      {
-        question: "When should I set up a limited company?",
-        answer:
-          "A limited company generally becomes more tax-efficient when your profits exceed approximately £30,000–£40,000 per year. It also offers limited liability protection and can be more attractive to clients and investors.",
+          "Yes. You can claim either a use-of-home allowance based on HMRC's published rates or a proportion of your actual home costs based on business use. We assess which approach produces the higher deduction in your circumstances and ensure the claim is documented correctly.",
       },
       {
-        question: "Do I need an accountant from day one?",
+        question: "Do I need to register for VAT as a contractor?",
         answer:
-          "Starting with a good accountant from the outset means you avoid common early mistakes — wrong structure, missed registrations, unclaimed reliefs — that can be costly to correct later.",
-      },
-      {
-        question: "Can I claim R&D tax credits?",
-        answer:
-          "If your start-up is developing new or improved products, processes, or software, you may be eligible for significant R&D tax relief. We assess eligibility and prepare claims on your behalf.",
-      },
-      {
-        question: "What cloud accounting software do you recommend for start-ups?",
-        answer:
-          "We recommend Xero for most start-ups due to its ease of use, strong integrations, and excellent bank feeds. FreeAgent is a strong option for very small teams or freelancers.",
+          "You must register for VAT once your annual taxable turnover exceeds £90,000. Many contractors register voluntarily below this threshold and use the Flat Rate Scheme, which can generate a small additional profit on VAT depending on your sector. We advise on the right approach for your contracting business.",
       },
     ],
   },
