@@ -125,7 +125,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* ── Services Overview ── */}
+      {/* ── Industries Overview ── */}
       <Section background="muted">
         <Container>
           <SectionHeading
@@ -191,28 +191,28 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* ── Industries ── */}
+      {/* ── Services Overview ── */}
       <Section background="muted">
         <Container>
           <SectionHeading
-            eyebrow="Industries We Serve"
-            title="Specialist Knowledge for Your Sector"
-            subtitle="Generic accountancy misses the details that matter. Our sector specialists understand the specific tax rules and challenges in your industry."
+            eyebrow="What We Do"
+            title="A Full Range of Accountancy &amp; Tax Services"
+            subtitle="From day-to-day bookkeeping to complex tax planning, our team has the expertise to support your business at every stage."
             align="center"
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {mockIndustries.map((industry) => (
-                <Card key={industry.slug} variant="outline" className="group transition-all hover:border-primary-300 hover:shadow-card">
+            {mockServices.map((service) => (
+                <Card key={service.slug} variant="outline" className="group transition-all hover:border-primary-300 hover:shadow-card">
                   <CardHeader>
                     <div className="bg-accent-50 mb-3 inline-flex h-12 w-12 items-center justify-center rounded-lg">
-                      <Icon name={industry.slug as IconName} size={24} className="text-accent-700" />
+                      <Icon name={service.slug as IconName} size={24} className="text-accent-700" />
                     </div>
-                    <CardTitle>{industry.title}</CardTitle>
+                    <CardTitle>{service.title}</CardTitle>
                   </CardHeader>
-                  <CardDescription>{industry.tagline}</CardDescription>
+                  <CardDescription>{service.tagline}</CardDescription>
                   <CardFooter className="mt-4">
                     <Link
-                      href={`/industries/${industry.slug}`}
+                      href={`/services/${service.slug}`}
                       className="text-primary-700 text-sm font-medium hover:underline"
                     >
                       Learn more →
@@ -297,9 +297,9 @@ export default function HomePage() {
 
       {/* ── CTA Banner ── */}
       <CTABanner
-        title="Ready to Switch to a Better Accountant?"
-        subtitle="Book a free, no-obligation consultation and see how Huxridge can save you time, reduce your tax liability, and give you the financial clarity your business deserves."
-        primary={{ label: "Book a Free Consultation", href: "/book" }}
+        title="Not sure where to start?"
+        subtitle="Book a free 30-minute discovery call, We'll tell you exactly where you can stand and what we can do to help you get there."
+        primary={{ label: "Book a Free Call", href: "/book" }}
         secondary={{ label: "Contact Us", href: "/contact" }}
       />
     </>

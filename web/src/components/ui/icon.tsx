@@ -23,6 +23,7 @@ import { cn } from "@/lib/utils";
 
 const iconMap = {
   bookkeeping: BookOpen,
+  "bookkeeping-management-accounts": BookOpen,
   "management-accounts": Calculator,
   "personal-tax": FileText,
   "annual-accounts": ClipboardCheck,
@@ -32,6 +33,7 @@ const iconMap = {
   "vat-services": Receipt,
   "company-formation": Rocket,
   "company-secretarial": Briefcase,
+  "company-formation-secretarial": Rocket,
   healthcare: HeartPulse,
   landlords: Home,
   contractors: HardHat,

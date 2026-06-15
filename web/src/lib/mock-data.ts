@@ -2,36 +2,38 @@
 
 export const mockServices = [
   {
-    slug: "bookkeeping",
-    title: "Bookkeeping",
-    tagline: "Accurate, up-to-date books — without the stress.",
+    slug: "bookkeeping-management-accounts",
+    title: "Bookkeeping & Management Accounts",
+    tagline: "Accurate books and timely insight, every month.",
     description:
-      "Our cloud-based bookkeeping service keeps your financial records accurate and current, giving you a clear picture of your business at all times. We handle everything from transaction categorisation and bank reconciliation to supplier and customer ledger management, so you can focus on running your business.",
+      "We combine cloud-based bookkeeping with regular management reporting to give you both the accuracy of well-maintained records and the strategic visibility to run your business confidently. From day-to-day transaction categorisation and bank reconciliation to monthly profit and loss reports and cash flow forecasts, everything is handled by one team who know your numbers inside out.",
     features: [
-      "Daily or weekly transaction categorisation",
-      "Bank and credit card reconciliation",
+      "Daily or weekly transaction categorisation and bank reconciliation",
       "Accounts payable and receivable management",
       "Expense tracking and receipt capture via app",
-      "Monthly financial summaries",
+      "Monthly or quarterly profit and loss reports",
+      "Balance sheet, cash flow statements, and forecasts",
+      "Budget vs actuals analysis with KPI dashboard",
+      "Commentary and actionable insights each period",
       "Integration with Xero, QuickBooks, and FreeAgent",
     ],
     targetClients:
-      "Small and medium-sized businesses, sole traders, and contractors who want professionally maintained records without the cost of an in-house bookkeeper.",
+      "Small and medium-sized businesses, sole traders, growing SMEs, and directors who want professionally maintained records combined with the regular financial reporting they need to make informed decisions throughout the year.",
     benefits: [
       {
         title: "Always Up-to-Date",
         description:
-          "Real-time visibility into your finances means you always know where you stand, with no month-end backlog surprises.",
+          "Real-time visibility into your finances means you always know where you stand, with no month-end backlog surprises and clean records ready for every deadline.",
       },
       {
-        title: "Tax-Ready Records",
+        title: "Informed Decision-Making",
         description:
-          "Clean, HMRC-compliant records mean your tax returns are completed quickly and accurately, reducing the risk of errors or enquiries.",
+          "Regular management reports give you the data to act quickly on opportunities and address issues before they become serious — not just at year-end.",
       },
       {
-        title: "Save Time",
+        title: "Save Time and Grow",
         description:
-          "Stop spending evenings on spreadsheets. We handle the numbers so you can focus on growing your business.",
+          "Stop spending evenings on spreadsheets. We handle the numbers, produce the reports, and give you the insight to focus on growing your business.",
       },
     ],
     faqs: [
@@ -41,79 +43,27 @@ export const mockServices = [
           "We work primarily with Xero, QuickBooks, and FreeAgent. If you already use a different platform, we can usually accommodate that too — just ask.",
       },
       {
-        question: "How do I send you my receipts and invoices?",
-        answer:
-          "You can photograph receipts using your phone and upload them through your accounting software's mobile app, or email them directly to us. We aim to make the process as friction-free as possible.",
-      },
-      {
         question: "How often will my books be updated?",
         answer:
-          "This depends on your chosen plan. We offer weekly or monthly bookkeeping depending on your transaction volume and business needs.",
+          "This depends on your chosen plan. We offer weekly or monthly bookkeeping depending on your transaction volume and business needs. Management reports are produced monthly or quarterly.",
+      },
+      {
+        question: "How are management accounts different from annual accounts?",
+        answer:
+          "Annual accounts are statutory documents filed at Companies House. Management accounts are prepared more frequently — monthly or quarterly — and are focused on helping you manage the business, not on compliance. Think of them as your real-time financial dashboard.",
       },
       {
         question: "Can you take over from my existing bookkeeper?",
         answer:
           "Yes. We handle the transition process, including reviewing and cleaning up historical records if necessary, so there is minimal disruption to your business.",
       },
-    ],
-    relatedSlugs: ["management-accounts", "vat-services", "annual-accounts"],
-  },
-  {
-    slug: "management-accounts",
-    title: "Management Accounts",
-    tagline: "Timely financial insight to drive smarter decisions.",
-    description:
-      "Management accounts give you a clear, regular view of your business performance — beyond the statutory annual accounts. We prepare concise monthly or quarterly reports covering profit and loss, balance sheet, cash flow, and key performance indicators tailored to your sector.",
-    features: [
-      "Monthly or quarterly profit and loss reports",
-      "Balance sheet and net asset summary",
-      "Cash flow statements and forecasts",
-      "Budget vs actuals analysis",
-      "KPI dashboard tailored to your industry",
-      "Commentary and actionable insights",
-    ],
-    targetClients:
-      "Growing SMEs, investor-backed businesses, and directors who need more than annual accounts to make informed decisions throughout the year.",
-    benefits: [
       {
-        title: "Informed Decision-Making",
-        description:
-          "Regular financial data means you can act quickly on opportunities and address issues before they become serious problems.",
-      },
-      {
-        title: "Stakeholder Confidence",
-        description:
-          "Banks, investors, and board members expect timely, professional management accounts. Our reports are presentation-ready.",
-      },
-      {
-        title: "Spot Trends Early",
-        description:
-          "Comparing month-on-month and year-on-year performance lets you identify seasonal patterns and track the impact of strategic decisions.",
+        question: "Can you help me set a budget and track performance against it?",
+        answer:
+          "Yes. We can work with you to create an annual budget and then track performance against it each period, highlighting variances and providing commentary on the key movements.",
       },
     ],
-    faqs: [
-      {
-        question: "How are management accounts different from annual accounts?",
-        answer:
-          "Annual accounts are statutory documents prepared at the end of each financial year and filed at Companies House. Management accounts are prepared more frequently — monthly or quarterly — and are focused on helping you manage the business, not on compliance.",
-      },
-      {
-        question: "What format will the reports be in?",
-        answer:
-          "We deliver reports as clean PDF documents and, where applicable, interactive dashboards within your accounting software. Reports include written commentary explaining the key movements.",
-      },
-      {
-        question: "Can you help me set a budget?",
-        answer:
-          "Yes. We can work with you to create an annual budget and then track performance against it each period, highlighting variances that need attention.",
-      },
-      {
-        question: "Do I need management accounts if I'm a small business?",
-        answer:
-          "Even small businesses benefit from regular financial reporting. It is particularly valuable if you are growing, applying for finance, or planning any significant investment.",
-      },
-    ],
-    relatedSlugs: ["bookkeeping", "annual-accounts", "corporation-tax"],
+    relatedSlugs: ["annual-accounts", "vat-services", "corporation-tax"],
   },
   {
     slug: "personal-tax",
@@ -170,7 +120,7 @@ export const mockServices = [
           "Absolutely. Complex tax affairs are our speciality. We are experienced in returns involving employment, self-employment, rental income, dividends, capital gains, and foreign income.",
       },
     ],
-    relatedSlugs: ["corporation-tax", "bookkeeping", "vat-services"],
+    relatedSlugs: ["corporation-tax", "bookkeeping-management-accounts", "vat-services"],
   },
   {
     slug: "annual-accounts",
@@ -227,7 +177,7 @@ export const mockServices = [
           "Yes. We can prepare overdue accounts and manage the filing process, including negotiating with HMRC and Companies House where penalties have already accrued.",
       },
     ],
-    relatedSlugs: ["corporation-tax", "management-accounts", "bookkeeping"],
+    relatedSlugs: ["corporation-tax", "bookkeeping-management-accounts", "vat-services"],
   },
   {
     slug: "corporation-tax",
@@ -284,7 +234,7 @@ export const mockServices = [
           "Yes. We advise on group structures, group relief, transfer pricing considerations, and the allocation of profits and losses across connected entities.",
       },
     ],
-    relatedSlugs: ["annual-accounts", "management-accounts", "personal-tax"],
+    relatedSlugs: ["annual-accounts", "bookkeeping-management-accounts", "personal-tax"],
   },
   {
     slug: "internal-audit",
@@ -341,7 +291,7 @@ export const mockServices = [
           "You receive a detailed written report summarising findings, risk ratings, and prioritised recommendations, plus an executive summary suitable for presenting to your board.",
       },
     ],
-    relatedSlugs: ["annual-accounts", "management-accounts", "corporation-tax"],
+    relatedSlugs: ["annual-accounts", "bookkeeping-management-accounts", "corporation-tax"],
   },
   {
     slug: "making-tax-digital",
@@ -398,7 +348,7 @@ export const mockServices = [
           "HMRC operates a points-based penalty system for late submissions and a separate penalty regime for late payment. Non-compliance with digital record-keeping can also attract fines.",
       },
     ],
-    relatedSlugs: ["vat-services", "bookkeeping", "personal-tax"],
+    relatedSlugs: ["vat-services", "bookkeeping-management-accounts", "personal-tax"],
   },
   {
     slug: "vat-services",
@@ -455,39 +405,43 @@ export const mockServices = [
           "Yes. We will prepare for the inspection, accompany you (virtually or in person), and handle all correspondence with the HMRC VAT officer.",
       },
     ],
-    relatedSlugs: ["bookkeeping", "making-tax-digital", "annual-accounts"],
+    relatedSlugs: ["bookkeeping-management-accounts", "making-tax-digital", "annual-accounts"],
   },
   {
-    slug: "company-formation",
-    title: "Company Formation",
-    tagline: "Start your business on solid legal and financial foundations.",
+    slug: "company-formation-secretarial",
+    title: "Company Formation & Secretarial Services",
+    tagline: "Start right and stay compliant — from incorporation to ongoing filings.",
     description:
-      "We guide you through every step of incorporating a UK limited company or LLP, and then provide the ongoing financial and tax advice you need to grow with confidence. Our start-up advisory service covers structuring, tax planning, and cloud accounting setup so you hit the ground running.",
+      "We guide you through every step of incorporating a UK limited company or LLP, and then manage your ongoing statutory obligations with Companies House to keep your records accurate and compliant for the life of your business. From same-day incorporation and share structure advice to confirmation statements and director changes, we handle the paperwork so you can focus on the business.",
     features: [
       "Companies House incorporation (same-day available)",
       "Shareholder and director structure advice",
       "Share class design and shareholders' agreements",
       "Initial tax registrations (corporation tax, PAYE, VAT)",
-      "Accounting software setup and chart of accounts",
-      "First-year financial planning and budgeting",
+      "Annual confirmation statement filing",
+      "Director and shareholder appointment / resignation filings",
+      "Share allotment and transfer documentation",
+      "Registered office service (address available)",
+      "Maintenance of statutory registers",
+      "Company dissolution and striking off",
     ],
     targetClients:
-      "Entrepreneurs, freelancers moving to a limited company structure, and existing business owners restructuring their affairs for tax efficiency or investment readiness.",
+      "Entrepreneurs and freelancers incorporating for the first time, existing business owners restructuring for tax efficiency or investment readiness, and UK limited companies that want their ongoing Companies House obligations managed accurately and on time.",
     benefits: [
       {
         title: "Get it Right from Day One",
         description:
-          "The decisions you make at incorporation — share structure, director loans, pension arrangements — have long-term tax consequences. We ensure the structure is optimal from the outset.",
+          "The decisions made at incorporation — share structure, director arrangements, pension setup — have long-term tax consequences. We ensure the structure is optimal from the outset.",
       },
       {
-        title: "Fast and Hassle-Free",
+        title: "Always Compliant",
         description:
-          "We handle all the paperwork. Most incorporations are completed within 24 hours and we manage all subsequent registrations with HMRC.",
+          "Missed confirmation statements and late filings can lead to your company being struck off the register. We track all deadlines and file on time, every time.",
       },
       {
-        title: "Ongoing Support",
+        title: "Confidentiality",
         description:
-          "Formation is just the beginning. We provide a clear path from incorporation through your first accounts, tax return, and beyond.",
+          "By using our registered office address service, you can keep your home or business address off the public Companies House register.",
       },
     ],
     faqs: [
@@ -502,78 +456,26 @@ export const mockServices = [
           "This depends on your income level, risk appetite, and long-term goals. A limited company typically becomes more tax-efficient once profits exceed approximately £30,000–£40,000. We will model both options for you.",
       },
       {
-        question: "What is the best way to extract money from my company?",
+        question: "What is a confirmation statement and when is it due?",
         answer:
-          "The most common approach is a combination of salary (up to the National Insurance threshold) and dividends. We will advise on the optimal mix based on your personal tax position.",
-      },
-      {
-        question: "Can I use my existing accounting software?",
-        answer:
-          "Yes, if it is MTD-compatible. We recommend Xero or QuickBooks for most limited companies and can set these up as part of your formation package.",
-      },
-    ],
-    relatedSlugs: [
-      "bookkeeping",
-      "corporation-tax",
-      "company-secretarial",
-    ],
-  },
-  {
-    slug: "company-secretarial",
-    title: "Company Secretarial",
-    tagline: "Keep your company records impeccable and compliant.",
-    description:
-      "Every UK limited company has ongoing statutory obligations beyond tax returns. Our company secretarial service ensures your Companies House records are always accurate and up-to-date, from confirmation statements to changes in directors, share allotments, and registered office updates.",
-    features: [
-      "Annual confirmation statement filing",
-      "Director and shareholder appointment / resignation filings",
-      "Share allotment and transfer documentation",
-      "Registered office service (London address available)",
-      "Maintenance of statutory registers",
-      "Company dissolution and striking off",
-    ],
-    targetClients:
-      "UK limited companies that want to ensure their statutory obligations are met accurately and on time, without the burden of managing complex Companies House filings themselves.",
-    benefits: [
-      {
-        title: "Always Compliant",
-        description:
-          "Missed confirmation statements and late filings can lead to your company being struck off the register. We track all deadlines and file on time, every time.",
-      },
-      {
-        title: "Accurate Public Record",
-        description:
-          "Inaccurate Companies House records can create problems with banks, suppliers, and investors. We ensure your public record always reflects your company's current position.",
-      },
-      {
-        title: "Confidentiality",
-        description:
-          "By using our registered office address service, you can keep your home or business address off the public Companies House register.",
-      },
-    ],
-    faqs: [
-      {
-        question: "What is a confirmation statement?",
-        answer:
-          "A confirmation statement (formerly the annual return) is a document filed annually with Companies House confirming that your company's publicly registered information is accurate. It must be filed within 14 days of the review date.",
-      },
-      {
-        question: "What information is on the public Companies House record?",
-        answer:
-          "The register shows your company's registered office address, directors' names and residential service addresses, shareholders, and share capital. We can use our office as your registered address to protect privacy.",
+          "A confirmation statement (formerly the annual return) is filed annually with Companies House confirming your company's publicly registered information is accurate. It must be filed within 14 days of the review date. We track the deadline and file on your behalf.",
       },
       {
         question: "What happens if I miss my confirmation statement deadline?",
         answer:
-          "Companies House may begin dissolution proceedings if a confirmation statement is not filed. The company can be restored but this is costly and time-consuming.",
+          "Companies House may begin dissolution proceedings if a confirmation statement is not filed. The company can be restored but this is costly and time-consuming. We ensure this never happens.",
       },
       {
-        question: "Do I need a company secretary?",
+        question: "What is the best way to extract money from my company?",
         answer:
-          "Private limited companies are no longer required to have a named company secretary, but someone must ensure statutory obligations are met. We fulfil this role as part of our secretarial service.",
+          "The most common approach is a combination of salary (up to the National Insurance threshold) and dividends. We will advise on the optimal mix based on your personal tax position.",
       },
     ],
-    relatedSlugs: ["company-formation", "annual-accounts", "corporation-tax"],
+    relatedSlugs: [
+      "bookkeeping-management-accounts",
+      "corporation-tax",
+      "annual-accounts",
+    ],
   },
 ] as const;
 
@@ -601,7 +503,7 @@ export const mockIndustries = [
       "Preparing Self Assessment returns for associate dentists, ensuring lab fees, CPD, indemnity, and subscriptions are fully claimed",
     ],
     relatedServiceSlugs: [
-      "bookkeeping",
+      "bookkeeping-management-accounts",
       "personal-tax",
       "corporation-tax",
       "vat-services",
@@ -655,7 +557,7 @@ export const mockIndustries = [
       "Supporting the financial due diligence and reporting requirements associated with CQC registration and ownership transfers",
     ],
     relatedServiceSlugs: [
-      "bookkeeping",
+      "bookkeeping-management-accounts",
       "annual-accounts",
       "corporation-tax",
       "vat-services",
@@ -705,7 +607,7 @@ export const mockIndustries = [
     ],
     relatedServiceSlugs: [
       "personal-tax",
-      "bookkeeping",
+      "bookkeeping-management-accounts",
       "corporation-tax",
       "vat-services",
     ],
@@ -756,7 +658,7 @@ export const mockIndustries = [
       "personal-tax",
       "annual-accounts",
       "corporation-tax",
-      "bookkeeping",
+      "bookkeeping-management-accounts",
     ],
     faqs: [
       {
@@ -810,7 +712,7 @@ export const mockIndustries = [
       "corporation-tax",
       "personal-tax",
       "vat-services",
-      "company-secretarial",
+      "company-formation-secretarial",
     ],
     faqs: [
       {
