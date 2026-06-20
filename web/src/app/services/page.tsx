@@ -62,33 +62,9 @@ export default function ServicesPage() {
         </Container>
       </Section>
 
-      {/* ── Not sure which service ── */}
-      <Section background="accent" padding="md">
-        <Container>
-          <div className="flex flex-col items-center gap-6 text-center lg:flex-row lg:justify-between lg:text-left">
-            <div className="max-w-2xl">
-              <h2 className="text-primary-900 text-2xl font-semibold sm:text-3xl">
-                Not Sure Which Service You Need?
-              </h2>
-              <p className="text-primary-700 mt-2 text-lg">
-                Book a free initial consultation and we will assess your situation and recommend the most appropriate combination of services for your business.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Button asChild variant="primary" size="lg">
-                <Link href="/book">Book a Free Consultation</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link href="/contact">Ask a Question</Link>
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
       <CTABanner
-        title="Ready to Get Started?"
-        subtitle="Join hundreds of UK businesses who trust Huxridge with their accountancy and tax affairs."
+        title="Not Sure Which Service You Need?"
+        subtitle="Book a free initial consultation and we will assess your situation and recommend the most appropriate combination of services for your business."
         primary={{ label: "Book a Free Consultation", href: "/book" }}
       />
     </>
