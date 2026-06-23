@@ -28,12 +28,9 @@ export const services = [
   { slug: "company-secretarial", title: "Company Secretarial" },
 ] as const;
 
-export const industries = [
-  { slug: "healthcare", title: "Healthcare Professionals" },
-  { slug: "landlords", title: "Landlords & Property" },
-  { slug: "contractors", title: "Contractors & Freelancers" },
-  { slug: "startups", title: "Start-Ups" },
-] as const;
+import { mockIndustries } from "./mock-data";
+
+export const industries = mockIndustries.map(({ slug, title }) => ({ slug, title }));
 
 export const primaryNav = [
   { label: "Services", href: "/services" },

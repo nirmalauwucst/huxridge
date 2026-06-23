@@ -14,12 +14,16 @@ import {
   Home,
   HardHat,
   Sparkles,
+  Smile,
+  HeartHandshake,
+  Stethoscope,
   type LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const iconMap = {
   bookkeeping: BookOpen,
+  "bookkeeping-management-accounts": BookOpen,
   "management-accounts": Calculator,
   "personal-tax": FileText,
   "annual-accounts": ClipboardCheck,
@@ -29,10 +33,14 @@ const iconMap = {
   "vat-services": Receipt,
   "company-formation": Rocket,
   "company-secretarial": Briefcase,
+  "company-formation-secretarial": Rocket,
   healthcare: HeartPulse,
   landlords: Home,
   contractors: HardHat,
   startups: Sparkles,
+  dentists: Smile,
+  "care-homes": HeartHandshake,
+  "nurses-clinicians": Stethoscope,
 } as const satisfies Record<string, LucideIcon>;
 
 export type IconName = keyof typeof iconMap;

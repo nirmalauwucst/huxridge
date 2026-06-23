@@ -2,36 +2,36 @@
 
 export const mockServices = [
   {
-    slug: "bookkeeping",
-    title: "Bookkeeping",
-    tagline: "Accurate, up-to-date books — without the stress.",
+    slug: "bookkeeping-management-accounts",
+    title: "Bookkeeping & Management Accounts",
+    tagline: "Accurate books and timely insight, every month.",
     description:
-      "Our cloud-based bookkeeping service keeps your financial records accurate and current, giving you a clear picture of your business at all times. We handle everything from transaction categorisation and bank reconciliation to supplier and customer ledger management, so you can focus on running your business.",
+      "Good bookkeeping is the foundation of every well-run business. We keep your records accurate and up to date — using Xero or FreeAgent — so you always have a clear picture of where your business stands. Our management accounts go a step further, giving you monthly or quarterly insight to help you make confident decisions.",
     features: [
-      "Daily or weekly transaction categorisation",
-      "Bank and credit card reconciliation",
-      "Accounts payable and receivable management",
-      "Expense tracking and receipt capture via app",
-      "Monthly financial summaries",
-      "Integration with Xero, QuickBooks, and FreeAgent",
+      "Monthly bookkeeping",
+      "Xero & FreeAgent set-up and training",
+      "Management accounts (monthly or quarterly)",
+      "Cash flow reporting",
+      "Software migration & clean-up",
+      "Reconciliations & year-end preparation",
     ],
     targetClients:
-      "Small and medium-sized businesses, sole traders, and contractors who want professionally maintained records without the cost of an in-house bookkeeper.",
+      "Small and medium-sized businesses, sole traders, growing SMEs, and directors who want professionally maintained records combined with the regular financial reporting they need to make informed decisions throughout the year.",
     benefits: [
       {
         title: "Always Up-to-Date",
         description:
-          "Real-time visibility into your finances means you always know where you stand, with no month-end backlog surprises.",
+          "Real-time visibility into your finances means you always know where you stand, with no month-end backlog surprises and clean records ready for every deadline.",
       },
       {
-        title: "Tax-Ready Records",
+        title: "Informed Decision-Making",
         description:
-          "Clean, HMRC-compliant records mean your tax returns are completed quickly and accurately, reducing the risk of errors or enquiries.",
+          "Regular management reports give you the data to act quickly on opportunities and address issues before they become serious — not just at year-end.",
       },
       {
-        title: "Save Time",
+        title: "Save Time and Grow",
         description:
-          "Stop spending evenings on spreadsheets. We handle the numbers so you can focus on growing your business.",
+          "Stop spending evenings on spreadsheets. We handle the numbers, produce the reports, and give you the insight to focus on growing your business.",
       },
     ],
     faqs: [
@@ -41,93 +41,42 @@ export const mockServices = [
           "We work primarily with Xero, QuickBooks, and FreeAgent. If you already use a different platform, we can usually accommodate that too — just ask.",
       },
       {
-        question: "How do I send you my receipts and invoices?",
-        answer:
-          "You can photograph receipts using your phone and upload them through your accounting software's mobile app, or email them directly to us. We aim to make the process as friction-free as possible.",
-      },
-      {
         question: "How often will my books be updated?",
         answer:
-          "This depends on your chosen plan. We offer weekly or monthly bookkeeping depending on your transaction volume and business needs.",
+          "This depends on your chosen plan. We offer weekly or monthly bookkeeping depending on your transaction volume and business needs. Management reports are produced monthly or quarterly.",
+      },
+      {
+        question: "How are management accounts different from annual accounts?",
+        answer:
+          "Annual accounts are statutory documents filed at Companies House. Management accounts are prepared more frequently — monthly or quarterly — and are focused on helping you manage the business, not on compliance. Think of them as your real-time financial dashboard.",
       },
       {
         question: "Can you take over from my existing bookkeeper?",
         answer:
           "Yes. We handle the transition process, including reviewing and cleaning up historical records if necessary, so there is minimal disruption to your business.",
       },
-    ],
-    relatedSlugs: ["management-accounts", "vat-services", "annual-accounts"],
-  },
-  {
-    slug: "management-accounts",
-    title: "Management Accounts",
-    tagline: "Timely financial insight to drive smarter decisions.",
-    description:
-      "Management accounts give you a clear, regular view of your business performance — beyond the statutory annual accounts. We prepare concise monthly or quarterly reports covering profit and loss, balance sheet, cash flow, and key performance indicators tailored to your sector.",
-    features: [
-      "Monthly or quarterly profit and loss reports",
-      "Balance sheet and net asset summary",
-      "Cash flow statements and forecasts",
-      "Budget vs actuals analysis",
-      "KPI dashboard tailored to your industry",
-      "Commentary and actionable insights",
-    ],
-    targetClients:
-      "Growing SMEs, investor-backed businesses, and directors who need more than annual accounts to make informed decisions throughout the year.",
-    benefits: [
       {
-        title: "Informed Decision-Making",
-        description:
-          "Regular financial data means you can act quickly on opportunities and address issues before they become serious problems.",
-      },
-      {
-        title: "Stakeholder Confidence",
-        description:
-          "Banks, investors, and board members expect timely, professional management accounts. Our reports are presentation-ready.",
-      },
-      {
-        title: "Spot Trends Early",
-        description:
-          "Comparing month-on-month and year-on-year performance lets you identify seasonal patterns and track the impact of strategic decisions.",
+        question: "Can you help me set a budget and track performance against it?",
+        answer:
+          "Yes. We can work with you to create an annual budget and then track performance against it each period, highlighting variances and providing commentary on the key movements.",
       },
     ],
-    faqs: [
-      {
-        question: "How are management accounts different from annual accounts?",
-        answer:
-          "Annual accounts are statutory documents prepared at the end of each financial year and filed at Companies House. Management accounts are prepared more frequently — monthly or quarterly — and are focused on helping you manage the business, not on compliance.",
-      },
-      {
-        question: "What format will the reports be in?",
-        answer:
-          "We deliver reports as clean PDF documents and, where applicable, interactive dashboards within your accounting software. Reports include written commentary explaining the key movements.",
-      },
-      {
-        question: "Can you help me set a budget?",
-        answer:
-          "Yes. We can work with you to create an annual budget and then track performance against it each period, highlighting variances that need attention.",
-      },
-      {
-        question: "Do I need management accounts if I'm a small business?",
-        answer:
-          "Even small businesses benefit from regular financial reporting. It is particularly valuable if you are growing, applying for finance, or planning any significant investment.",
-      },
-    ],
-    relatedSlugs: ["bookkeeping", "annual-accounts", "corporation-tax"],
+    relatedSlugs: ["annual-accounts", "vat-services", "corporation-tax"],
   },
   {
     slug: "personal-tax",
     title: "Personal Tax",
     tagline: "Stress-free Self Assessment, done properly.",
     description:
-      "We prepare and file your Self Assessment tax return accurately and on time, ensuring you claim every allowance you are entitled to. Whether you are a sole trader, a company director, a landlord, or an employee with complex affairs, we take the worry out of tax season.",
+      "We handle your self-assessment from start to finish — making sure you pay exactly what you owe, nothing more. Whether your income comes from employment, self-employment, property, or investments, we make the process simple and stress-free.",
     features: [
-      "Self Assessment tax return preparation and filing",
-      "Employment income, dividends, and benefits in kind",
-      "Rental income reporting and allowable expense claims",
-      "Capital gains tax calculations on property and investments",
-      "Foreign income and non-domicile considerations",
-      "HMRC correspondence handled on your behalf",
+      "Self-assessment filing",
+      "Personal tax planning",
+      "Business tax planning",
+      "Income from multiple sources",
+      "Rental income reporting",
+      "Capital gains tax",
+      "Inheritance tax planning",
     ],
     targetClients:
       "Self-employed individuals, company directors, landlords, higher-rate taxpayers, and anyone with income sources outside of PAYE.",
@@ -170,21 +119,21 @@ export const mockServices = [
           "Absolutely. Complex tax affairs are our speciality. We are experienced in returns involving employment, self-employment, rental income, dividends, capital gains, and foreign income.",
       },
     ],
-    relatedSlugs: ["corporation-tax", "bookkeeping", "vat-services"],
+    relatedSlugs: ["corporation-tax", "bookkeeping-management-accounts", "vat-services"],
   },
   {
     slug: "annual-accounts",
     title: "Annual Accounts",
     tagline: "Statutory accounts prepared with precision and care.",
     description:
-      "We prepare your year-end statutory accounts to the required UK accounting standards, handling Companies House filing and corporation tax submission. Our accounts are accurate, professionally presented, and submitted well ahead of deadlines.",
+      "Statutory accounts prepared accurately and on time, every year. Whether you're a sole trader, partnership, or limited company, we produce compliant accounts and handle all submissions to HMRC and Companies House.",
     features: [
-      "Statutory financial statements (FRS 102 / FRS 105)",
-      "Director's report and notes to accounts",
-      "Companies House filing (iXBRL format)",
-      "Corporation Tax computation and CT600 filing",
-      "Year-end tax planning review",
-      "Liaison with your bank or investors if required",
+      "Sole trader accounts",
+      "Partnership accounts",
+      "Limited company accounts",
+      "Charity & non-profit accounts",
+      "Companies House filing",
+      "HMRC submission",
     ],
     targetClients:
       "Limited companies, LLPs, and other registered entities that have a statutory obligation to prepare and file accounts each year.",
@@ -227,21 +176,21 @@ export const mockServices = [
           "Yes. We can prepare overdue accounts and manage the filing process, including negotiating with HMRC and Companies House where penalties have already accrued.",
       },
     ],
-    relatedSlugs: ["corporation-tax", "management-accounts", "bookkeeping"],
+    relatedSlugs: ["corporation-tax", "bookkeeping-management-accounts", "vat-services"],
   },
   {
     slug: "corporation-tax",
     title: "Corporation Tax",
     tagline: "Minimise your liability, stay fully compliant.",
     description:
-      "We prepare your corporation tax computation, identify all available reliefs and allowances, and file your CT600 return with HMRC. Our proactive approach means tax planning is embedded throughout the year, not just at year-end.",
+      "We prepare and file your CT600, identify reliefs you're entitled to, and keep your tax bill as low as legally possible. We also handle any correspondence with HMRC on your behalf.",
     features: [
-      "Corporation tax computation and CT600 filing",
-      "Capital allowances review (AIA, super-deduction)",
-      "R&D tax credit claims",
-      "Loss relief planning and group relief",
-      "Instalment payment calculations",
-      "HMRC enquiry and disclosure support",
+      "Corporation tax return (CT600)",
+      "Tax planning & reliefs",
+      "R&D tax credits",
+      "Group structures",
+      "Deferred tax planning",
+      "HMRC correspondence",
     ],
     targetClients:
       "UK limited companies and groups seeking accurate, compliant corporation tax returns and proactive planning to reduce their tax burden.",
@@ -284,21 +233,21 @@ export const mockServices = [
           "Yes. We advise on group structures, group relief, transfer pricing considerations, and the allocation of profits and losses across connected entities.",
       },
     ],
-    relatedSlugs: ["annual-accounts", "management-accounts", "personal-tax"],
+    relatedSlugs: ["annual-accounts", "bookkeeping-management-accounts", "personal-tax"],
   },
   {
     slug: "internal-audit",
     title: "Internal Audit",
     tagline: "Independent assurance that strengthens your business.",
     description:
-      "Our internal audit service provides independent, objective assurance on your financial controls, operational processes, and risk management. We help you identify weaknesses before they become costly problems and demonstrate governance best practice to stakeholders.",
+      "Independent reviews of your financial controls and processes. Particularly valuable for care homes, nurseries, and other regulated businesses that need to demonstrate robust financial governance — whether for CQC, investors, or lenders.",
     features: [
-      "Risk-based audit planning and scoping",
-      "Financial controls review",
-      "Process and procedure audits",
-      "Fraud risk assessment",
-      "Compliance and regulatory checks",
-      "Detailed findings report with recommendations",
+      "Internal audit reviews",
+      "Financial controls assessment",
+      "Risk & compliance reporting",
+      "Process improvement advice",
+      "Preparation for external audit",
+      "Regulatory compliance checks",
     ],
     targetClients:
       "SMEs, charities, and healthcare organisations that need independent financial oversight or are required to demonstrate governance compliance to regulators, funders, or boards.",
@@ -341,21 +290,21 @@ export const mockServices = [
           "You receive a detailed written report summarising findings, risk ratings, and prioritised recommendations, plus an executive summary suitable for presenting to your board.",
       },
     ],
-    relatedSlugs: ["annual-accounts", "management-accounts", "corporation-tax"],
+    relatedSlugs: ["annual-accounts", "bookkeeping-management-accounts", "corporation-tax"],
   },
   {
     slug: "making-tax-digital",
     title: "Making Tax Digital",
     tagline: "Navigate MTD with confidence — we handle the complexity.",
     description:
-      "Making Tax Digital (MTD) is transforming the way UK businesses and individuals interact with HMRC. We guide you through every stage of your MTD journey — from software selection and migration to quarterly submissions and ongoing compliance — ensuring you are always ahead of the requirements.",
+      "MTD is changing how businesses report to HMRC. We'll make sure you're set up correctly on the right software — whether that's Xero, FreeAgent, or TaxCalc — well before the deadlines hit.",
     features: [
-      "MTD for VAT compliance and submission",
-      "MTD for Income Tax Self Assessment (ITSA) preparation",
-      "Compatible software selection and setup (Xero, QuickBooks, FreeAgent)",
-      "Digital record-keeping training and support",
-      "Quarterly update submissions to HMRC",
-      "End-of-period statements and final declarations",
+      "MTD for VAT",
+      "MTD for income tax (ITSA)",
+      "Xero & FreeAgent MTD set-up",
+      "TaxCalc compliance",
+      "Compliance reviews",
+      "Staff training & support",
     ],
     targetClients:
       "VAT-registered businesses, self-employed individuals, and landlords who need to comply with HMRC's Making Tax Digital requirements.",
@@ -398,21 +347,21 @@ export const mockServices = [
           "HMRC operates a points-based penalty system for late submissions and a separate penalty regime for late payment. Non-compliance with digital record-keeping can also attract fines.",
       },
     ],
-    relatedSlugs: ["vat-services", "bookkeeping", "personal-tax"],
+    relatedSlugs: ["vat-services", "bookkeeping-management-accounts", "personal-tax"],
   },
   {
     slug: "vat-services",
     title: "VAT Services",
     tagline: "Expert VAT compliance, from registration to returns.",
     description:
-      "VAT is one of the most complex areas of UK tax. We handle everything from initial registration and scheme selection to quarterly return preparation and submission, ensuring you remain fully compliant while recovering every penny of reclaimable input tax.",
+      "From registration to quarterly returns, we take VAT off your plate completely. We'll make sure you're on the right scheme for your business and flag anything that could save you money.",
     features: [
-      "VAT registration and deregistration",
-      "VAT scheme selection (Standard, Flat Rate, Cash Accounting, Annual)",
-      "Quarterly VAT return preparation and submission",
-      "Input tax recovery review",
-      "Partial exemption calculations",
-      "HMRC VAT inspection support",
+      "VAT registration",
+      "Quarterly VAT returns",
+      "Flat rate scheme advice",
+      "Cash accounting scheme",
+      "Cross-border VAT",
+      "VAT investigation support",
     ],
     targetClients:
       "VAT-registered businesses, businesses approaching the registration threshold (currently £90,000), and those with complex VAT positions including partial exemption or international trade.",
@@ -455,39 +404,39 @@ export const mockServices = [
           "Yes. We will prepare for the inspection, accompany you (virtually or in person), and handle all correspondence with the HMRC VAT officer.",
       },
     ],
-    relatedSlugs: ["bookkeeping", "making-tax-digital", "annual-accounts"],
+    relatedSlugs: ["bookkeeping-management-accounts", "making-tax-digital", "annual-accounts"],
   },
   {
-    slug: "company-formation",
-    title: "Company Formation",
-    tagline: "Start your business on solid legal and financial foundations.",
+    slug: "company-formation-secretarial",
+    title: "Company Formation & Secretarial Services",
+    tagline: "Start right and stay compliant — from incorporation to ongoing filings.",
     description:
-      "We guide you through every step of incorporating a UK limited company or LLP, and then provide the ongoing financial and tax advice you need to grow with confidence. Our start-up advisory service covers structuring, tax planning, and cloud accounting setup so you hit the ground running.",
+      "Starting a new company or keeping an existing one compliant — we handle the admin so you don't have to. From incorporation through to ongoing secretarial support, we make sure everything is filed correctly and on time.",
     features: [
-      "Companies House incorporation (same-day available)",
-      "Shareholder and director structure advice",
-      "Share class design and shareholders' agreements",
-      "Initial tax registrations (corporation tax, PAYE, VAT)",
-      "Accounting software setup and chart of accounts",
-      "First-year financial planning and budgeting",
+      "Company incorporation",
+      "Registered office address",
+      "Confirmation statements",
+      "Company secretarial support",
+      "Shareholder & director changes",
+      "Companies House compliance",
     ],
     targetClients:
-      "Entrepreneurs, freelancers moving to a limited company structure, and existing business owners restructuring their affairs for tax efficiency or investment readiness.",
+      "Entrepreneurs and freelancers incorporating for the first time, existing business owners restructuring for tax efficiency or investment readiness, and UK limited companies that want their ongoing Companies House obligations managed accurately and on time.",
     benefits: [
       {
         title: "Get it Right from Day One",
         description:
-          "The decisions you make at incorporation — share structure, director loans, pension arrangements — have long-term tax consequences. We ensure the structure is optimal from the outset.",
+          "The decisions made at incorporation — share structure, director arrangements, pension setup — have long-term tax consequences. We ensure the structure is optimal from the outset.",
       },
       {
-        title: "Fast and Hassle-Free",
+        title: "Always Compliant",
         description:
-          "We handle all the paperwork. Most incorporations are completed within 24 hours and we manage all subsequent registrations with HMRC.",
+          "Missed confirmation statements and late filings can lead to your company being struck off the register. We track all deadlines and file on time, every time.",
       },
       {
-        title: "Ongoing Support",
+        title: "Confidentiality",
         description:
-          "Formation is just the beginning. We provide a clear path from incorporation through your first accounts, tax return, and beyond.",
+          "By using our registered office address service, you can keep your home or business address off the public Companies House register.",
       },
     ],
     faqs: [
@@ -502,78 +451,26 @@ export const mockServices = [
           "This depends on your income level, risk appetite, and long-term goals. A limited company typically becomes more tax-efficient once profits exceed approximately £30,000–£40,000. We will model both options for you.",
       },
       {
-        question: "What is the best way to extract money from my company?",
+        question: "What is a confirmation statement and when is it due?",
         answer:
-          "The most common approach is a combination of salary (up to the National Insurance threshold) and dividends. We will advise on the optimal mix based on your personal tax position.",
-      },
-      {
-        question: "Can I use my existing accounting software?",
-        answer:
-          "Yes, if it is MTD-compatible. We recommend Xero or QuickBooks for most limited companies and can set these up as part of your formation package.",
-      },
-    ],
-    relatedSlugs: [
-      "bookkeeping",
-      "corporation-tax",
-      "company-secretarial",
-    ],
-  },
-  {
-    slug: "company-secretarial",
-    title: "Company Secretarial",
-    tagline: "Keep your company records impeccable and compliant.",
-    description:
-      "Every UK limited company has ongoing statutory obligations beyond tax returns. Our company secretarial service ensures your Companies House records are always accurate and up-to-date, from confirmation statements to changes in directors, share allotments, and registered office updates.",
-    features: [
-      "Annual confirmation statement filing",
-      "Director and shareholder appointment / resignation filings",
-      "Share allotment and transfer documentation",
-      "Registered office service (London address available)",
-      "Maintenance of statutory registers",
-      "Company dissolution and striking off",
-    ],
-    targetClients:
-      "UK limited companies that want to ensure their statutory obligations are met accurately and on time, without the burden of managing complex Companies House filings themselves.",
-    benefits: [
-      {
-        title: "Always Compliant",
-        description:
-          "Missed confirmation statements and late filings can lead to your company being struck off the register. We track all deadlines and file on time, every time.",
-      },
-      {
-        title: "Accurate Public Record",
-        description:
-          "Inaccurate Companies House records can create problems with banks, suppliers, and investors. We ensure your public record always reflects your company's current position.",
-      },
-      {
-        title: "Confidentiality",
-        description:
-          "By using our registered office address service, you can keep your home or business address off the public Companies House register.",
-      },
-    ],
-    faqs: [
-      {
-        question: "What is a confirmation statement?",
-        answer:
-          "A confirmation statement (formerly the annual return) is a document filed annually with Companies House confirming that your company's publicly registered information is accurate. It must be filed within 14 days of the review date.",
-      },
-      {
-        question: "What information is on the public Companies House record?",
-        answer:
-          "The register shows your company's registered office address, directors' names and residential service addresses, shareholders, and share capital. We can use our office as your registered address to protect privacy.",
+          "A confirmation statement (formerly the annual return) is filed annually with Companies House confirming your company's publicly registered information is accurate. It must be filed within 14 days of the review date. We track the deadline and file on your behalf.",
       },
       {
         question: "What happens if I miss my confirmation statement deadline?",
         answer:
-          "Companies House may begin dissolution proceedings if a confirmation statement is not filed. The company can be restored but this is costly and time-consuming.",
+          "Companies House may begin dissolution proceedings if a confirmation statement is not filed. The company can be restored but this is costly and time-consuming. We ensure this never happens.",
       },
       {
-        question: "Do I need a company secretary?",
+        question: "What is the best way to extract money from my company?",
         answer:
-          "Private limited companies are no longer required to have a named company secretary, but someone must ensure statutory obligations are met. We fulfil this role as part of our secretarial service.",
+          "The most common approach is a combination of salary (up to the National Insurance threshold) and dividends. We will advise on the optimal mix based on your personal tax position.",
       },
     ],
-    relatedSlugs: ["company-formation", "annual-accounts", "corporation-tax"],
+    relatedSlugs: [
+      "bookkeeping-management-accounts",
+      "corporation-tax",
+      "annual-accounts",
+    ],
   },
 ] as const;
 
@@ -581,25 +478,27 @@ export const mockServices = [
 
 export const mockIndustries = [
   {
-    slug: "healthcare",
-    title: "Accountants for Healthcare Professionals",
-    tagline: "Specialist financial support for dentists, vets, and care providers.",
+    slug: "dentists",
+    title: "Dentists",
+    tagline: "Practice owners, associates & squat practices, NHS & private.",
     description:
-      "Healthcare professionals face a unique set of financial and tax challenges — from mixed NHS and private income to CQC registration and costly equipment purchases. We provide specialist accountancy tailored to dentists, veterinary practices, care homes, and other registered healthcare providers.",
+      "Dental finances are unlike any other profession. Whether you are a principal running an NHS contract, an associate building a private patient list, or setting up a squat practice from scratch, the tax and compliance landscape is genuinely complex. We work exclusively with dental professionals and understand every aspect of your financial picture — from UDA targets and associate self-employment to CQC registration and NHS pension annual allowance charges.",
     challenges: [
-      "Managing complex income streams including NHS contracts, private fees, and associate payments",
-      "Capital allowances and financing for expensive clinical equipment",
-      "CQC compliance and the financial reporting requirements that come with registration",
-      "Superannuation contributions and the NHS Pension Scheme reporting obligations",
+      "Splitting and correctly reporting NHS contract income alongside private fees and associate payments",
+      "Managing NHS pension annual allowance charges, which can create unexpected tax bills for high-earning principals",
+      "Navigating the financial and contractual implications of setting up a squat practice",
+      "Deciding on the most tax-efficient structure — sole principal, partnership, or limited company — given NHS contract restrictions",
+      "Capital allowances on expensive dental equipment, digital scanning systems, and practice fit-outs",
     ],
     howWeHelp: [
-      "Preparing accurate accounts that correctly split NHS and private income for tax purposes",
-      "Maximising capital allowances on equipment, fit-outs, and digital systems",
-      "Advising on the most tax-efficient operating structure — sole practitioner, partnership, or limited company",
-      "Handling NHS pension annual allowance calculations and managing the annual charge where it applies",
+      "Preparing practice accounts that correctly separate NHS and private income streams for HMRC",
+      "Calculating NHS pension annual allowance usage and planning around or funding any annual allowance charge",
+      "Advising squat practice founders on financing, CQC registration timelines, and the optimal legal structure from day one",
+      "Maximising capital allowances on equipment purchases, fit-outs, and surgery refurbishments",
+      "Preparing Self Assessment returns for associate dentists, ensuring lab fees, CPD, indemnity, and subscriptions are fully claimed",
     ],
     relatedServiceSlugs: [
-      "bookkeeping",
+      "bookkeeping-management-accounts",
       "personal-tax",
       "corporation-tax",
       "vat-services",
@@ -608,163 +507,233 @@ export const mockIndustries = [
       {
         question: "Is dental treatment subject to VAT?",
         answer:
-          "Most dental treatment is exempt from VAT. However, some cosmetic procedures and associated goods may be standard-rated. We will review your income streams and advise on your VAT position.",
+          "Most dental treatment is exempt from VAT as a medical service. However, certain cosmetic procedures and associated goods may be standard-rated. We review your income streams in detail and confirm your VAT position so you are neither over-charging patients nor exposing the practice to a liability.",
       },
       {
-        question: "Should a dental practice operate as a limited company?",
+        question: "Should my dental practice operate as a limited company?",
         answer:
-          "This depends on the NHS contract position and profit level. Limited company structures can offer significant tax savings but there are NHS contract implications to consider. We model both structures before making a recommendation.",
+          "This is the most important structural question for practice owners. Limited company status can deliver significant tax savings once profits reach a certain level, but there are NHS contract implications — notably that the contract holder must remain a registered dental professional. We model both structures side by side before making a recommendation tailored to your practice.",
       },
       {
         question: "How do you handle associate dentist accounts?",
         answer:
-          "Associate dentists are typically self-employed and require a Self Assessment return. We prepare these returns efficiently, ensuring all lab fees, CPD costs, and professional subscriptions are claimed.",
+          "Associate dentists are typically self-employed and require an annual Self Assessment return. We prepare these efficiently and ensure all allowable expenses are claimed — lab fees, CPD costs, indemnity insurance, professional subscriptions, and equipment purchased for clinical use.",
       },
       {
-        question: "Can you help with CQC financial reporting?",
+        question: "What is the NHS pension annual allowance charge and how do I manage it?",
         answer:
-          "Yes. We are familiar with the financial information requirements of CQC registration and ongoing compliance and can prepare and submit the necessary documentation.",
+          "The NHS Pension Scheme is a defined benefit scheme, and growth in pensionable pay can trigger an annual allowance charge even if you have not made additional contributions. For higher-earning dentists this can mean an unexpected tax bill of tens of thousands of pounds. We calculate your pension input amount each year and help you plan or fund any charge that arises.",
+      },
+      {
+        question: "Can you help with the financial side of setting up a squat practice?",
+        answer:
+          "Yes. We advise squat practice founders on everything from the business plan and financing approach through to the correct legal and tax structure, CQC registration requirements, and initial bookkeeping setup. Getting the foundations right at the start saves significant cost and complexity later.",
+      },
+    ],
+  },
+  {
+    slug: "care-homes",
+    title: "Care Homes",
+    tagline: "Residential and domiciliary care operators of all sizes.",
+    description:
+      "Running a care home or domiciliary care agency means operating in one of the most regulated and financially pressured sectors in the UK. Fee rates set by local authorities, rising staffing costs, CQC compliance obligations, and the capital intensity of property ownership all create a complex financial environment. We provide specialist accountancy and tax advice to residential care homes, nursing homes, and domiciliary care providers across the UK.",
+    challenges: [
+      "Managing thin operating margins under local authority fee-rate pressure while maintaining CQC compliance standards",
+      "High staffing costs and the complexity of payroll for large, shift-based care workforces",
+      "Capital allowances and financing for property acquisitions, refurbishments, and new build developments",
+      "VAT complexity arising from the exempt status of care services alongside any standard-rated ancillary income",
+      "CQC registration, ongoing compliance reporting, and the financial due diligence required for ownership changes",
+    ],
+    howWeHelp: [
+      "Preparing accurate annual accounts and management accounts that give a clear picture of occupancy, fee income, and staffing costs",
+      "Handling payroll for care home staff including pension auto-enrolment, holiday pay calculations, and HMRC reporting",
+      "Advising on the most tax-efficient ownership structure — whether the property and trading business should be held separately",
+      "Maximising capital allowances on fixtures, fittings, equipment, and qualifying refurbishment expenditure",
+      "Supporting the financial due diligence and reporting requirements associated with CQC registration and ownership transfers",
+    ],
+    relatedServiceSlugs: [
+      "bookkeeping-management-accounts",
+      "annual-accounts",
+      "corporation-tax",
+      "vat-services",
+    ],
+    faqs: [
+      {
+        question: "Are care home fees subject to VAT?",
+        answer:
+          "The provision of residential or domiciliary care is exempt from VAT as a welfare service. This means you do not charge VAT on fees, but it also means you cannot reclaim VAT on most of your costs. We review your services in detail to confirm the correct VAT treatment and advise on any partially standard-rated activities.",
+      },
+      {
+        question: "Should I hold the care home property separately from the trading business?",
+        answer:
+          "Holding property in a separate entity from the trading operation is a common and often tax-efficient structure. It can protect the property asset from trading liabilities and create flexibility for future sale or succession planning. We assess the pros and cons for your specific situation including Stamp Duty Land Tax, Capital Gains Tax, and the impact on any mortgage arrangements.",
+      },
+      {
+        question: "How do you handle payroll for a large care workforce?",
+        answer:
+          "We manage payroll for care home operators with teams ranging from a handful of staff to several hundred. This includes calculating pay for different shift patterns, managing pension auto-enrolment, holiday pay accruals for part-time workers, and ensuring accurate and timely RTI submissions to HMRC.",
+      },
+      {
+        question: "What financial information does CQC require?",
+        answer:
+          "CQC requires registered providers to demonstrate ongoing financial viability. We prepare the financial statements and supporting information required for initial registration and assist with the annual Provider Information Return and any ad hoc requests during inspections or ownership change applications.",
+      },
+    ],
+  },
+  {
+    slug: "nurses-clinicians",
+    title: "Nurses & Clinicians",
+    tagline: "Employed, locum, and agency healthcare professionals.",
+    description:
+      "Healthcare professionals who work across employed, locum, and agency roles face a tax position that is more complicated than most. Multiple income sources, uncertainty over employment status, NHS pension contributions, and expenses rules that differ between employed and self-employed work all require careful management. We help nurses, doctors, allied health professionals, and clinical staff at every career stage get their tax right and keep more of what they earn.",
+    challenges: [
+      "Managing tax and National Insurance across multiple income sources — NHS employment, bank shifts, locum work, and private practice",
+      "Correctly determining employment status for agency and locum engagements and understanding the IR35 implications",
+      "NHS pension annual allowance charges for clinicians with rapidly growing pensionable pay",
+      "Claiming the right expenses for professional registration, indemnity, CPD, uniforms, and equipment",
+      "Completing Self Assessment returns that bring together all income sources and ensure the correct tax is paid",
+    ],
+    howWeHelp: [
+      "Preparing Self Assessment returns that correctly capture all employment income, locum earnings, bank shifts, and any private practice income",
+      "Advising on employment status for locum and agency engagements and the tax consequences of inside versus outside IR35 arrangements",
+      "Calculating NHS pension annual allowance usage and planning around any annual allowance charge before it becomes a bill",
+      "Identifying and claiming all allowable expenses — NMC or GMC fees, indemnity insurance, CPD costs, specialist equipment, and professional subscriptions",
+      "Setting up simple bookkeeping systems for clinicians who take on private practice or consultancy work alongside their NHS role",
+    ],
+    relatedServiceSlugs: [
+      "personal-tax",
+      "bookkeeping-management-accounts",
+      "corporation-tax",
+      "vat-services",
+    ],
+    faqs: [
+      {
+        question: "Do I need to complete a Self Assessment return as a nurse or clinician?",
+        answer:
+          "You will need to file a Self Assessment return if you have income from locum, bank, agency, or private work in addition to your main NHS employment, if your income exceeds £100,000 in any year, or if you have been issued with a P800 showing underpaid tax. We prepare and file your return accurately and on time.",
+      },
+      {
+        question: "Am I employed or self-employed when working through an agency?",
+        answer:
+          "This depends on how your engagement is structured. Many agency workers in healthcare are treated as employed for tax purposes, meaning tax and NI are deducted at source. Locum arrangements may be genuinely self-employed. We review your contracts and working arrangements and advise on the correct position.",
+      },
+      {
+        question: "Can I claim expenses for my NMC or GMC registration fees?",
+        answer:
+          "Yes. Professional registration fees, indemnity insurance, and costs that are wholly and exclusively incurred for your professional practice are deductible. The rules differ slightly depending on whether you are employed or self-employed, and we ensure you claim through the correct route in each case.",
+      },
+      {
+        question: "How do I deal with an NHS pension annual allowance charge?",
+        answer:
+          "If your NHS pension input exceeds the annual allowance in a given tax year, you will face a tax charge on the excess. You can pay this yourself or ask the NHS Pension Scheme to pay it on your behalf in exchange for a reduced pension — a mechanism called Scheme Pays. We calculate your position, compare the options, and help you elect correctly.",
       },
     ],
   },
   {
     slug: "landlords",
-    title: "Accountants for Landlords & Property Investors",
-    tagline: "Maximise your rental income, minimise your tax liability.",
+    title: "Landlords",
+    tagline: "Buy-to-let, HMO, and property portfolio holders.",
     description:
-      "Property tax rules have become increasingly complex following the phasing out of mortgage interest relief, the introduction of Section 24, and rising Stamp Duty Land Tax rates for additional properties. We help residential and commercial landlords navigate these changes and build tax-efficient property portfolios.",
+      "Property tax rules have become increasingly complex following the phasing out of mortgage interest relief, the introduction of Section 24, and rising Stamp Duty Land Tax rates for additional properties. Whether you own a single buy-to-let flat, a portfolio of HMOs, or are building a larger property investment business, we help you navigate the tax landscape and make informed decisions about structure, timing, and strategy.",
     challenges: [
-      "The impact of Section 24 mortgage interest restriction on higher-rate taxpayers",
-      "Stamp Duty Land Tax surcharges on additional residential properties",
-      "Capital Gains Tax on property disposals, including principal private residence relief",
-      "Deciding whether to hold property personally or within a limited company",
+      "The impact of Section 24 mortgage interest restriction on higher and additional rate taxpayers",
+      "Stamp Duty Land Tax surcharges on additional residential properties and HMO acquisitions",
+      "Capital Gains Tax on property disposals, including principal private residence relief and letting relief",
+      "Deciding whether to hold property personally or within a limited company given your tax rate, mortgage position, and long-term plans",
+      "Managing the additional compliance requirements of HMO licensing, selective licensing, and larger portfolio administration",
     ],
     howWeHelp: [
-      "Preparing accurate rental accounts with all allowable expenses correctly claimed",
-      "Advising on the financial impact of incorporating your property portfolio into a limited company",
-      "Calculating and advising on Capital Gains Tax exposure before you sell",
-      "Structuring portfolios to make the most of spousal transfers and other available reliefs",
+      "Preparing accurate rental accounts with all allowable expenses correctly claimed and Section 24 correctly applied",
+      "Modelling the financial impact of incorporating your property portfolio into a limited company against the costs of transfer",
+      "Calculating and advising on Capital Gains Tax exposure before you sell, including available reliefs and optimal timing",
+      "Structuring portfolios to make the most of spousal transfers, family trusts, and other available planning opportunities",
+      "Advising HMO landlords on the additional tax and compliance considerations specific to multi-let properties",
     ],
     relatedServiceSlugs: [
       "personal-tax",
       "annual-accounts",
       "corporation-tax",
-      "bookkeeping",
+      "bookkeeping-management-accounts",
     ],
     faqs: [
       {
         question: "Should I own my buy-to-let properties personally or through a limited company?",
         answer:
-          "This is the most common question we receive from landlords. The answer depends on your tax rate, number of properties, mortgage position, and long-term intentions. We prepare a detailed financial model for each client before making a recommendation.",
+          "This is the most common question we receive from landlords. The answer depends on your income tax rate, the number of properties you hold, your mortgage position, and your long-term intentions. We prepare a detailed financial model for each client that shows the after-tax position under both structures before making a recommendation.",
       },
       {
         question: "What expenses can I offset against my rental income?",
         answer:
-          "Allowable expenses include mortgage interest (subject to Section 24 restrictions), letting agent fees, repairs and maintenance, insurance, accountancy fees, and certain legal costs. You cannot claim capital expenditure such as improvements.",
+          "Allowable expenses include mortgage interest (subject to Section 24 restrictions for personal ownership), letting agent fees, repairs and maintenance, insurance, accountancy fees, and certain legal costs. You cannot claim capital expenditure such as extensions or improvements, though these may reduce your Capital Gains Tax liability when you sell.",
       },
       {
-        question: "How much Capital Gains Tax will I pay when I sell?",
+        question: "How much Capital Gains Tax will I pay when I sell a rental property?",
         answer:
-          "Residential property gains are taxed at 18% (basic rate) or 24% (higher rate) after deducting your annual CGT exemption. We calculate the exact liability and advise on timing to minimise the charge.",
+          "Residential property gains are taxed at 18% (basic rate) or 24% (higher rate) after deducting your annual CGT exemption. We calculate the exact liability in advance, identify all available reliefs, and advise on timing to minimise the charge.",
       },
       {
         question: "Do I need to file a Capital Gains Tax return quickly after selling?",
         answer:
-          "Yes. UK residents must report and pay CGT on UK residential property within 60 days of completion. We prepare these returns promptly to ensure you meet the deadline.",
+          "Yes. UK residents must report and pay CGT on UK residential property within 60 days of completion. We prepare these returns promptly to ensure you meet the deadline and avoid late filing penalties.",
+      },
+      {
+        question: "Are there additional tax considerations for HMO landlords?",
+        answer:
+          "HMOs can generate higher yields but also attract additional scrutiny. The correct treatment of furnishings, shared facilities, and utility costs, as well as the interaction with local authority licensing requirements, all need careful handling. We advise HMO landlords on both the tax and compliance side of their portfolios.",
       },
     ],
   },
   {
     slug: "contractors",
-    title: "Accountants for Contractors & Freelancers",
-    tagline: "Expert support for the self-employed and limited company contractor.",
+    title: "Contractors",
+    tagline: "Limited company & umbrella contractors.",
     description:
-      "Contracting and freelancing offer freedom and higher earning potential, but they also come with complex tax and compliance obligations. From IR35 assessments and limited company management to expenses optimisation and dividend planning, we are the accountants of choice for UK contractors.",
+      "Contracting offers freedom and significantly higher earning potential compared to permanent employment, but it comes with real tax and compliance complexity. IR35 rules, off-payroll working legislation, limited company administration, dividend planning, and VAT all require active management. Whether you operate through your own limited company or work under an umbrella arrangement, we provide the specialist support you need to stay compliant and keep more of your earnings.",
     challenges: [
-      "Understanding and managing IR35 status — inside or outside the rules",
-      "Optimising the salary and dividend mix to minimise income tax and National Insurance",
-      "Claiming all legitimate business expenses to reduce taxable profit",
-      "Keeping on top of VAT, Self Assessment, and corporation tax deadlines across multiple engagements",
+      "Understanding and managing IR35 status — determining whether engagements fall inside or outside the off-payroll working rules",
+      "Optimising the salary and dividend mix each year to minimise income tax and National Insurance contributions",
+      "Deciding whether a personal service company or umbrella arrangement is the right vehicle for your contracting career",
+      "Claiming all legitimate business expenses to reduce taxable profit within HMRC guidelines",
+      "Keeping on top of VAT, Self Assessment, corporation tax, and Companies House deadlines across multiple concurrent engagements",
     ],
     howWeHelp: [
-      "Providing IR35 contract reviews and written status opinions to support your outside-IR35 position",
-      "Calculating the optimal salary and dividend split each tax year based on your personal allowances and higher-rate thresholds",
-      "Preparing monthly or quarterly management accounts to track profitability and cash flow",
-      "Handling all compliance filings — VAT, Self Assessment, corporation tax, and confirmation statements",
+      "Reviewing contracts and working arrangements and providing written IR35 status opinions to support your outside-IR35 position",
+      "Calculating the optimal salary and dividend split each tax year based on your personal allowances, higher-rate thresholds, and pension contributions",
+      "Advising on the financial difference between limited company and umbrella contracting for your specific rate and circumstances",
+      "Preparing quarterly VAT returns, annual corporation tax computations, and Self Assessment returns accurately and on time",
+      "Handling all Companies House filings including confirmation statements and annual accounts",
     ],
     relatedServiceSlugs: [
       "corporation-tax",
       "personal-tax",
       "vat-services",
-      "company-secretarial",
+      "company-formation-secretarial",
     ],
     faqs: [
       {
         question: "Am I inside or outside IR35?",
         answer:
-          "IR35 status depends on your working practices — control, substitution, and mutuality of obligation are the key tests. We review your contracts and working arrangements and provide a written opinion to support your position.",
+          "IR35 status depends on your actual working practices — the key tests are control (who decides how the work is done), substitution (whether you can send someone else), and mutuality of obligation (whether the client must offer work and you must accept it). We review your contracts and day-to-day working arrangements and provide a written status opinion that you can use to support your position.",
       },
       {
-        question: "How much should I pay myself as a salary?",
+        question: "How much should I pay myself as a salary from my limited company?",
         answer:
-          "Most contractors take a salary at the Secondary National Insurance threshold (£9,100 in 2025/26) to maintain their NI record while avoiding employer and employee NI contributions. Above this, dividends are more efficient.",
+          "Most contractors take a salary at or around the Secondary National Insurance threshold (£9,100 in 2025/26) to preserve their NI record while avoiding employer and employee NI contributions. Above this level, dividends are generally more tax-efficient. We calculate the optimal split for your personal circumstances each tax year.",
       },
       {
-        question: "Can I claim my home office as an expense?",
+        question: "Should I use a limited company or an umbrella company?",
         answer:
-          "Yes. You can claim a use-of-home allowance or actual costs proportionate to business use. We will assess which method produces the higher deduction for your circumstances.",
+          "A limited company typically retains more of your earnings at higher day rates and gives you greater control, but it requires active administration. An umbrella arrangement is simpler — you are an employee of the umbrella — but you will pay more in tax and NI. We model both options for your specific rate and work pattern before you decide.",
       },
       {
-        question: "Do I need to register for VAT?",
+        question: "Can I claim my home office costs as an expense?",
         answer:
-          "You must register once your annual taxable turnover exceeds £90,000. Many contractors register voluntarily earlier and use the Flat Rate Scheme to generate a small profit on VAT.",
-      },
-    ],
-  },
-  {
-    slug: "startups",
-    title: "Accountants for Start-Ups & New Businesses",
-    tagline: "Financial foundations that scale with your ambition.",
-    description:
-      "Starting a business is exciting. Getting the financial and tax structure right from the outset — and then maintaining accurate records and compliant filings as you grow — gives you the best possible foundation for success. We work with founders at every stage, from idea to investment-ready.",
-    challenges: [
-      "Choosing the right legal structure (sole trader, partnership, or limited company)",
-      "Understanding and managing your tax obligations from day one",
-      "Building financial processes that scale without creating administrative overhead",
-      "Presenting credible financial information to investors or lenders",
-    ],
-    howWeHelp: [
-      "Advising on the most appropriate legal and tax structure for your business model and goals",
-      "Incorporating your company and handling all initial HMRC registrations",
-      "Setting up cloud accounting software and automating your bookkeeping workflows",
-      "Preparing investor-ready financial models, pitch deck financials, and R&D tax credit claims",
-    ],
-    relatedServiceSlugs: [
-      "company-formation",
-      "bookkeeping",
-      "management-accounts",
-      "corporation-tax",
-    ],
-    faqs: [
-      {
-        question: "When should I set up a limited company?",
-        answer:
-          "A limited company generally becomes more tax-efficient when your profits exceed approximately £30,000–£40,000 per year. It also offers limited liability protection and can be more attractive to clients and investors.",
+          "Yes. You can claim either a use-of-home allowance based on HMRC's published rates or a proportion of your actual home costs based on business use. We assess which approach produces the higher deduction in your circumstances and ensure the claim is documented correctly.",
       },
       {
-        question: "Do I need an accountant from day one?",
+        question: "Do I need to register for VAT as a contractor?",
         answer:
-          "Starting with a good accountant from the outset means you avoid common early mistakes — wrong structure, missed registrations, unclaimed reliefs — that can be costly to correct later.",
-      },
-      {
-        question: "Can I claim R&D tax credits?",
-        answer:
-          "If your start-up is developing new or improved products, processes, or software, you may be eligible for significant R&D tax relief. We assess eligibility and prepare claims on your behalf.",
-      },
-      {
-        question: "What cloud accounting software do you recommend for start-ups?",
-        answer:
-          "We recommend Xero for most start-ups due to its ease of use, strong integrations, and excellent bank feeds. FreeAgent is a strong option for very small teams or freelancers.",
+          "You must register for VAT once your annual taxable turnover exceeds £90,000. Many contractors register voluntarily below this threshold and use the Flat Rate Scheme, which can generate a small additional profit on VAT depending on your sector. We advise on the right approach for your contracting business.",
       },
     ],
   },
