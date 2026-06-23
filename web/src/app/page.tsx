@@ -7,15 +7,15 @@ import { Icon, type IconName } from "@/components/ui/icon";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
 import { Badge } from "@/components/ui/badge";
-import { services, industries } from "@/lib/site";
+import { services } from "@/lib/site";
 import { mockServices, mockIndustries, mockTestimonials, mockBlogPosts } from "@/lib/mock-data";
 import { CheckCircle2, Star } from "lucide-react";
 
 const stats = [
-  { value: "10", label: "Specialist Services" },
-  { value: "UK-Wide", label: "Coverage" },
-  { value: "100%", label: "Paperless" },
-  { value: "Est. 2022", label: "Founded" },
+  { value: "AAT Regulated", label: "Governance" },
+  { value: "200+", label: "Clients" },
+  { value: "Since 2022", label: "Founded" },
+  { value: "Same Day", label: "Response Time" },
 ];
 
 const whyHuxridge = [
@@ -53,13 +53,13 @@ export default function HomePage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div className="max-w-2xl">
               <Badge variant="accent" className="mb-4">
-                UK-Wide · Fully Paperless · Est. 2022
+                ACCOUNTANTS · TAX ADVISORS · BUSINESS ADVISORS
               </Badge>
               <h1 className="text-primary-900 mt-4 font-serif text-4xl leading-tight font-semibold sm:text-5xl lg:text-6xl">
-                Modern, Paperless Accountancy for UK Businesses
+                Specialist advice for the people who keep the UK running. OR Clear numbers, confident decisions
               </h1>
               <p className="text-muted-foreground mt-6 text-xl leading-relaxed">
-                Expert tax and accountancy services — from bookkeeping and corporation tax to Making Tax Digital and specialist advice for healthcare professionals, landlords, and contractors.
+                Complex tax rules. Changing regulations. Competing priorities. We cut through it all so you can focus on what you do best — whether you're a landlord, nursery owner, or healthcare professional.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button asChild variant="primary" size="lg">
@@ -125,42 +125,39 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* ── Services Overview ── */}
+      {/* ── Industries Overview ── */}
       <Section background="muted">
         <Container>
           <SectionHeading
-            eyebrow="What We Do"
-            title="A Full Range of Accountancy &amp; Tax Services"
-            subtitle="From day-to-day bookkeeping to complex tax planning, our team has the expertise to support your business at every stage."
+            eyebrow="WHO WE HELP"
+            title="Built for your profession, not just your accounts"
+            subtitle="Generic accountancy misses the details that matter. Our sector specialists understand the specific tax rules and challenges in your industry."
             align="center"
           />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-            {mockServices.map((service) => {
-              const s = services.find((sv) => sv.slug === service.slug);
-              return (
-                <Card key={service.slug} variant="default" className="group transition-all hover:shadow-elevated">
+            {mockIndustries.map((industry) => (
+                <Card key={industry.slug} variant="default" className="group transition-all hover:shadow-elevated">
                   <CardHeader>
                     <div className="bg-primary-50 mb-3 inline-flex h-11 w-11 items-center justify-center rounded-lg">
-                      <Icon name={service.slug as IconName} size={22} className="text-primary-700" />
+                      <Icon name={industry.slug as IconName} size={22} className="text-primary-700" />
                     </div>
-                    <CardTitle className="text-lg">{s?.title ?? service.title}</CardTitle>
+                    <CardTitle className="text-lg">{industry.title}</CardTitle>
                   </CardHeader>
-                  <CardDescription>{service.tagline}</CardDescription>
+                  <CardDescription>{industry.tagline}</CardDescription>
                   <CardFooter className="mt-4">
                     <Link
-                      href={`/services/${service.slug}`}
+                      href={`/industries/${industry.slug}`}
                       className="text-primary-700 text-sm font-medium hover:underline"
                     >
                       Learn more →
                     </Link>
                   </CardFooter>
                 </Card>
-              );
-            })}
+            ))}
           </div>
           <div className="mt-10 text-center">
             <Button asChild variant="outline" size="lg">
-              <Link href="/services">View All Services</Link>
+              <Link href="/industries">View All Industries</Link>
             </Button>
           </div>
         </Container>
@@ -194,38 +191,35 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* ── Industries ── */}
+      {/* ── Services Overview ── */}
       <Section background="muted">
         <Container>
           <SectionHeading
-            eyebrow="Industries We Serve"
-            title="Specialist Knowledge for Your Sector"
-            subtitle="Generic accountancy misses the details that matter. Our sector specialists understand the specific tax rules and challenges in your industry."
+            eyebrow="What We Do"
+            title="A Full Range of Accountancy &amp; Tax Services"
+            subtitle="From day-to-day bookkeeping to complex tax planning, our team has the expertise to support your business at every stage."
             align="center"
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {mockIndustries.map((industry) => {
-              const ind = industries.find((i) => i.slug === industry.slug);
-              return (
-                <Card key={industry.slug} variant="outline" className="group transition-all hover:border-primary-300 hover:shadow-card">
+            {mockServices.map((service) => (
+                <Card key={service.slug} variant="outline" className="group transition-all hover:border-primary-300 hover:shadow-card">
                   <CardHeader>
                     <div className="bg-accent-50 mb-3 inline-flex h-12 w-12 items-center justify-center rounded-lg">
-                      <Icon name={industry.slug as IconName} size={24} className="text-accent-700" />
+                      <Icon name={service.slug as IconName} size={24} className="text-accent-700" />
                     </div>
-                    <CardTitle>{ind?.title ?? industry.title}</CardTitle>
+                    <CardTitle>{service.title}</CardTitle>
                   </CardHeader>
-                  <CardDescription>{industry.tagline}</CardDescription>
+                  <CardDescription>{service.tagline}</CardDescription>
                   <CardFooter className="mt-4">
                     <Link
-                      href={`/industries/${industry.slug}`}
+                      href={`/services/${service.slug}`}
                       className="text-primary-700 text-sm font-medium hover:underline"
                     >
                       Learn more →
                     </Link>
                   </CardFooter>
                 </Card>
-              );
-            })}
+              ))}
           </div>
         </Container>
       </Section>
@@ -303,9 +297,9 @@ export default function HomePage() {
 
       {/* ── CTA Banner ── */}
       <CTABanner
-        title="Ready to Switch to a Better Accountant?"
-        subtitle="Book a free, no-obligation consultation and see how Huxridge can save you time, reduce your tax liability, and give you the financial clarity your business deserves."
-        primary={{ label: "Book a Free Consultation", href: "/book" }}
+        title="Not sure where to start?"
+        subtitle="Book a free 30-minute discovery call, We'll tell you exactly where you can stand and what we can do to help you get there."
+        primary={{ label: "Book a Free Call", href: "/book" }}
         secondary={{ label: "Contact Us", href: "/contact" }}
       />
     </>

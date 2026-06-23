@@ -18,40 +18,55 @@ const approach = [
   {
     title: "100% Paperless",
     description:
-      "We operate without a single sheet of paper. Every document is stored, signed, and shared digitally — faster, greener, and always accessible.",
+      "We run a fully paperless practice. Everything — from onboarding to year-end accounts — is handled digitally. No printing, no posting, no chasing paper. It's faster, more secure, and means your documents are always where you need them, when you need them.",
   },
   {
     title: "Cloud Accounting Tools",
     description:
-      "We use the best cloud platforms — Xero, QuickBooks, FreeAgent, Dext — integrated to give you real-time financial visibility.",
+      "We work exclusively on cloud-based software — Xero, FreeAgent, and TaxCalc. That means your books are live and up to date at all times, you can log in and see your numbers from anywhere, and we can both work on the same data in real time. No more waiting for someone to send you a spreadsheet.",
   },
   {
     title: "Proactive Advisory",
     description:
-      "We do not wait for you to call us. We monitor your position and reach out with advice, alerts, and opportunities before problems arise.",
+      "Most accountants only talk to you at year-end. We don't work that way. We monitor your numbers throughout the year, flag anything that needs your attention, and bring opportunities to you before you have to ask. Think of us less as a compliance firm and more as a financial partner that happens to do your accounts too.",
+  },
+  {
+    title: "Dedicated Client Accountant",
+    description:
+      "When you join Huxridge, you're assigned one accountant who looks after you personally. They learn your business, understand your goals, and are your single point of contact for everything. You'll never be passed around or have to explain your situation to someone new.",
+  },
+  {
+    title: "Same-Day Response",
+    description:
+      "We know how frustrating it is to send an important question and hear nothing back for days. We commit to responding to every client query on the same working day — no exceptions. If we don't have the full answer yet, we'll acknowledge your message and tell you when you can expect it.",
+  },
+  {
+    title: "WhatsApp for Day-to-Day",
+    description:
+      "Quick questions shouldn't require a formal email. Once you're a client, you can message your accountant directly on WhatsApp for day-to-day queries — whether that's a quick tax question, a document request, or just a sense check on a decision you're about to make. We're as accessible as a colleague, not as distant as a firm.",
   },
 ];
 
 const values = [
   {
-    title: "Transparency",
+    title: "Expertise That Fits",
     description:
-      "Fixed fees, plain-English advice, and no hidden charges. You always know what you are getting and what it costs.",
+      "We only work with sectors we genuinely understand. No generalists, no guesswork. When you come to us, you're getting an accountant who already knows your industry inside out.",
   },
   {
-    title: "Expertise",
+    title: "Transparency Always",
     description:
-      "Our team holds professional qualifications and commits to ongoing learning in the fast-changing landscape of UK tax law.",
+      "Fixed fees, plain English, and no surprises. You always know what you're getting and what you're paying. No hidden charges, no confusing jargon, no small print.",
   },
   {
-    title: "Accessibility",
+    title: "Your Success Is Our Success",
     description:
-      "We are responsive and straightforward to deal with. You will always have a named contact who knows your affairs inside out.",
+      "We measure ourselves by the outcomes we deliver for clients, not just the compliance we complete. If you're growing, saving tax, and making confident decisions — we're doing our job.",
   },
   {
-    title: "Integrity",
+    title: "Technology With a Human Touch",
     description:
-      "We give honest advice even when it is not what you want to hear. Our job is to protect your interests and keep you fully compliant.",
+      "We use the best tools available, but there's always a real person behind every response. Technology makes us faster and more accurate — it doesn't replace the relationship.",
   },
 ];
 
@@ -86,10 +101,10 @@ export default function AboutPage() {
             About Us
           </p>
           <h1 className="text-primary-900 font-serif text-4xl leading-tight font-semibold sm:text-5xl">
-            Built on a Better Idea of What an Accountant Should Be
+            We built the firm we’d want to work with
           </h1>
           <p className="text-muted-foreground mt-6 text-xl leading-relaxed">
-            Huxridge was founded in 2022 with a simple but ambitious aim: to provide UK businesses, landlords, and self-employed professionals with genuinely expert, technology-driven accountancy — without the formality, delays, and frustration that so often come with the traditional model.
+            We started Huxridge because we kept seeing the same problem — hardworking professionals and business owners being let down by accountants who didn't understand their world. Generic advice. Slow responses. Reactive rather than proactive. We built something different. A firm that combines deep sector expertise with modern tools, straight-talking advice, and a genuine commitment to the people we work with.
           </p>
           <p className="text-muted-foreground mt-4 text-lg leading-relaxed">
             We are a fully remote, paperless practice. That means lower overheads, which we pass on to our clients through competitive fixed fees. It also means we can work with businesses anywhere in the UK, not just those within driving distance of a physical office.
@@ -109,8 +124,9 @@ export default function AboutPage() {
       <Section background="muted">
         <Container>
           <SectionHeading
-            eyebrow="Our Approach"
-            title="How We Work Differently"
+            eyebrow="How We Work Differently"
+            title="Not Your Average Accountant"
+            subtitle="We've rethought how an accountancy firm should work — from the tools we use to the way we communicate. Here's what that looks like in practice."
             align="center"
           />
           <div className="mt-12 grid gap-8 sm:grid-cols-3">
@@ -159,8 +175,9 @@ export default function AboutPage() {
       <Section background="muted">
         <Container>
           <SectionHeading
-            eyebrow="Our Values"
-            title="What We Stand For"
+            eyebrow="What We Stand For"
+            title="Four Things We Never Compromise On"
+            subtitle="These aren't values we put on a wall. They're the principles that shape every decision we make and every interaction we have with clients."
             align="center"
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -178,9 +195,9 @@ export default function AboutPage() {
 
       {/* ── CTA ── */}
       <CTABanner
-        title="Let&apos;s Work Together"
-        subtitle="Book a free, no-obligation consultation with our team and discover how Huxridge can support your business."
-        primary={{ label: "Book a Free Consultation", href: "/book" }}
+        title="Ready to work with an accountant who actually gets it?"
+        subtitle="Book a free 30-minute discovery call. No commitment, no jargon, just honest advice."
+        primary={{ label: "Book a Free Call", href: "/book" }}
         secondary={{ label: "Contact Us", href: "/contact" }}
       />
     </>
