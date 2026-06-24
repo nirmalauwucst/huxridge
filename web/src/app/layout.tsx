@@ -41,7 +41,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${playfair.variable} h-full antialiased`}
     >
-      <body className="bg-background text-foreground flex min-h-full flex-col">
+      <body suppressHydrationWarning className="bg-background text-foreground flex min-h-full flex-col">
         <CookieConsentProvider>
           <GoogleAnalyticsProvider />
           <a href="#main-content" className="skip-link">
