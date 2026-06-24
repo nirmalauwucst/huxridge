@@ -30,7 +30,10 @@ export const services = [
 
 import { mockIndustries } from "./mock-data";
 
-export const industries = mockIndustries.map(({ slug, title }) => ({ slug, title }));
+export const industries = mockIndustries.map(({ slug, title }) => ({
+  slug,
+  title,
+}));
 
 export const primaryNav = [
   { label: "Services", href: "/services" },

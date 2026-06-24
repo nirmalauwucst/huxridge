@@ -104,13 +104,26 @@ export default function AboutPage() {
             We built the firm we’d want to work with
           </h1>
           <p className="text-muted-foreground mt-6 text-xl leading-relaxed">
-            We started Huxridge because we kept seeing the same problem — hardworking professionals and business owners being let down by accountants who didn't understand their world. Generic advice. Slow responses. Reactive rather than proactive. We built something different. A firm that combines deep sector expertise with modern tools, straight-talking advice, and a genuine commitment to the people we work with.
+            We started Huxridge because we kept seeing the same problem &mdash;
+            hardworking professionals and business owners being let down by
+            accountants who didn&apos;t understand their world. Generic advice.
+            Slow responses. Reactive rather than proactive. We built something
+            different. A firm that combines deep sector expertise with modern
+            tools, straight-talking advice, and a genuine commitment to the
+            people we work with.
           </p>
           <p className="text-muted-foreground mt-4 text-lg leading-relaxed">
-            We are a fully remote, paperless practice. That means lower overheads, which we pass on to our clients through competitive fixed fees. It also means we can work with businesses anywhere in the UK, not just those within driving distance of a physical office.
+            We are a fully remote, paperless practice. That means lower
+            overheads, which we pass on to our clients through competitive fixed
+            fees. It also means we can work with businesses anywhere in the UK,
+            not just those within driving distance of a physical office.
           </p>
           <p className="text-muted-foreground mt-4 text-lg leading-relaxed">
-            Everything we do is underpinned by cloud technology. We use the best tools available — Xero, QuickBooks, FreeAgent, Dext, and others — to automate the routine tasks and free our team to focus on the work that genuinely adds value: tax planning, financial advice, and helping our clients make better decisions.
+            Everything we do is underpinned by cloud technology. We use the best
+            tools available — Xero, QuickBooks, FreeAgent, Dext, and others — to
+            automate the routine tasks and free our team to focus on the work
+            that genuinely adds value: tax planning, financial advice, and
+            helping our clients make better decisions.
           </p>
           <div className="mt-8">
             <Button asChild variant="primary" size="lg">
@@ -133,9 +146,14 @@ export default function AboutPage() {
             {approach.map((item) => (
               <div key={item.title} className="text-center">
                 <div className="bg-primary-900 mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full">
-                  <CheckCircle2 className="h-6 w-6 text-white" aria-hidden="true" />
+                  <CheckCircle2
+                    className="h-6 w-6 text-white"
+                    aria-hidden="true"
+                  />
                 </div>
-                <h3 className="text-primary-900 text-lg font-semibold">{item.title}</h3>
+                <h3 className="text-primary-900 text-lg font-semibold">
+                  {item.title}
+                </h3>
                 <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
                   {item.description}
                 </p>
@@ -156,14 +174,20 @@ export default function AboutPage() {
           />
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {team.map((member) => (
-              <Card key={member.name} variant="elevated" className="text-center">
+              <Card
+                key={member.name}
+                variant="elevated"
+                className="text-center"
+              >
                 <div className="bg-primary-900 mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full">
                   <span className="font-serif text-xl font-semibold text-white">
                     {member.initials}
                   </span>
                 </div>
                 <CardTitle>{member.name}</CardTitle>
-                <p className="text-accent-600 mt-1 text-sm font-medium">{member.role}</p>
+                <p className="text-accent-600 mt-1 text-sm font-medium">
+                  {member.role}
+                </p>
                 <CardDescription className="mt-3">{member.bio}</CardDescription>
               </Card>
             ))}
@@ -182,8 +206,13 @@ export default function AboutPage() {
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((value) => (
-              <div key={value.title} className="bg-background rounded-xl p-6 shadow-card">
-                <h3 className="text-primary-900 font-semibold">{value.title}</h3>
+              <div
+                key={value.title}
+                className="bg-background shadow-card rounded-xl p-6"
+              >
+                <h3 className="text-primary-900 font-semibold">
+                  {value.title}
+                </h3>
                 <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
                   {value.description}
                 </p>

@@ -17,10 +17,18 @@ type AccordionProps = {
   type?: "single" | "multiple";
 };
 
-export function Accordion({ items, className, type = "multiple" }: AccordionProps) {
+export function Accordion({
+  items,
+  className,
+  type = "multiple",
+}: AccordionProps) {
   if (type === "single") {
     return (
-      <AccordionPrimitive.Root type="single" collapsible className={cn("space-y-2", className)}>
+      <AccordionPrimitive.Root
+        type="single"
+        collapsible
+        className={cn("space-y-2", className)}
+      >
         {items.map((item, i) => (
           <AccordionPrimitive.Item
             key={i}
@@ -37,7 +45,7 @@ export function Accordion({ items, className, type = "multiple" }: AccordionProp
               </AccordionPrimitive.Trigger>
             </AccordionPrimitive.Header>
             <AccordionPrimitive.Content className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden">
-              <p className="text-muted-foreground px-5 pb-5 pt-1 text-sm leading-relaxed">
+              <p className="text-muted-foreground px-5 pt-1 pb-5 text-sm leading-relaxed">
                 {item.answer}
               </p>
             </AccordionPrimitive.Content>
@@ -48,7 +56,10 @@ export function Accordion({ items, className, type = "multiple" }: AccordionProp
   }
 
   return (
-    <AccordionPrimitive.Root type="multiple" className={cn("space-y-2", className)}>
+    <AccordionPrimitive.Root
+      type="multiple"
+      className={cn("space-y-2", className)}
+    >
       {items.map((item, i) => (
         <AccordionPrimitive.Item
           key={i}
@@ -65,7 +76,7 @@ export function Accordion({ items, className, type = "multiple" }: AccordionProp
             </AccordionPrimitive.Trigger>
           </AccordionPrimitive.Header>
           <AccordionPrimitive.Content className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden">
-            <p className="text-muted-foreground px-5 pb-5 pt-1 text-sm leading-relaxed">
+            <p className="text-muted-foreground px-5 pt-1 pb-5 text-sm leading-relaxed">
               {item.answer}
             </p>
           </AccordionPrimitive.Content>

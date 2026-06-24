@@ -2,7 +2,13 @@ import Link from "next/link";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 import { CTABanner } from "@/components/ui/cta-banner";
-import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from "@/components/ui/card";
 import { Icon, type IconName } from "@/components/ui/icon";
 import { Button } from "@/components/ui/button";
 import { services } from "@/lib/site";
@@ -28,7 +34,9 @@ export default function ServicesPage() {
             Every Accountancy Service Your Business Needs
           </h1>
           <p className="text-muted-foreground mt-5 text-xl leading-relaxed">
-            From day-to-day bookkeeping and VAT returns to complex tax planning and Making Tax Digital compliance — our team has the expertise to handle it all, at a transparent fixed monthly fee.
+            From day-to-day bookkeeping and VAT returns to complex tax planning
+            and Making Tax Digital compliance — our team has the expertise to
+            handle it all, at a transparent fixed monthly fee.
           </p>
         </Container>
       </Section>
@@ -40,14 +48,24 @@ export default function ServicesPage() {
             {mockServices.map((service) => {
               const s = services.find((sv) => sv.slug === service.slug);
               return (
-                <Card key={service.slug} variant="default" className="flex flex-col transition-all hover:shadow-elevated">
+                <Card
+                  key={service.slug}
+                  variant="default"
+                  className="hover:shadow-elevated flex flex-col transition-all"
+                >
                   <CardHeader>
                     <div className="bg-primary-50 mb-3 inline-flex h-12 w-12 items-center justify-center rounded-lg">
-                      <Icon name={service.slug as IconName} size={24} className="text-primary-700" />
+                      <Icon
+                        name={service.slug as IconName}
+                        size={24}
+                        className="text-primary-700"
+                      />
                     </div>
                     <CardTitle>{s?.title ?? service.title}</CardTitle>
                   </CardHeader>
-                  <CardDescription className="flex-1">{service.description}</CardDescription>
+                  <CardDescription className="flex-1">
+                    {service.description}
+                  </CardDescription>
                   <CardFooter className="mt-4">
                     <Button asChild variant="ghost" size="sm" className="p-0">
                       <Link href={`/services/${service.slug}`}>

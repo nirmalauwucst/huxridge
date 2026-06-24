@@ -2,7 +2,12 @@ import Link from "next/link";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 import { CTABanner } from "@/components/ui/cta-banner";
-import { Card, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { mockBlogPosts } from "@/lib/mock-data";
@@ -38,7 +43,8 @@ export default function BlogPage() {
             Latest Insights
           </h1>
           <p className="text-muted-foreground mt-5 text-xl leading-relaxed">
-            Tax tips, regulatory updates, and practical business finance advice from the Huxridge team. Written in plain English — no jargon.
+            Tax tips, regulatory updates, and practical business finance advice
+            from the Huxridge team. Written in plain English — no jargon.
           </p>
         </Container>
       </Section>
@@ -52,7 +58,7 @@ export default function BlogPage() {
                 key={cat}
                 className={
                   cat === "All"
-                    ? "rounded-full bg-primary-900 px-4 py-1.5 text-sm font-medium text-white"
+                    ? "bg-primary-900 rounded-full px-4 py-1.5 text-sm font-medium text-white"
                     : "border-border text-primary-700 hover:border-primary-900 hover:bg-primary-50 rounded-full border px-4 py-1.5 text-sm font-medium"
                 }
               >
@@ -68,18 +74,30 @@ export default function BlogPage() {
         <Container>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {mockBlogPosts.map((post) => (
-              <Card key={post.slug} variant="default" className="flex flex-col transition-shadow hover:shadow-elevated">
-                <div className="bg-primary-50 mb-5 h-44 rounded-lg" aria-hidden="true" />
+              <Card
+                key={post.slug}
+                variant="default"
+                className="hover:shadow-elevated flex flex-col transition-shadow"
+              >
+                <div
+                  className="bg-primary-50 mb-5 h-44 rounded-lg"
+                  aria-hidden="true"
+                />
                 <Badge variant="accent" className="mb-3 self-start">
                   {post.category}
                 </Badge>
                 <CardTitle className="text-xl">
-                  <Link href={`/blog/${post.slug}`} className="transition-colors hover:text-primary-700">
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="hover:text-primary-700 transition-colors"
+                  >
                     {post.title}
                   </Link>
                 </CardTitle>
-                <CardDescription className="mt-2 flex-1 text-base">{post.excerpt}</CardDescription>
-                <CardFooter className="mt-5 gap-4 text-xs text-muted-foreground">
+                <CardDescription className="mt-2 flex-1 text-base">
+                  {post.excerpt}
+                </CardDescription>
+                <CardFooter className="text-muted-foreground mt-5 gap-4 text-xs">
                   <span className="flex items-center gap-1">
                     <CalendarDays className="h-3.5 w-3.5" aria-hidden="true" />
                     {post.date}

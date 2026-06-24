@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { footerNav, site } from "@/lib/site";
 import { NewsletterSignup } from "@/components/ui/newsletter-signup";
+import { ManagePreferencesButton } from "@/components/cookie-consent/manage-preferences-button";
 
 function LinkedInIcon(props: React.SVGAttributes<SVGSVGElement>) {
   return (
@@ -80,6 +81,7 @@ export function Footer() {
                 {l.label}
               </Link>
             ))}
+            <ManagePreferencesButton className="hover:text-white" />
             <a
               href={site.social.linkedin}
               aria-label="LinkedIn"

@@ -2,7 +2,12 @@ import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
-import { Card, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { mockResources } from "@/lib/mock-data";
@@ -38,7 +43,9 @@ export default function ResourcesPage() {
             Free Guides &amp; Resources
           </h1>
           <p className="text-muted-foreground mt-5 text-xl leading-relaxed">
-            Practical guides, checklists, and reference articles to help UK business owners, landlords, and contractors navigate tax and accountancy with confidence.
+            Practical guides, checklists, and reference articles to help UK
+            business owners, landlords, and contractors navigate tax and
+            accountancy with confidence.
           </p>
         </Container>
       </Section>
@@ -52,7 +59,7 @@ export default function ResourcesPage() {
                 key={cat}
                 className={
                   cat === "All"
-                    ? "rounded-full bg-primary-900 px-4 py-1.5 text-sm font-medium text-white"
+                    ? "bg-primary-900 rounded-full px-4 py-1.5 text-sm font-medium text-white"
                     : "border-border text-primary-700 hover:border-primary-900 hover:bg-primary-50 rounded-full border px-4 py-1.5 text-sm font-medium"
                 }
               >
@@ -68,29 +75,47 @@ export default function ResourcesPage() {
         <Container>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {mockResources.map((resource) => (
-              <Card key={resource.title} variant="default" className="flex flex-col transition-all hover:shadow-elevated">
+              <Card
+                key={resource.title}
+                variant="default"
+                className="hover:shadow-elevated flex flex-col transition-all"
+              >
                 <div className="bg-primary-50 mb-4 flex h-36 items-center justify-center rounded-lg">
                   {resource.cta === "Download Guide" ? (
-                    <Download className="text-primary-300 h-12 w-12" aria-hidden="true" />
+                    <Download
+                      className="text-primary-300 h-12 w-12"
+                      aria-hidden="true"
+                    />
                   ) : (
-                    <FileText className="text-primary-300 h-12 w-12" aria-hidden="true" />
+                    <FileText
+                      className="text-primary-300 h-12 w-12"
+                      aria-hidden="true"
+                    />
                   )}
                 </div>
                 <Badge variant="muted" className="mb-3 self-start">
                   {resource.category}
                 </Badge>
                 <CardTitle className="text-lg">{resource.title}</CardTitle>
-                <CardDescription className="mt-2 flex-1">{resource.description}</CardDescription>
+                <CardDescription className="mt-2 flex-1">
+                  {resource.description}
+                </CardDescription>
                 <CardFooter className="mt-5">
                   <Button variant="outline" size="sm">
                     {resource.cta === "Download Guide" ? (
                       <>
-                        <Download className="mr-1.5 h-4 w-4" aria-hidden="true" />
+                        <Download
+                          className="mr-1.5 h-4 w-4"
+                          aria-hidden="true"
+                        />
                         Download Guide
                       </>
                     ) : (
                       <>
-                        <FileText className="mr-1.5 h-4 w-4" aria-hidden="true" />
+                        <FileText
+                          className="mr-1.5 h-4 w-4"
+                          aria-hidden="true"
+                        />
                         Read Article
                       </>
                     )}

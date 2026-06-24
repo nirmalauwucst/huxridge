@@ -5,13 +5,22 @@ import { Container } from "@/components/layout/container";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Accordion } from "@/components/ui/accordion";
 import { Icon, type IconName } from "@/components/ui/icon";
 import { Badge } from "@/components/ui/badge";
 import { industries, services } from "@/lib/site";
-import { mockIndustries, mockServices, mockTestimonials } from "@/lib/mock-data";
+import {
+  mockIndustries,
+  mockServices,
+  mockTestimonials,
+} from "@/lib/mock-data";
 import { AlertCircle, CheckCircle2, Star } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -86,7 +95,10 @@ export default async function IndustryPage({ params }: Props) {
                 </Button>
               </div>
             </div>
-            <div className="bg-accent-50 hidden h-72 rounded-2xl lg:block" aria-hidden="true" />
+            <div
+              className="bg-accent-50 hidden h-72 rounded-2xl lg:block"
+              aria-hidden="true"
+            />
           </div>
         </Container>
       </Section>
@@ -100,9 +112,17 @@ export default async function IndustryPage({ params }: Props) {
           />
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
             {industry.challenges.map((challenge) => (
-              <li key={challenge} className="bg-background flex items-start gap-3 rounded-xl p-5 shadow-card">
-                <AlertCircle className="text-accent-600 mt-0.5 h-5 w-5 shrink-0" aria-hidden="true" />
-                <span className="text-primary-800 text-sm leading-relaxed">{challenge}</span>
+              <li
+                key={challenge}
+                className="bg-background shadow-card flex items-start gap-3 rounded-xl p-5"
+              >
+                <AlertCircle
+                  className="text-accent-600 mt-0.5 h-5 w-5 shrink-0"
+                  aria-hidden="true"
+                />
+                <span className="text-primary-800 text-sm leading-relaxed">
+                  {challenge}
+                </span>
               </li>
             ))}
           </ul>
@@ -112,14 +132,14 @@ export default async function IndustryPage({ params }: Props) {
       {/* ── How We Help ── */}
       <Section background="default">
         <Container>
-          <SectionHeading
-            eyebrow="Our Solution"
-            title="How Huxridge Helps"
-          />
+          <SectionHeading eyebrow="Our Solution" title="How Huxridge Helps" />
           <ul className="mt-8 space-y-4">
             {industry.howWeHelp.map((item) => (
               <li key={item} className="flex items-start gap-3">
-                <CheckCircle2 className="text-accent-600 mt-1 h-5 w-5 shrink-0" aria-hidden="true" />
+                <CheckCircle2
+                  className="text-accent-600 mt-1 h-5 w-5 shrink-0"
+                  aria-hidden="true"
+                />
                 <span className="text-primary-800 leading-relaxed">{item}</span>
               </li>
             ))}
@@ -130,19 +150,34 @@ export default async function IndustryPage({ params }: Props) {
       {/* ── Related Services ── */}
       <Section background="muted">
         <Container>
-          <SectionHeading eyebrow="Services" title="Relevant Services for You" />
+          <SectionHeading
+            eyebrow="Services"
+            title="Relevant Services for You"
+          />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {relatedServices.map((rs) => {
               const rsSite = services.find((s) => s.slug === rs.slug);
               return (
-                <Card key={rs.slug} variant="outline" className="transition-all hover:border-primary-300 hover:shadow-card">
+                <Card
+                  key={rs.slug}
+                  variant="outline"
+                  className="hover:border-primary-300 hover:shadow-card transition-all"
+                >
                   <CardHeader>
                     <div className="bg-primary-50 mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg">
-                      <Icon name={rs.slug as IconName} size={20} className="text-primary-700" />
+                      <Icon
+                        name={rs.slug as IconName}
+                        size={20}
+                        className="text-primary-700"
+                      />
                     </div>
-                    <CardTitle className="text-base">{rsSite?.title ?? rs.title}</CardTitle>
+                    <CardTitle className="text-base">
+                      {rsSite?.title ?? rs.title}
+                    </CardTitle>
                   </CardHeader>
-                  <CardDescription className="text-sm">{rs.tagline}</CardDescription>
+                  <CardDescription className="text-sm">
+                    {rs.tagline}
+                  </CardDescription>
                   <div className="mt-4">
                     <Link
                       href={`/services/${rs.slug}`}
@@ -161,20 +196,32 @@ export default async function IndustryPage({ params }: Props) {
       {/* ── Testimonials ── */}
       <Section background="default">
         <Container>
-          <SectionHeading eyebrow="Client Feedback" title="What Our Clients Say" />
+          <SectionHeading
+            eyebrow="Client Feedback"
+            title="What Our Clients Say"
+          />
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {industryTestimonials.map((t) => (
               <Card key={t.id} variant="elevated">
-                <div className="flex gap-0.5 text-accent-500" aria-label={`${t.rating} stars`}>
+                <div
+                  className="text-accent-500 flex gap-0.5"
+                  aria-label={`${t.rating} stars`}
+                >
                   {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" aria-hidden="true" />
+                    <Star
+                      key={i}
+                      className="h-4 w-4 fill-current"
+                      aria-hidden="true"
+                    />
                   ))}
                 </div>
                 <blockquote className="text-primary-800 mt-3 text-sm leading-relaxed">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
                 <footer className="mt-4 border-t pt-3">
-                  <p className="text-primary-900 text-sm font-semibold">{t.name}</p>
+                  <p className="text-primary-900 text-sm font-semibold">
+                    {t.name}
+                  </p>
                   <p className="text-muted-foreground text-sm">{t.company}</p>
                 </footer>
               </Card>
