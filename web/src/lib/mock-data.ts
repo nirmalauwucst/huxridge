@@ -56,7 +56,8 @@ export const mockServices = [
           "Yes. We handle the transition process, including reviewing and cleaning up historical records if necessary, so there is minimal disruption to your business.",
       },
       {
-        question: "Can you help me set a budget and track performance against it?",
+        question:
+          "Can you help me set a budget and track performance against it?",
         answer:
           "Yes. We can work with you to create an annual budget and then track performance against it each period, highlighting variances and providing commentary on the key movements.",
       },
@@ -119,7 +120,11 @@ export const mockServices = [
           "Absolutely. Complex tax affairs are our speciality. We are experienced in returns involving employment, self-employment, rental income, dividends, capital gains, and foreign income.",
       },
     ],
-    relatedSlugs: ["corporation-tax", "bookkeeping-management-accounts", "vat-services"],
+    relatedSlugs: [
+      "corporation-tax",
+      "bookkeeping-management-accounts",
+      "vat-services",
+    ],
   },
   {
     slug: "annual-accounts",
@@ -176,7 +181,11 @@ export const mockServices = [
           "Yes. We can prepare overdue accounts and manage the filing process, including negotiating with HMRC and Companies House where penalties have already accrued.",
       },
     ],
-    relatedSlugs: ["corporation-tax", "bookkeeping-management-accounts", "vat-services"],
+    relatedSlugs: [
+      "corporation-tax",
+      "bookkeeping-management-accounts",
+      "vat-services",
+    ],
   },
   {
     slug: "corporation-tax",
@@ -233,7 +242,11 @@ export const mockServices = [
           "Yes. We advise on group structures, group relief, transfer pricing considerations, and the allocation of profits and losses across connected entities.",
       },
     ],
-    relatedSlugs: ["annual-accounts", "bookkeeping-management-accounts", "personal-tax"],
+    relatedSlugs: [
+      "annual-accounts",
+      "bookkeeping-management-accounts",
+      "personal-tax",
+    ],
   },
   {
     slug: "internal-audit",
@@ -290,7 +303,11 @@ export const mockServices = [
           "You receive a detailed written report summarising findings, risk ratings, and prioritised recommendations, plus an executive summary suitable for presenting to your board.",
       },
     ],
-    relatedSlugs: ["annual-accounts", "bookkeeping-management-accounts", "corporation-tax"],
+    relatedSlugs: [
+      "annual-accounts",
+      "bookkeeping-management-accounts",
+      "corporation-tax",
+    ],
   },
   {
     slug: "making-tax-digital",
@@ -347,7 +364,11 @@ export const mockServices = [
           "HMRC operates a points-based penalty system for late submissions and a separate penalty regime for late payment. Non-compliance with digital record-keeping can also attract fines.",
       },
     ],
-    relatedSlugs: ["vat-services", "bookkeeping-management-accounts", "personal-tax"],
+    relatedSlugs: [
+      "vat-services",
+      "bookkeeping-management-accounts",
+      "personal-tax",
+    ],
   },
   {
     slug: "vat-services",
@@ -404,12 +425,17 @@ export const mockServices = [
           "Yes. We will prepare for the inspection, accompany you (virtually or in person), and handle all correspondence with the HMRC VAT officer.",
       },
     ],
-    relatedSlugs: ["bookkeeping-management-accounts", "making-tax-digital", "annual-accounts"],
+    relatedSlugs: [
+      "bookkeeping-management-accounts",
+      "making-tax-digital",
+      "annual-accounts",
+    ],
   },
   {
     slug: "company-formation-secretarial",
     title: "Company Formation & Secretarial Services",
-    tagline: "Start right and stay compliant — from incorporation to ongoing filings.",
+    tagline:
+      "Start right and stay compliant — from incorporation to ongoing filings.",
     description:
       "Starting a new company or keeping an existing one compliant — we handle the admin so you don't have to. From incorporation through to ongoing secretarial support, we make sure everything is filed correctly and on time.",
     features: [
@@ -446,7 +472,8 @@ export const mockServices = [
           "Standard Companies House incorporation typically takes 24 hours. Same-day service is available for a small additional fee.",
       },
       {
-        question: "Should I trade through a limited company or as a sole trader?",
+        question:
+          "Should I trade through a limited company or as a sole trader?",
         answer:
           "This depends on your income level, risk appetite, and long-term goals. A limited company typically becomes more tax-efficient once profits exceed approximately £30,000–£40,000. We will model both options for you.",
       },
@@ -520,12 +547,14 @@ export const mockIndustries = [
           "Associate dentists are typically self-employed and require an annual Self Assessment return. We prepare these efficiently and ensure all allowable expenses are claimed — lab fees, CPD costs, indemnity insurance, professional subscriptions, and equipment purchased for clinical use.",
       },
       {
-        question: "What is the NHS pension annual allowance charge and how do I manage it?",
+        question:
+          "What is the NHS pension annual allowance charge and how do I manage it?",
         answer:
           "The NHS Pension Scheme is a defined benefit scheme, and growth in pensionable pay can trigger an annual allowance charge even if you have not made additional contributions. For higher-earning dentists this can mean an unexpected tax bill of tens of thousands of pounds. We calculate your pension input amount each year and help you plan or fund any charge that arises.",
       },
       {
-        question: "Can you help with the financial side of setting up a squat practice?",
+        question:
+          "Can you help with the financial side of setting up a squat practice?",
         answer:
           "Yes. We advise squat practice founders on everything from the business plan and financing approach through to the correct legal and tax structure, CQC registration requirements, and initial bookkeeping setup. Getting the foundations right at the start saves significant cost and complexity later.",
       },
@@ -564,7 +593,8 @@ export const mockIndustries = [
           "The provision of residential or domiciliary care is exempt from VAT as a welfare service. This means you do not charge VAT on fees, but it also means you cannot reclaim VAT on most of your costs. We review your services in detail to confirm the correct VAT treatment and advise on any partially standard-rated activities.",
       },
       {
-        question: "Should I hold the care home property separately from the trading business?",
+        question:
+          "Should I hold the care home property separately from the trading business?",
         answer:
           "Holding property in a separate entity from the trading operation is a common and often tax-efficient structure. It can protect the property asset from trading liabilities and create flexibility for future sale or succession planning. We assess the pros and cons for your specific situation including Stamp Duty Land Tax, Capital Gains Tax, and the impact on any mortgage arrangements.",
       },
@@ -608,12 +638,14 @@ export const mockIndustries = [
     ],
     faqs: [
       {
-        question: "Do I need to complete a Self Assessment return as a nurse or clinician?",
+        question:
+          "Do I need to complete a Self Assessment return as a nurse or clinician?",
         answer:
           "You will need to file a Self Assessment return if you have income from locum, bank, agency, or private work in addition to your main NHS employment, if your income exceeds £100,000 in any year, or if you have been issued with a P800 showing underpaid tax. We prepare and file your return accurately and on time.",
       },
       {
-        question: "Am I employed or self-employed when working through an agency?",
+        question:
+          "Am I employed or self-employed when working through an agency?",
         answer:
           "This depends on how your engagement is structured. Many agency workers in healthcare are treated as employed for tax purposes, meaning tax and NI are deducted at source. Locum arrangements may be genuinely self-employed. We review your contracts and working arrangements and advise on the correct position.",
       },
@@ -657,7 +689,8 @@ export const mockIndustries = [
     ],
     faqs: [
       {
-        question: "Should I own my buy-to-let properties personally or through a limited company?",
+        question:
+          "Should I own my buy-to-let properties personally or through a limited company?",
         answer:
           "This is the most common question we receive from landlords. The answer depends on your income tax rate, the number of properties you hold, your mortgage position, and your long-term intentions. We prepare a detailed financial model for each client that shows the after-tax position under both structures before making a recommendation.",
       },
@@ -667,12 +700,14 @@ export const mockIndustries = [
           "Allowable expenses include mortgage interest (subject to Section 24 restrictions for personal ownership), letting agent fees, repairs and maintenance, insurance, accountancy fees, and certain legal costs. You cannot claim capital expenditure such as extensions or improvements, though these may reduce your Capital Gains Tax liability when you sell.",
       },
       {
-        question: "How much Capital Gains Tax will I pay when I sell a rental property?",
+        question:
+          "How much Capital Gains Tax will I pay when I sell a rental property?",
         answer:
           "Residential property gains are taxed at 18% (basic rate) or 24% (higher rate) after deducting your annual CGT exemption. We calculate the exact liability in advance, identify all available reliefs, and advise on timing to minimise the charge.",
       },
       {
-        question: "Do I need to file a Capital Gains Tax return quickly after selling?",
+        question:
+          "Do I need to file a Capital Gains Tax return quickly after selling?",
         answer:
           "Yes. UK residents must report and pay CGT on UK residential property within 60 days of completion. We prepare these returns promptly to ensure you meet the deadline and avoid late filing penalties.",
       },
@@ -716,7 +751,8 @@ export const mockIndustries = [
           "IR35 status depends on your actual working practices — the key tests are control (who decides how the work is done), substitution (whether you can send someone else), and mutuality of obligation (whether the client must offer work and you must accept it). We review your contracts and day-to-day working arrangements and provide a written status opinion that you can use to support your position.",
       },
       {
-        question: "How much should I pay myself as a salary from my limited company?",
+        question:
+          "How much should I pay myself as a salary from my limited company?",
         answer:
           "Most contractors take a salary at or around the Secondary National Insurance threshold (£9,100 in 2025/26) to preserve their NI record while avoiding employer and employee NI contributions. Above this level, dividends are generally more tax-efficient. We calculate the optimal split for your personal circumstances each tax year.",
       },
@@ -831,7 +867,8 @@ export const mockBlogPosts = [
   },
   {
     slug: "section-24-five-years-on",
-    title: "Section 24 Five Years On: Is Incorporation Right for Your Portfolio?",
+    title:
+      "Section 24 Five Years On: Is Incorporation Right for Your Portfolio?",
     excerpt:
       "The mortgage interest restriction has fundamentally changed the maths of property investment. We analyse when incorporating your portfolio makes financial sense — and when it does not.",
     date: "2026-03-28",
@@ -871,7 +908,8 @@ export const mockBlogPosts = [
   },
   {
     slug: "startup-accounting-mistakes",
-    title: "7 Accounting Mistakes New Business Owners Make (and How to Avoid Them)",
+    title:
+      "7 Accounting Mistakes New Business Owners Make (and How to Avoid Them)",
     excerpt:
       "From choosing the wrong legal structure to missing the VAT threshold, the financial mistakes made in year one can echo through a business for years. Here is how to get it right from the start.",
     date: "2026-01-22",

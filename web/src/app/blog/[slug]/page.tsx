@@ -4,7 +4,12 @@ import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { CTABanner } from "@/components/ui/cta-banner";
-import { Card, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { mockBlogPosts, mockSamplePostBody } from "@/lib/mock-data";
 import { CalendarDays, Clock, User } from "lucide-react";
@@ -101,10 +106,15 @@ export default async function BlogPostPage({ params }: Props) {
                   </span>
                 </div>
                 <div>
-                  <p className="text-primary-900 font-semibold">{post.author.name}</p>
+                  <p className="text-primary-900 font-semibold">
+                    {post.author.name}
+                  </p>
                   <p className="text-accent-600 text-sm">{post.author.role}</p>
                   <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
-                    The Huxridge team writes practical, plain-English guides to help UK businesses and individuals navigate tax and accountancy. Our articles are for general information only — always seek professional advice for your specific situation.
+                    The Huxridge team writes practical, plain-English guides to
+                    help UK businesses and individuals navigate tax and
+                    accountancy. Our articles are for general information only —
+                    always seek professional advice for your specific situation.
                   </p>
                 </div>
               </div>
@@ -116,21 +126,35 @@ export default async function BlogPostPage({ params }: Props) {
       {/* ── Related Posts ── */}
       <Section background="muted">
         <Container>
-          <h2 className="text-primary-900 mb-8 text-2xl font-semibold">Related Articles</h2>
+          <h2 className="text-primary-900 mb-8 text-2xl font-semibold">
+            Related Articles
+          </h2>
           <div className="grid gap-6 sm:grid-cols-3">
             {relatedPosts.map((rp) => (
-              <Card key={rp.slug} variant="default" className="flex flex-col transition-shadow hover:shadow-elevated">
-                <div className="bg-primary-50 mb-4 h-36 rounded-lg" aria-hidden="true" />
+              <Card
+                key={rp.slug}
+                variant="default"
+                className="hover:shadow-elevated flex flex-col transition-shadow"
+              >
+                <div
+                  className="bg-primary-50 mb-4 h-36 rounded-lg"
+                  aria-hidden="true"
+                />
                 <Badge variant="accent" className="mb-3 self-start">
                   {rp.category}
                 </Badge>
                 <CardTitle className="text-lg">
-                  <Link href={`/blog/${rp.slug}`} className="transition-colors hover:text-primary-700">
+                  <Link
+                    href={`/blog/${rp.slug}`}
+                    className="hover:text-primary-700 transition-colors"
+                  >
                     {rp.title}
                   </Link>
                 </CardTitle>
-                <CardDescription className="mt-2 flex-1">{rp.excerpt}</CardDescription>
-                <CardFooter className="mt-4 text-xs text-muted-foreground">
+                <CardDescription className="mt-2 flex-1">
+                  {rp.excerpt}
+                </CardDescription>
+                <CardFooter className="text-muted-foreground mt-4 text-xs">
                   <span>{rp.date}</span>
                   <span className="mx-2">·</span>
                   <span>{rp.readingTime}</span>

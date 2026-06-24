@@ -24,7 +24,8 @@ export function NewsletterSignup({ className }: NewsletterSignupProps) {
         Stay Informed
       </p>
       <p className="text-primary-300 mb-4 text-sm">
-        Tax tips, deadline reminders, and regulatory updates — straight to your inbox.
+        Tax tips, deadline reminders, and regulatory updates — straight to your
+        inbox.
       </p>
       {submitted ? (
         <p className="text-accent-400 text-sm font-medium">
@@ -42,9 +43,14 @@ export function NewsletterSignup({ className }: NewsletterSignupProps) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="text-primary-900 w-full rounded-md border border-white/20 bg-white/10 px-3 py-2 text-sm placeholder:text-white/40 focus:border-white/40 focus:outline-none focus:ring-1 focus:ring-white/40"
+            className="text-primary-900 w-full rounded-md border border-white/20 bg-white/10 px-3 py-2 text-sm placeholder:text-white/40 focus:border-white/40 focus:ring-1 focus:ring-white/40 focus:outline-none"
           />
-          <Button type="submit" variant="secondary" size="sm" className="shrink-0">
+          <Button
+            type="submit"
+            variant="secondary"
+            size="sm"
+            className="shrink-0"
+          >
             Subscribe
           </Button>
         </form>

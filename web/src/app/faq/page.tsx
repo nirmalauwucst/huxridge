@@ -23,7 +23,8 @@ export default function FaqPage() {
             Frequently Asked Questions
           </h1>
           <p className="text-muted-foreground mt-5 text-xl leading-relaxed">
-            Answers to the questions we hear most often. If you cannot find what you are looking for, please get in touch — we are happy to help.
+            Answers to the questions we hear most often. If you cannot find what
+            you are looking for, please get in touch — we are happy to help.
           </p>
         </Container>
       </Section>

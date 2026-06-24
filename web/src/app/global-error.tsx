@@ -28,7 +28,9 @@ export default function GlobalError({
           color: "#1a2e4a",
         }}
       >
-        <div style={{ textAlign: "center", padding: "2rem", maxWidth: "480px" }}>
+        <div
+          style={{ textAlign: "center", padding: "2rem", maxWidth: "480px" }}
+        >
           <p
             style={{
               fontSize: "0.875rem",

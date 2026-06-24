@@ -63,10 +63,7 @@ export function trackIndustryPageView(slug: string, title: string): void {
   });
 }
 
-export function trackResourceDownloadClick(
-  slug: string,
-  title: string,
-): void {
+export function trackResourceDownloadClick(slug: string, title: string): void {
   trackEvent("resource_download_click", {
     resource_slug: slug,
     resource_title: title,

@@ -5,7 +5,12 @@ import { Container } from "@/components/layout/container";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Accordion } from "@/components/ui/accordion";
 import { Icon, type IconName } from "@/components/ui/icon";
@@ -86,7 +91,10 @@ export default async function ServicePage({ params }: Props) {
                 </Button>
               </div>
             </div>
-            <div className="bg-primary-50 hidden h-72 rounded-2xl lg:block" aria-hidden="true" />
+            <div
+              className="bg-primary-50 hidden h-72 rounded-2xl lg:block"
+              aria-hidden="true"
+            />
           </div>
         </Container>
       </Section>
@@ -94,15 +102,20 @@ export default async function ServicePage({ params }: Props) {
       {/* ── What's Included ── */}
       <Section background="muted">
         <Container>
-          <SectionHeading
-            eyebrow="What&apos;s Included"
-            title="Service Features"
-          />
+          <SectionHeading eyebrow="What's Included" title="Service Features" />
           <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {service.features.map((feature) => (
-              <li key={feature} className="bg-background flex items-start gap-3 rounded-lg p-4 shadow-card">
-                <CheckCircle2 className="text-accent-600 mt-0.5 h-5 w-5 shrink-0" aria-hidden="true" />
-                <span className="text-primary-800 text-sm font-medium">{feature}</span>
+              <li
+                key={feature}
+                className="bg-background shadow-card flex items-start gap-3 rounded-lg p-4"
+              >
+                <CheckCircle2
+                  className="text-accent-600 mt-0.5 h-5 w-5 shrink-0"
+                  aria-hidden="true"
+                />
+                <span className="text-primary-800 text-sm font-medium">
+                  {feature}
+                </span>
               </li>
             ))}
           </ul>
@@ -118,8 +131,12 @@ export default async function ServicePage({ params }: Props) {
                 <Users className="h-5 w-5 text-white" aria-hidden="true" />
               </div>
               <div>
-                <h2 className="text-primary-900 text-xl font-semibold">Who This Service Is For</h2>
-                <p className="text-primary-700 mt-2 leading-relaxed">{service.targetClients}</p>
+                <h2 className="text-primary-900 text-xl font-semibold">
+                  Who This Service Is For
+                </h2>
+                <p className="text-primary-700 mt-2 leading-relaxed">
+                  {service.targetClients}
+                </p>
               </div>
             </div>
           </div>
@@ -136,11 +153,20 @@ export default async function ServicePage({ params }: Props) {
           />
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {service.benefits.map((benefit) => (
-              <div key={benefit.title} className="bg-background rounded-xl p-6 shadow-card text-center">
+              <div
+                key={benefit.title}
+                className="bg-background shadow-card rounded-xl p-6 text-center"
+              >
                 <div className="bg-accent-100 mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full">
-                  <Icon name={slug as IconName} size={22} className="text-accent-700" />
+                  <Icon
+                    name={slug as IconName}
+                    size={22}
+                    className="text-accent-700"
+                  />
                 </div>
-                <h3 className="text-primary-900 font-semibold">{benefit.title}</h3>
+                <h3 className="text-primary-900 font-semibold">
+                  {benefit.title}
+                </h3>
                 <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
                   {benefit.description}
                 </p>
@@ -153,20 +179,32 @@ export default async function ServicePage({ params }: Props) {
       {/* ── Testimonials ── */}
       <Section background="default">
         <Container>
-          <SectionHeading eyebrow="Client Feedback" title="What Our Clients Say" />
+          <SectionHeading
+            eyebrow="Client Feedback"
+            title="What Our Clients Say"
+          />
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {testimonials.map((t) => (
               <Card key={t.id} variant="elevated">
-                <div className="flex gap-0.5 text-accent-500" aria-label={`${t.rating} stars`}>
+                <div
+                  className="text-accent-500 flex gap-0.5"
+                  aria-label={`${t.rating} stars`}
+                >
                   {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" aria-hidden="true" />
+                    <Star
+                      key={i}
+                      className="h-4 w-4 fill-current"
+                      aria-hidden="true"
+                    />
                   ))}
                 </div>
                 <blockquote className="text-primary-800 mt-3 text-sm leading-relaxed">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
                 <footer className="mt-4 border-t pt-3">
-                  <p className="text-primary-900 text-sm font-semibold">{t.name}</p>
+                  <p className="text-primary-900 text-sm font-semibold">
+                    {t.name}
+                  </p>
                   <p className="text-muted-foreground text-sm">{t.company}</p>
                 </footer>
               </Card>
@@ -184,12 +222,22 @@ export default async function ServicePage({ params }: Props) {
               {relatedServices.map((rs) => {
                 const rsSite = services.find((s) => s.slug === rs.slug);
                 return (
-                  <Card key={rs.slug} variant="outline" className="transition-all hover:border-primary-300 hover:shadow-card">
+                  <Card
+                    key={rs.slug}
+                    variant="outline"
+                    className="hover:border-primary-300 hover:shadow-card transition-all"
+                  >
                     <CardHeader>
                       <div className="bg-primary-50 mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg">
-                        <Icon name={rs.slug as IconName} size={20} className="text-primary-700" />
+                        <Icon
+                          name={rs.slug as IconName}
+                          size={20}
+                          className="text-primary-700"
+                        />
                       </div>
-                      <CardTitle className="text-lg">{rsSite?.title ?? rs.title}</CardTitle>
+                      <CardTitle className="text-lg">
+                        {rsSite?.title ?? rs.title}
+                      </CardTitle>
                     </CardHeader>
                     <CardDescription>{rs.tagline}</CardDescription>
                     <div className="mt-4">

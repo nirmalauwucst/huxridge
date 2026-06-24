@@ -2,12 +2,23 @@ import Link from "next/link";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from "@/components/ui/card";
 import { Icon, type IconName } from "@/components/ui/icon";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
 import { Badge } from "@/components/ui/badge";
-import { mockServices, mockIndustries, mockTestimonials, mockBlogPosts } from "@/lib/mock-data";
+import {
+  mockServices,
+  mockIndustries,
+  mockTestimonials,
+  mockBlogPosts,
+} from "@/lib/mock-data";
 import { CheckCircle2, Star } from "lucide-react";
 
 const stats = [
@@ -55,10 +66,14 @@ export default function HomePage() {
                 ACCOUNTANTS · TAX ADVISORS · BUSINESS ADVISORS
               </Badge>
               <h1 className="text-primary-900 mt-4 font-serif text-4xl leading-tight font-semibold sm:text-5xl lg:text-6xl">
-                Specialist advice for the people who keep the UK running. OR Clear numbers, confident decisions
+                Specialist advice for the people who keep the UK running. OR
+                Clear numbers, confident decisions
               </h1>
               <p className="text-muted-foreground mt-6 text-xl leading-relaxed">
-                Complex tax rules. Changing regulations. Competing priorities. We cut through it all so you can focus on what you do best &mdash; whether you&apos;re a landlord, nursery owner, or healthcare professional.
+                Complex tax rules. Changing regulations. Competing priorities.
+                We cut through it all so you can focus on what you do best
+                &mdash; whether you&apos;re a landlord, nursery owner, or
+                healthcare professional.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button asChild variant="primary" size="lg">
@@ -69,9 +84,16 @@ export default function HomePage() {
                 </Button>
               </div>
               <ul className="text-muted-foreground mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-                {["No obligation", "Fixed monthly fees", "UK-qualified accountants"].map((item) => (
+                {[
+                  "No obligation",
+                  "Fixed monthly fees",
+                  "UK-qualified accountants",
+                ].map((item) => (
                   <li key={item} className="flex items-center gap-1.5">
-                    <CheckCircle2 className="text-accent-600 h-4 w-4" aria-hidden="true" />
+                    <CheckCircle2
+                      className="text-accent-600 h-4 w-4"
+                      aria-hidden="true"
+                    />
                     {item}
                   </li>
                 ))}
@@ -83,23 +105,39 @@ export default function HomePage() {
                 <div className="bg-accent-400/20 absolute inset-0 rounded-2xl" />
                 <div className="relative z-10 flex h-full flex-col justify-between">
                   <div className="bg-background rounded-xl p-5 shadow-sm">
-                    <p className="text-primary-500 text-xs font-medium uppercase tracking-wide">Average Tax Savings</p>
-                    <p className="text-primary-900 mt-1 font-serif text-3xl font-semibold">£12,450</p>
-                    <p className="text-muted-foreground mt-1 text-xs">Per client, per year</p>
+                    <p className="text-primary-500 text-xs font-medium tracking-wide uppercase">
+                      Average Tax Savings
+                    </p>
+                    <p className="text-primary-900 mt-1 font-serif text-3xl font-semibold">
+                      £12,450
+                    </p>
+                    <p className="text-muted-foreground mt-1 text-xs">
+                      Per client, per year
+                    </p>
                   </div>
                   <div className="grid grid-cols-2 gap-3">
                     <div className="bg-background rounded-xl p-4 shadow-sm">
-                      <p className="text-primary-500 text-xs font-medium uppercase tracking-wide">Clients Served</p>
-                      <p className="text-primary-900 mt-1 text-2xl font-semibold">200+</p>
+                      <p className="text-primary-500 text-xs font-medium tracking-wide uppercase">
+                        Clients Served
+                      </p>
+                      <p className="text-primary-900 mt-1 text-2xl font-semibold">
+                        200+
+                      </p>
                     </div>
                     <div className="bg-background rounded-xl p-4 shadow-sm">
-                      <p className="text-primary-500 text-xs font-medium uppercase tracking-wide">On-Time Filing</p>
-                      <p className="text-primary-900 mt-1 text-2xl font-semibold">100%</p>
+                      <p className="text-primary-500 text-xs font-medium tracking-wide uppercase">
+                        On-Time Filing
+                      </p>
+                      <p className="text-primary-900 mt-1 text-2xl font-semibold">
+                        100%
+                      </p>
                     </div>
                   </div>
                   <div className="bg-primary-900 rounded-xl p-4 text-white">
                     <p className="text-sm font-medium">Next tax deadline</p>
-                    <p className="text-accent-300 text-sm">31 January 2027 — Self Assessment</p>
+                    <p className="text-accent-300 text-sm">
+                      31 January 2027 — Self Assessment
+                    </p>
                   </div>
                 </div>
               </div>
@@ -114,7 +152,9 @@ export default function HomePage() {
           <dl className="grid grid-cols-2 gap-8 sm:grid-cols-4">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <dt className="text-primary-300 text-sm font-medium">{stat.label}</dt>
+                <dt className="text-primary-300 text-sm font-medium">
+                  {stat.label}
+                </dt>
                 <dd className="text-accent-300 mt-1 font-serif text-3xl font-semibold">
                   {stat.value}
                 </dd>
@@ -135,23 +175,31 @@ export default function HomePage() {
           />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
             {mockIndustries.map((industry) => (
-                <Card key={industry.slug} variant="default" className="group transition-all hover:shadow-elevated">
-                  <CardHeader>
-                    <div className="bg-primary-50 mb-3 inline-flex h-11 w-11 items-center justify-center rounded-lg">
-                      <Icon name={industry.slug as IconName} size={22} className="text-primary-700" />
-                    </div>
-                    <CardTitle className="text-lg">{industry.title}</CardTitle>
-                  </CardHeader>
-                  <CardDescription>{industry.tagline}</CardDescription>
-                  <CardFooter className="mt-4">
-                    <Link
-                      href={`/industries/${industry.slug}`}
-                      className="text-primary-700 text-sm font-medium hover:underline"
-                    >
-                      Learn more →
-                    </Link>
-                  </CardFooter>
-                </Card>
+              <Card
+                key={industry.slug}
+                variant="default"
+                className="group hover:shadow-elevated transition-all"
+              >
+                <CardHeader>
+                  <div className="bg-primary-50 mb-3 inline-flex h-11 w-11 items-center justify-center rounded-lg">
+                    <Icon
+                      name={industry.slug as IconName}
+                      size={22}
+                      className="text-primary-700"
+                    />
+                  </div>
+                  <CardTitle className="text-lg">{industry.title}</CardTitle>
+                </CardHeader>
+                <CardDescription>{industry.tagline}</CardDescription>
+                <CardFooter className="mt-4">
+                  <Link
+                    href={`/industries/${industry.slug}`}
+                    className="text-primary-700 text-sm font-medium hover:underline"
+                  >
+                    Learn more →
+                  </Link>
+                </CardFooter>
+              </Card>
             ))}
           </div>
           <div className="mt-10 text-center">
@@ -179,7 +227,9 @@ export default function HomePage() {
             <div className="grid gap-5 sm:grid-cols-2">
               {whyHuxridge.map((item) => (
                 <div key={item.title} className="bg-muted rounded-xl p-5">
-                  <h3 className="text-primary-900 font-semibold">{item.title}</h3>
+                  <h3 className="text-primary-900 font-semibold">
+                    {item.title}
+                  </h3>
                   <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
                     {item.description}
                   </p>
@@ -201,24 +251,32 @@ export default function HomePage() {
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {mockServices.map((service) => (
-                <Card key={service.slug} variant="outline" className="group transition-all hover:border-primary-300 hover:shadow-card">
-                  <CardHeader>
-                    <div className="bg-accent-50 mb-3 inline-flex h-12 w-12 items-center justify-center rounded-lg">
-                      <Icon name={service.slug as IconName} size={24} className="text-accent-700" />
-                    </div>
-                    <CardTitle>{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardDescription>{service.tagline}</CardDescription>
-                  <CardFooter className="mt-4">
-                    <Link
-                      href={`/services/${service.slug}`}
-                      className="text-primary-700 text-sm font-medium hover:underline"
-                    >
-                      Learn more →
-                    </Link>
-                  </CardFooter>
-                </Card>
-              ))}
+              <Card
+                key={service.slug}
+                variant="outline"
+                className="group hover:border-primary-300 hover:shadow-card transition-all"
+              >
+                <CardHeader>
+                  <div className="bg-accent-50 mb-3 inline-flex h-12 w-12 items-center justify-center rounded-lg">
+                    <Icon
+                      name={service.slug as IconName}
+                      size={24}
+                      className="text-accent-700"
+                    />
+                  </div>
+                  <CardTitle>{service.title}</CardTitle>
+                </CardHeader>
+                <CardDescription>{service.tagline}</CardDescription>
+                <CardFooter className="mt-4">
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="text-primary-700 text-sm font-medium hover:underline"
+                  >
+                    Learn more →
+                  </Link>
+                </CardFooter>
+              </Card>
+            ))}
           </div>
         </Container>
       </Section>
@@ -234,16 +292,25 @@ export default function HomePage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featuredTestimonials.map((t) => (
               <Card key={t.id} variant="elevated" className="flex flex-col">
-                <div className="flex gap-0.5 text-accent-500" aria-label={`${t.rating} stars`}>
+                <div
+                  className="text-accent-500 flex gap-0.5"
+                  aria-label={`${t.rating} stars`}
+                >
                   {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" aria-hidden="true" />
+                    <Star
+                      key={i}
+                      className="h-4 w-4 fill-current"
+                      aria-hidden="true"
+                    />
                   ))}
                 </div>
                 <blockquote className="text-primary-800 mt-4 flex-1 text-sm leading-relaxed">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
                 <footer className="mt-5 border-t pt-4">
-                  <p className="text-primary-900 text-sm font-semibold">{t.name}</p>
+                  <p className="text-primary-900 text-sm font-semibold">
+                    {t.name}
+                  </p>
                   <p className="text-muted-foreground text-sm">{t.company}</p>
                 </footer>
               </Card>
@@ -267,18 +334,30 @@ export default function HomePage() {
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featuredPosts.map((post) => (
-              <Card key={post.slug} variant="default" className="flex flex-col transition-shadow hover:shadow-elevated">
-                <div className="bg-primary-50 mb-4 h-40 rounded-lg" aria-hidden="true" />
+              <Card
+                key={post.slug}
+                variant="default"
+                className="hover:shadow-elevated flex flex-col transition-shadow"
+              >
+                <div
+                  className="bg-primary-50 mb-4 h-40 rounded-lg"
+                  aria-hidden="true"
+                />
                 <Badge variant="accent" className="mb-3 self-start">
                   {post.category}
                 </Badge>
                 <CardTitle className="text-lg">
-                  <Link href={`/blog/${post.slug}`} className="transition-colors hover:text-primary-700">
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="hover:text-primary-700 transition-colors"
+                  >
                     {post.title}
                   </Link>
                 </CardTitle>
-                <CardDescription className="mt-2 flex-1">{post.excerpt}</CardDescription>
-                <CardFooter className="mt-4 text-xs text-muted-foreground">
+                <CardDescription className="mt-2 flex-1">
+                  {post.excerpt}
+                </CardDescription>
+                <CardFooter className="text-muted-foreground mt-4 text-xs">
                   <span>{post.date}</span>
                   <span className="mx-2">·</span>
                   <span>{post.readingTime}</span>

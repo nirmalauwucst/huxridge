@@ -2,7 +2,13 @@ import Link from "next/link";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 import { CTABanner } from "@/components/ui/cta-banner";
-import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from "@/components/ui/card";
 import { Icon, type IconName } from "@/components/ui/icon";
 import { industries } from "@/lib/site";
 import { mockIndustries } from "@/lib/mock-data";
@@ -27,7 +33,11 @@ export default function IndustriesPage() {
             Accountancy Tailored to Your Industry
           </h1>
           <p className="text-muted-foreground mt-5 text-xl leading-relaxed">
-            Every industry has its own tax rules, regulatory requirements, and financial challenges. Generic accountancy often misses the details that matter most. We have built dedicated expertise in four key sectors so that our clients always receive advice that is genuinely relevant to them.
+            Every industry has its own tax rules, regulatory requirements, and
+            financial challenges. Generic accountancy often misses the details
+            that matter most. We have built dedicated expertise in four key
+            sectors so that our clients always receive advice that is genuinely
+            relevant to them.
           </p>
         </Container>
       </Section>
@@ -39,14 +49,26 @@ export default function IndustriesPage() {
             {mockIndustries.map((industry) => {
               const ind = industries.find((i) => i.slug === industry.slug);
               return (
-                <Card key={industry.slug} variant="default" className="flex flex-col transition-all hover:shadow-elevated">
+                <Card
+                  key={industry.slug}
+                  variant="default"
+                  className="hover:shadow-elevated flex flex-col transition-all"
+                >
                   <CardHeader>
                     <div className="bg-accent-50 mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl">
-                      <Icon name={industry.slug as IconName} size={28} className="text-accent-700" />
+                      <Icon
+                        name={industry.slug as IconName}
+                        size={28}
+                        className="text-accent-700"
+                      />
                     </div>
-                    <CardTitle className="text-xl">{ind?.title ?? industry.title}</CardTitle>
+                    <CardTitle className="text-xl">
+                      {ind?.title ?? industry.title}
+                    </CardTitle>
                   </CardHeader>
-                  <CardDescription className="flex-1 text-base">{industry.tagline}</CardDescription>
+                  <CardDescription className="flex-1 text-base">
+                    {industry.tagline}
+                  </CardDescription>
                   <p className="text-muted-foreground mt-3 text-sm leading-relaxed">
                     {industry.description}
                   </p>
@@ -55,7 +77,8 @@ export default function IndustriesPage() {
                       href={`/industries/${industry.slug}`}
                       className="text-primary-700 text-sm font-medium hover:underline"
                     >
-                      Learn more about our {ind?.title ?? industry.title} service →
+                      Learn more about our {ind?.title ?? industry.title}{" "}
+                      service →
                     </Link>
                   </CardFooter>
                 </Card>

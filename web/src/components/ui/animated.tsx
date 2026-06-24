@@ -22,7 +22,11 @@ export function FadeIn({ children, delay = 0, className }: AnimatedProps) {
   );
 }
 
-export function ScrollReveal({ children, delay = 0, className }: AnimatedProps) {
+export function ScrollReveal({
+  children,
+  delay = 0,
+  className,
+}: AnimatedProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}

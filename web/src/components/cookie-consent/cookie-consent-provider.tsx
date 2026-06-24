@@ -31,11 +31,17 @@ const CookieConsentContext = createContext<CookieConsentContextValue | null>(
 
 export function useCookieConsent(): CookieConsentContextValue {
   const ctx = useContext(CookieConsentContext);
-  if (!ctx) throw new Error("useCookieConsent must be used inside CookieConsentProvider");
+  if (!ctx)
+    throw new Error(
+      "useCookieConsent must be used inside CookieConsentProvider",
+    );
   return ctx;
 }
 
-const DEFAULT_PREFS: ConsentPreferences = { analytics: false, marketing: false };
+const DEFAULT_PREFS: ConsentPreferences = {
+  analytics: false,
+  marketing: false,
+};
 
 export function CookieConsentProvider({
   children,

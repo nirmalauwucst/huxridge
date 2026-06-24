@@ -21,7 +21,7 @@ export default function Error({
       <p className="text-accent-500 mb-4 text-sm font-semibold tracking-widest uppercase">
         Something went wrong
       </p>
-      <h1 className="text-primary-950 mb-4 text-3xl font-bold leading-tight sm:text-4xl">
+      <h1 className="text-primary-950 mb-4 text-3xl leading-tight font-bold sm:text-4xl">
         An unexpected error occurred.
       </h1>
       <p className="text-muted-foreground mb-8 max-w-md text-lg leading-relaxed">
