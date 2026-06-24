@@ -7,7 +7,6 @@ import { Icon, type IconName } from "@/components/ui/icon";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
 import { Badge } from "@/components/ui/badge";
-import { services } from "@/lib/site";
 import { mockServices, mockIndustries, mockTestimonials, mockBlogPosts } from "@/lib/mock-data";
 import { CheckCircle2, Star } from "lucide-react";
 
@@ -59,7 +58,7 @@ export default function HomePage() {
                 Specialist advice for the people who keep the UK running. OR Clear numbers, confident decisions
               </h1>
               <p className="text-muted-foreground mt-6 text-xl leading-relaxed">
-                Complex tax rules. Changing regulations. Competing priorities. We cut through it all so you can focus on what you do best — whether you're a landlord, nursery owner, or healthcare professional.
+                Complex tax rules. Changing regulations. Competing priorities. We cut through it all so you can focus on what you do best &mdash; whether you&apos;re a landlord, nursery owner, or healthcare professional.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button asChild variant="primary" size="lg">

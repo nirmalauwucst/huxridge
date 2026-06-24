@@ -408,17 +408,49 @@ Create the following Sanity document schemas:
 - [ ] Booking confirmation email
 
 #### Cookie Consent (GDPR)
-- [ ] Implement cookie consent banner: necessary, analytics, marketing categories
-- [ ] Store consent in a cookie, reload preferences on return visits
-- [ ] PostHog and analytics scripts only load after analytics consent is granted
-- [ ] Marketing scripts only load after marketing consent is granted
-- [ ] "Manage preferences" link in footer opens consent modal
+- [x] Implement cookie consent banner: necessary, analytics, marketing categories
+- [x] Store consent in a cookie, reload preferences on return visits
+- [x] GA4 and analytics scripts only load after analytics consent is granted
+- [x] Marketing scripts only load after marketing consent is granted
+- [x] "Manage preferences" link in footer opens consent modal
 
 #### Analytics & Monitoring
-- [ ] Install PostHog: page view tracking, form submission events, service page engagement
-- [ ] Install Sentry: error boundary on root layout, API route error capture, session replay
-- [ ] Verify PostHog events fire on form submit, booking click, newsletter signup
-- [ ] Verify Sentry catches a test error and reports it to the dashboard
+- [x] Install Google Analytics 4: page view tracking, form submission events, service/industry page engagement
+  - GA script injected via `next/script` only when analytics consent is active (`preferences.analytics === true`)
+  - Page view tracking across App Router route changes via `usePathname`
+  - Helper functions in `src/lib/analytics.ts`: `trackEvent`, `trackContactFormSubmit`, `trackBookingCtaClick`, `trackPhoneClick`, `trackEmailClick`, `trackNewsletterSignup`, `trackServicePageView`, `trackIndustryPageView`, `trackResourceDownloadClick`
+- [x] `/sitemap.xml` generated via `src/app/sitemap.ts` (static + service + industry + blog routes)
+- [x] `/robots.txt` generated via `src/app/robots.ts` (allows all, disallows `/studio/`, `/api/`)
+- [x] `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` env var supported — renders Google verification meta tag when set
+- [ ] **[ACTION REQUIRED] Wire up GA4 Measurement ID**
+  1. Go to [analytics.google.com](https://analytics.google.com) → create a new GA4 property for `huxridge.co.uk`
+  2. Under *Data Streams → Web*, copy the **Measurement ID** (format: `G-XXXXXXXXXX`)
+  3. Add to Vercel Project Settings → Environment Variables: `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX` (Production + Preview)
+  4. Add to local `.env`: `NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX`
+  5. Redeploy — GA4 will start collecting data once a user accepts analytics consent
+- [ ] **[ACTION REQUIRED] Set up Google Search Console**
+  1. Go to [search.google.com/search-console](https://search.google.com/search-console) → Add property → *URL prefix* → enter `https://huxridge.co.uk`
+  2. Choose verification method: **HTML tag**
+  3. Copy the content value from the meta tag shown (e.g. `abcdef123456`)
+  4. Add to Vercel: `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=abcdef123456` (Production only)
+  5. Redeploy the site
+  6. Back in Search Console, click **Verify** — it will find the meta tag in `<head>`
+  7. Once verified: go to *Sitemaps* → enter `sitemap.xml` → click **Submit**
+- [x] Install Sentry: error boundary on root layout, API route error capture, session replay
+  - `sentry.client.config.ts` — browser init, Browser Tracing, Session Replay (gated on analytics consent cookie)
+  - `sentry.server.config.ts` — server-side init
+  - `sentry.edge.config.ts` — edge runtime init
+  - `src/instrumentation.ts` — Next.js hook that registers server/edge configs at startup
+  - `src/app/global-error.tsx` — catches crashes in the root layout; reports to Sentry; renders minimal branded recovery UI
+  - `src/app/error.tsx` — catches crashes in pages and nested layouts; reports to Sentry; renders full branded error page with Header/Footer intact
+  - `next.config.ts` — wrapped with `withSentryConfig` for source map uploads
+  - Session Replay: masked by default (`maskAllText`, `maskAllInputs`) — reads consent cookie at init time; replay is disabled until analytics consent is saved
+- [ ] **[ACTION REQUIRED] Create Sentry project** — go to [sentry.io](https://sentry.io), create a new project, choose *Next.js*, name it `huxridge-web`
+- [ ] **[ACTION REQUIRED] Add DSN to Vercel** — copy DSN from *Settings → Projects → huxridge-web → Client Keys (DSN)*; add `NEXT_PUBLIC_SENTRY_DSN=https://...` to Vercel env vars for *all environments* (Production, Preview, Development)
+- [ ] **[ACTION REQUIRED] Add DSN to local env** — add `NEXT_PUBLIC_SENTRY_DSN=https://...` to `.env`
+- [ ] **[ACTION REQUIRED] Create Sentry auth token** *(for readable stack traces in production)* — go to *Settings → Auth Tokens*, create a token with `project:releases` and `org:read` scopes
+- [ ] **[ACTION REQUIRED] Add source map vars to Vercel** *(Production environment only)* — add `SENTRY_AUTH_TOKEN=sntrys_...`, `SENTRY_ORG=your-org-slug`, `SENTRY_PROJECT=huxridge-web`
+- [ ] **[ACTION REQUIRED] Redeploy** — trigger a new Vercel deployment; errors will now appear in the Sentry dashboard automatically
 
 ### QA — Phase 1D
 
@@ -447,10 +479,29 @@ Create the following Sanity document schemas:
 
 #### Cookie Consent
 - [ ] Banner appears on first visit
-- [ ] Accepting all consent → PostHog loads and fires a page view event
-- [ ] Rejecting analytics → PostHog does not load (check Network tab — no PostHog requests)
-- [ ] Revisiting site → banner does not reappear (consent cookie present)
+- [ ] Accepting all consent → GA4 loads and fires a page view event
+- [ ] Rejecting analytics → GA4 does not load (check Network tab — no `googletagmanager.com` requests)
+- [ ] Revisiting site with saved analytics consent → GA4 loads on page load, no banner reappears
 - [ ] Clicking "Manage preferences" → modal opens with current preferences pre-set
+- [ ] Disabling analytics in preferences → no further GA4 events fire
+
+#### GA4 Events
+- [ ] Enable GA4 DebugView: open site with `?_gl=debug` or use the GA Debugger Chrome extension
+- [ ] Accept analytics consent → `page_view` event appears in DebugView
+- [ ] Submit contact form → `contact_form_submit` event appears in DebugView
+- [ ] Click a "Book a Consultation" CTA → `booking_cta_click` event appears in DebugView
+- [ ] Click a phone number → `phone_click` event appears in DebugView
+- [ ] Click an email address → `email_click` event appears in DebugView
+- [ ] Sign up to newsletter → `newsletter_signup` event appears in DebugView
+- [ ] Navigate between pages → `page_view` fires for each route change
+- [ ] Reject analytics consent → no events appear in DebugView, no `googletagmanager.com` network requests
+
+#### Sentry
+- [ ] Trigger a test error: in `src/app/page.tsx`, temporarily add `throw new Error("Sentry test")` inside a Server Component, deploy, visit the page, then remove it — confirm the error appears in the Sentry *Issues* dashboard
+- [ ] Verify `src/app/error.tsx` renders: the page should show the branded error UI with "Try again" and "Go to homepage" buttons
+- [ ] Verify `src/app/global-error.tsx` renders for root layout crashes (harder to test — confirm the file exists and exports a default component)
+- [ ] With analytics consent accepted: accept cookies, trigger an error — confirm a Sentry Session Replay is attached to the issue in the dashboard
+- [ ] Without analytics consent: reject cookies, trigger an error — confirm no Session Replay is attached to the issue
 
 #### Email
 - [ ] All email templates render correctly in email clients: Gmail, Apple Mail, Outlook
@@ -481,7 +532,7 @@ Create the following Sanity document schemas:
 - [ ] LCP < 2.5s, CLS < 0.1 on all tested pages
 - [ ] Audit and optimise any image missing `width`/`height` attributes (causes CLS)
 - [ ] Verify `next/font` is used for all fonts (no FOUT)
-- [ ] Verify third-party scripts (PostHog, Sentry, Tidio) are loaded via `next/script strategy='lazyOnload'`
+- [ ] Verify third-party scripts (GA4, Sentry) are loaded via `next/script strategy='afterInteractive'` and only after consent
 - [ ] Verify `next/image` is used for all images (WebP/AVIF conversion, lazy load, responsive srcset)
 - [ ] Check Next.js build output: first-load JS < 100KB budget
 
@@ -520,8 +571,7 @@ Create the following Sanity document schemas:
 - [ ] Training session with client on Sanity Studio: editing services, blog, FAQs, testimonials
 - [ ] Provide written guide: "How to publish a blog post", "How to update service page content", "How to add a testimonial"
 - [ ] Verify client can log in to Sanity Studio independently
-- [ ] Set up Google Search Console: verify ownership, submit sitemap
-- [ ] Set up Google Analytics if required (or confirm PostHog is sufficient)
+- [ ] Complete Google Search Console setup (see step-by-step instructions in Phase 1D → Analytics & Monitoring)
 
 ### QA — Phase 1E
 
@@ -554,7 +604,7 @@ Create the following Sanity document schemas:
 - [ ] Subscribe to newsletter, verify double opt-in email, click confirm link
 - [ ] Verify cookie consent banner appears on first visit
 - [ ] Check Sentry dashboard — no errors thrown during smoke test
-- [ ] Check PostHog dashboard — page views recorded for visited pages
+- [ ] Check GA4 Realtime dashboard — page views recorded for visited pages
 
 ---
 
@@ -590,15 +640,14 @@ Create the following Sanity document schemas:
 - Escalation path from chatbot to "speak to a human" contact form
 - Marketing automation: HubSpot sequences for new leads (welcome email series, follow-up reminders)
 - Lead scoring in HubSpot based on pages visited and services expressed interest in
-- A/B testing via PostHog feature flags on home page hero and service page CTAs
-- Advanced analytics dashboards for the firm: leads by source, bookings trend, most-viewed services
+- A/B testing (via GA4 experiments or Optimizely) on home page hero and service page CTAs
+- Advanced analytics dashboards for the firm via GA4: leads by source, bookings trend, most-viewed services
 
 ### QA Additions — Phase 3
 - [ ] Chatbot does not hallucinate services or prices the firm does not offer
 - [ ] Chatbot escalation to contact form works correctly
 - [ ] HubSpot automation sequences do not send duplicate emails
 - [ ] A/B test variants render correctly and do not cause layout shift
-- [ ] PostHog correctly segments users into test variants
 
 ---
 
@@ -620,9 +669,12 @@ Track these before each phase deployment:
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | 1D | Cloudflare Turnstile (client) |
 | `UPSTASH_REDIS_REST_URL` | 1D | Upstash rate limiting |
 | `UPSTASH_REDIS_REST_TOKEN` | 1D | Upstash rate limiting |
-| `NEXT_PUBLIC_POSTHOG_KEY` | 1D | PostHog analytics |
-| `NEXT_PUBLIC_POSTHOG_HOST` | 1D | PostHog analytics |
-| `SENTRY_DSN` | 1D | Sentry error tracking |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | 1D | Google Analytics 4 |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | 1E | Google Search Console ownership verification (optional) |
+| `NEXT_PUBLIC_SENTRY_DSN` | 1D | Sentry error tracking (client + server) |
+| `SENTRY_AUTH_TOKEN` | 1D | Sentry source map upload (optional, Production only) |
+| `SENTRY_ORG` | 1D | Sentry org slug (build-time, for source maps) |
+| `SENTRY_PROJECT` | 1D | Sentry project slug (build-time, for source maps) |
 | `CALCOM_WEBHOOK_SECRET` | 1D | Cal.com webhook validation |
 | `NEXTAUTH_SECRET` | 2 | Auth.js |
 | `MICROSOFT_CLIENT_ID` | 2 | Microsoft 365 OAuth |

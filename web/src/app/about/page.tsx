@@ -104,7 +104,7 @@ export default function AboutPage() {
             We built the firm we’d want to work with
           </h1>
           <p className="text-muted-foreground mt-6 text-xl leading-relaxed">
-            We started Huxridge because we kept seeing the same problem — hardworking professionals and business owners being let down by accountants who didn't understand their world. Generic advice. Slow responses. Reactive rather than proactive. We built something different. A firm that combines deep sector expertise with modern tools, straight-talking advice, and a genuine commitment to the people we work with.
+            We started Huxridge because we kept seeing the same problem &mdash; hardworking professionals and business owners being let down by accountants who didn&apos;t understand their world. Generic advice. Slow responses. Reactive rather than proactive. We built something different. A firm that combines deep sector expertise with modern tools, straight-talking advice, and a genuine commitment to the people we work with.
           </p>
           <p className="text-muted-foreground mt-4 text-lg leading-relaxed">
             We are a fully remote, paperless practice. That means lower overheads, which we pass on to our clients through competitive fixed fees. It also means we can work with businesses anywhere in the UK, not just those within driving distance of a physical office.
