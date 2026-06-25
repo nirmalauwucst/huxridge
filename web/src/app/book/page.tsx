@@ -2,14 +2,23 @@ import Link from "next/link";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
+import { JsonLd } from "@/components/ui/json-ld";
+import { buildBreadcrumbList } from "@/lib/jsonld";
 import { site } from "@/lib/site";
 import { CalendarDays, CheckCircle2, Clock, Mail, Phone } from "lucide-react";
 import type { Metadata } from "next";
 
+const title =
+  "Book a Free Consultation | Huxridge Accountants & Tax Consultants";
+const description =
+  "Book your free, no-obligation initial consultation with the Huxridge team. 30 minutes — no pressure, just expert advice.";
+
 export const metadata: Metadata = {
-  title: "Book a Free Consultation | Huxridge Accountants & Tax Consultants",
-  description:
-    "Book your free, no-obligation initial consultation with the Huxridge team. 30 minutes — no pressure, just expert advice.",
+  title,
+  description,
+  alternates: { canonical: "/book" },
+  openGraph: { title, description, url: "/book" },
+  twitter: { title, description },
 };
 
 const whatToExpect = [
@@ -30,6 +39,13 @@ const prepareNotes = [
 export default function BookPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbList([
+          { label: "Home", href: "/" },
+          { label: "Book a Consultation" },
+        ])}
+      />
+
       {/* ── Hero ── */}
       <Section padding="lg" background="default">
         <Container size="narrow">

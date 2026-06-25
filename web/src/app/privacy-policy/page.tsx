@@ -1,12 +1,20 @@
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
+import { JsonLd } from "@/components/ui/json-ld";
+import { buildBreadcrumbList } from "@/lib/jsonld";
 import { site } from "@/lib/site";
 import type { Metadata } from "next";
 
+const title = "Privacy Policy | Huxridge Accountants & Tax Consultants";
+const description =
+  "Huxridge Privacy Policy — how we collect, use, and protect your personal data.";
+
 export const metadata: Metadata = {
-  title: "Privacy Policy | Huxridge Accountants & Tax Consultants",
-  description:
-    "Huxridge Privacy Policy — how we collect, use, and protect your personal data.",
+  title,
+  description,
+  alternates: { canonical: "/privacy-policy" },
+  openGraph: { title, description, url: "/privacy-policy" },
+  twitter: { title, description },
 };
 
 const MOCK_COMPANY = {
@@ -21,7 +29,14 @@ const MOCK_COMPANY = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <Section padding="lg" background="default">
+    <>
+      <JsonLd
+        data={buildBreadcrumbList([
+          { label: "Home", href: "/" },
+          { label: "Privacy Policy" },
+        ])}
+      />
+      <Section padding="lg" background="default">
       <Container size="narrow">
         <div className="prose prose-slate prose-lg prose-headings:scroll-mt-24 prose-li:my-1.5 prose-p:leading-8 prose-ul:leading-8 prose-h2:mb-8 prose-h3:mb-4 max-w-none">
           <p className="text-muted-foreground !mt-0 !mb-6 text-sm">
@@ -484,5 +499,6 @@ export default function PrivacyPolicyPage() {
         </div>
       </Container>
     </Section>
+    </>
   );
 }

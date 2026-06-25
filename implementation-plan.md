@@ -517,14 +517,14 @@ Create the following Sanity document schemas:
 ### Tasks
 
 #### SEO Implementation
-- [ ] Next.js Metadata API: unique `title`, `description`, `openGraph`, `twitter` metadata on every page
-- [ ] Dynamic metadata generated from Sanity fields for all CMS pages
-- [ ] JSON-LD structured data: `Organisation`, `LocalBusiness` on home; `Service` on each service page; `FAQPage` on FAQ page; `BlogPosting` on blog posts; `BreadcrumbList` on all inner pages
-- [ ] Canonical URLs on every page
-- [ ] Dynamic XML sitemap (`/sitemap.xml`): includes all static routes + all CMS-driven slugs
-- [ ] `robots.txt` (`/robots.txt`): allow full crawl, reference sitemap, block `/studio`
-- [ ] Breadcrumb navigation rendered on all pages below home (already built in Phase 1B — verify JSON-LD matches rendered breadcrumbs)
-- [ ] Internal linking: each service page links to 3 related services; each industry page links to relevant service pages
+- [x] Next.js Metadata API: unique `title`, `description`, `openGraph`, `twitter` metadata on every page
+- [ ] Dynamic metadata generated from Sanity fields for all CMS pages *(deferred to Phase 1C — requires CMS)*
+- [x] JSON-LD structured data: `Organisation`, `LocalBusiness` on home; `Service` on each service page; `FAQPage` on FAQ page; `BlogPosting` on blog posts; `BreadcrumbList` on all inner pages
+- [x] Canonical URLs on every page
+- [x] Dynamic XML sitemap (`/sitemap.xml`): includes all static routes + all CMS-driven slugs
+- [x] `robots.txt` (`/robots.txt`): allow full crawl, reference sitemap, block `/studio`
+- [x] Breadcrumb navigation rendered on all pages below home (already built in Phase 1B — verify JSON-LD matches rendered breadcrumbs)
+- [x] Internal linking: each service page links to 3 related services; each industry page links to relevant service pages
 
 #### Performance Audit
 - [ ] Run Lighthouse CI on home, a service page, blog listing, contact page

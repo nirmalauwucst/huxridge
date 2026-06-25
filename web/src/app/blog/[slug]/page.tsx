@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { mockBlogPosts, mockSamplePostBody } from "@/lib/mock-data";
+import { JsonLd } from "@/components/ui/json-ld";
+import { buildBlogPostingJsonLd, buildBreadcrumbList } from "@/lib/jsonld";
 import { CalendarDays, Clock, User } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -25,9 +27,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = mockBlogPosts.find((p) => p.slug === slug);
   if (!post) return { title: "Post Not Found" };
+  const title = `${post.title} | Huxridge Blog`;
   return {
-    title: `${post.title} | Huxridge Blog`,
+    title,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      title,
+      description: post.excerpt,
+      url: `/blog/${slug}`,
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author.name],
+    },
+    twitter: {
+      title,
+      description: post.excerpt,
+    },
   };
 }
 
@@ -40,6 +56,15 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd data={buildBlogPostingJsonLd(post)} />
+      <JsonLd
+        data={buildBreadcrumbList([
+          { label: "Home", href: "/" },
+          { label: "Blog", href: "/blog" },
+          { label: post.title },
+        ])}
+      />
+
       {/* ── Breadcrumb ── */}
       <div className="bg-muted border-border border-b py-3">
         <Container>

@@ -2,17 +2,36 @@ import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 import { CTABanner } from "@/components/ui/cta-banner";
 import { FaqTabs } from "@/components/faq-tabs";
+import { JsonLd } from "@/components/ui/json-ld";
+import { buildFaqPageJsonLd, buildBreadcrumbList } from "@/lib/jsonld";
+import { mockFaqs } from "@/lib/mock-data";
 import type { Metadata } from "next";
 
+const title = "FAQ | Huxridge Accountants & Tax Consultants";
+const description =
+  "Answers to the most common questions about our services, pricing, Making Tax Digital, and how to get started with Huxridge.";
+
 export const metadata: Metadata = {
-  title: "FAQ | Huxridge Accountants & Tax Consultants",
-  description:
-    "Answers to the most common questions about our services, pricing, Making Tax Digital, and how to get started with Huxridge.",
+  title,
+  description,
+  alternates: { canonical: "/faq" },
+  openGraph: { title, description, url: "/faq" },
+  twitter: { title, description },
 };
+
+const allFaqs = Object.values(mockFaqs).flat();
 
 export default function FaqPage() {
   return (
     <>
+      <JsonLd data={buildFaqPageJsonLd(allFaqs)} />
+      <JsonLd
+        data={buildBreadcrumbList([
+          { label: "Home", href: "/" },
+          { label: "FAQ" },
+        ])}
+      />
+
       {/* ── Hero ── */}
       <Section padding="lg" background="default">
         <Container size="narrow">

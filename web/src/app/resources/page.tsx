@@ -10,14 +10,22 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { JsonLd } from "@/components/ui/json-ld";
+import { buildBreadcrumbList } from "@/lib/jsonld";
 import { mockResources } from "@/lib/mock-data";
 import { Download, FileText } from "lucide-react";
 import type { Metadata } from "next";
 
+const title = "Resources & Guides | Huxridge Accountants & Tax Consultants";
+const description =
+  "Free guides, checklists, and articles on UK tax, Making Tax Digital, property investment, contracting, and more — from Huxridge Accountants.";
+
 export const metadata: Metadata = {
-  title: "Resources & Guides | Huxridge Accountants & Tax Consultants",
-  description:
-    "Free guides, checklists, and articles on UK tax, Making Tax Digital, property investment, contracting, and more — from Huxridge Accountants.",
+  title,
+  description,
+  alternates: { canonical: "/resources" },
+  openGraph: { title, description, url: "/resources" },
+  twitter: { title, description },
 };
 
 const categories = [
@@ -33,6 +41,13 @@ const categories = [
 export default function ResourcesPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbList([
+          { label: "Home", href: "/" },
+          { label: "Resources" },
+        ])}
+      />
+
       {/* ── Hero ── */}
       <Section padding="lg" background="default">
         <Container size="narrow">

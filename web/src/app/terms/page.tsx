@@ -1,17 +1,33 @@
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
+import { JsonLd } from "@/components/ui/json-ld";
+import { buildBreadcrumbList } from "@/lib/jsonld";
 import { site } from "@/lib/site";
 import type { Metadata } from "next";
 
+const title =
+  "Website Terms of Use | Huxridge Accountants & Tax Consultants";
+const description =
+  "Terms governing your access to and use of the Huxridge Accountants & Tax Consultants website.";
+
 export const metadata: Metadata = {
-  title: "Website Terms of Use | Huxridge Accountants & Tax Consultants",
-  description:
-    "Terms governing your access to and use of the Huxridge Accountants & Tax Consultants website.",
+  title,
+  description,
+  alternates: { canonical: "/terms" },
+  openGraph: { title, description, url: "/terms" },
+  twitter: { title, description },
 };
 
 export default function TermsPage() {
   return (
-    <Section padding="lg" background="default">
+    <>
+      <JsonLd
+        data={buildBreadcrumbList([
+          { label: "Home", href: "/" },
+          { label: "Terms & Conditions" },
+        ])}
+      />
+      <Section padding="lg" background="default">
       <Container size="narrow">
         <div className="prose prose-slate prose-lg prose-headings:scroll-mt-24 prose-li:my-1.5 prose-p:leading-8 prose-ul:leading-8 prose-h2:mb-8 max-w-none">
           <p className="text-muted-foreground !mt-0 !mb-6 text-sm">
@@ -334,5 +350,6 @@ export default function TermsPage() {
         </div>
       </Container>
     </Section>
+    </>
   );
 }

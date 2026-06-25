@@ -10,14 +10,22 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { JsonLd } from "@/components/ui/json-ld";
+import { buildBreadcrumbList } from "@/lib/jsonld";
 import { mockBlogPosts } from "@/lib/mock-data";
 import { CalendarDays, Clock } from "lucide-react";
 import type { Metadata } from "next";
 
+const title = "Blog & Insights | Huxridge Accountants & Tax Consultants";
+const description =
+  "Tax tips, accounting insights, and regulatory updates from the Huxridge team — keeping UK businesses informed and compliant.";
+
 export const metadata: Metadata = {
-  title: "Blog & Insights | Huxridge Accountants & Tax Consultants",
-  description:
-    "Tax tips, accounting insights, and regulatory updates from the Huxridge team — keeping UK businesses informed and compliant.",
+  title,
+  description,
+  alternates: { canonical: "/blog" },
+  openGraph: { title, description, url: "/blog" },
+  twitter: { title, description },
 };
 
 const categories = [
@@ -33,6 +41,13 @@ const categories = [
 export default function BlogPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbList([
+          { label: "Home", href: "/" },
+          { label: "Blog" },
+        ])}
+      />
+
       {/* ── Hero ── */}
       <Section padding="lg" background="default">
         <Container size="narrow">
