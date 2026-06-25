@@ -11,19 +11,34 @@ import {
 } from "@/components/ui/card";
 import { Icon, type IconName } from "@/components/ui/icon";
 import { Button } from "@/components/ui/button";
+import { JsonLd } from "@/components/ui/json-ld";
+import { buildBreadcrumbList } from "@/lib/jsonld";
 import { services } from "@/lib/site";
 import { mockServices } from "@/lib/mock-data";
 import type { Metadata } from "next";
 
+const title = "Our Services | Huxridge Accountants & Tax Consultants";
+const description =
+  "Explore Huxridge's full range of accountancy and tax services — bookkeeping, management accounts, corporation tax, Making Tax Digital, VAT, and more.";
+
 export const metadata: Metadata = {
-  title: "Our Services | Huxridge Accountants & Tax Consultants",
-  description:
-    "Explore Huxridge's full range of accountancy and tax services — bookkeeping, management accounts, corporation tax, Making Tax Digital, VAT, and more.",
+  title,
+  description,
+  alternates: { canonical: "/services" },
+  openGraph: { title, description, url: "/services" },
+  twitter: { title, description },
 };
 
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbList([
+          { label: "Home", href: "/" },
+          { label: "Services" },
+        ])}
+      />
+
       {/* ── Hero ── */}
       <Section padding="lg" background="default">
         <Container size="narrow">

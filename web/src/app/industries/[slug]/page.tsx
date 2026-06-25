@@ -21,6 +21,8 @@ import {
   mockServices,
   mockTestimonials,
 } from "@/lib/mock-data";
+import { JsonLd } from "@/components/ui/json-ld";
+import { buildBreadcrumbList } from "@/lib/jsonld";
 import { AlertCircle, CheckCircle2, Star } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -34,9 +36,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const industry = mockIndustries.find((i) => i.slug === slug);
   if (!industry) return { title: "Industry Not Found" };
+  const title = `${industry.title} | Huxridge Accountants`;
   return {
-    title: `${industry.title} | Huxridge Accountants`,
+    title,
     description: industry.description,
+    alternates: { canonical: `/industries/${slug}` },
+    openGraph: {
+      title,
+      description: industry.description,
+      url: `/industries/${slug}`,
+    },
+    twitter: {
+      title,
+      description: industry.description,
+    },
   };
 }
 
@@ -56,6 +69,14 @@ export default async function IndustryPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbList([
+          { label: "Home", href: "/" },
+          { label: "Industries", href: "/industries" },
+          { label: siteIndustry?.title ?? title },
+        ])}
+      />
+
       {/* ── Breadcrumb ── */}
       <div className="bg-muted border-border border-b py-3">
         <Container>

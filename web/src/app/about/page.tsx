@@ -5,13 +5,21 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
 import { Card, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { JsonLd } from "@/components/ui/json-ld";
+import { buildBreadcrumbList } from "@/lib/jsonld";
 import { CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
 
+const title = "About Us | Huxridge Accountants & Tax Consultants";
+const description =
+  "Learn about Huxridge — a modern, paperless UK accountancy practice founded in 2022, built around cloud technology and proactive client service.";
+
 export const metadata: Metadata = {
-  title: "About Us | Huxridge Accountants & Tax Consultants",
-  description:
-    "Learn about Huxridge — a modern, paperless UK accountancy practice founded in 2022, built around cloud technology and proactive client service.",
+  title,
+  description,
+  alternates: { canonical: "/about" },
+  openGraph: { title, description, url: "/about" },
+  twitter: { title, description },
 };
 
 const approach = [
@@ -94,6 +102,13 @@ const team = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbList([
+          { label: "Home", href: "/" },
+          { label: "About Us" },
+        ])}
+      />
+
       {/* ── Hero ── */}
       <Section padding="lg" background="default">
         <Container size="narrow">

@@ -4,14 +4,22 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { JsonLd } from "@/components/ui/json-ld";
+import { buildBreadcrumbList } from "@/lib/jsonld";
 import { mockTestimonials } from "@/lib/mock-data";
 import { Star } from "lucide-react";
 import type { Metadata } from "next";
 
+const title = "Client Testimonials | Huxridge Accountants & Tax Consultants";
+const description =
+  "Read what our clients say about working with Huxridge — from healthcare professionals and landlords to contractors and start-ups.";
+
 export const metadata: Metadata = {
-  title: "Client Testimonials | Huxridge Accountants & Tax Consultants",
-  description:
-    "Read what our clients say about working with Huxridge — from healthcare professionals and landlords to contractors and start-ups.",
+  title,
+  description,
+  alternates: { canonical: "/testimonials" },
+  openGraph: { title, description, url: "/testimonials" },
+  twitter: { title, description },
 };
 
 const variantMap: Record<
@@ -28,6 +36,13 @@ const variantMap: Record<
 export default function TestimonialsPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbList([
+          { label: "Home", href: "/" },
+          { label: "Testimonials" },
+        ])}
+      />
+
       {/* ── Hero ── */}
       <Section padding="lg" background="default">
         <Container size="narrow">

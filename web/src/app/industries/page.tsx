@@ -10,19 +10,34 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { Icon, type IconName } from "@/components/ui/icon";
+import { JsonLd } from "@/components/ui/json-ld";
+import { buildBreadcrumbList } from "@/lib/jsonld";
 import { industries } from "@/lib/site";
 import { mockIndustries } from "@/lib/mock-data";
 import type { Metadata } from "next";
 
+const title = "Industries We Serve | Huxridge Accountants & Tax Consultants";
+const description =
+  "Specialist accountancy for healthcare professionals, landlords & property investors, contractors & freelancers, and start-ups & new businesses.";
+
 export const metadata: Metadata = {
-  title: "Industries We Serve | Huxridge Accountants & Tax Consultants",
-  description:
-    "Specialist accountancy for healthcare professionals, landlords & property investors, contractors & freelancers, and start-ups & new businesses.",
+  title,
+  description,
+  alternates: { canonical: "/industries" },
+  openGraph: { title, description, url: "/industries" },
+  twitter: { title, description },
 };
 
 export default function IndustriesPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbList([
+          { label: "Home", href: "/" },
+          { label: "Industries" },
+        ])}
+      />
+
       {/* ── Hero ── */}
       <Section padding="lg" background="default">
         <Container size="narrow">

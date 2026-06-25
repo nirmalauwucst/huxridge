@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
@@ -13,13 +14,31 @@ import { Icon, type IconName } from "@/components/ui/icon";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CTABanner } from "@/components/ui/cta-banner";
 import { Badge } from "@/components/ui/badge";
+import { JsonLd } from "@/components/ui/json-ld";
 import {
   mockServices,
   mockIndustries,
   mockTestimonials,
   mockBlogPosts,
 } from "@/lib/mock-data";
+import { buildOrganisation, buildLocalBusiness } from "@/lib/jsonld";
+import { site } from "@/lib/site";
 import { CheckCircle2, Star } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: site.name,
+  description: site.description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: site.name,
+    description: site.description,
+    url: "/",
+  },
+  twitter: {
+    title: site.name,
+    description: site.description,
+  },
+};
 
 const stats = [
   { value: "AAT Regulated", label: "Governance" },
@@ -57,6 +76,9 @@ export default function HomePage() {
 
   return (
     <>
+      <JsonLd data={buildOrganisation()} />
+      <JsonLd data={buildLocalBusiness()} />
+
       {/* ── Hero ── */}
       <Section padding="lg" className="relative overflow-hidden">
         <Container>

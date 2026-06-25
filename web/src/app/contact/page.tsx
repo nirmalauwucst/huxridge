@@ -2,19 +2,34 @@ import Link from "next/link";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
+import { JsonLd } from "@/components/ui/json-ld";
+import { buildBreadcrumbList } from "@/lib/jsonld";
 import { services, site } from "@/lib/site";
 import { Mail, MapPin, Phone } from "lucide-react";
 import type { Metadata } from "next";
 
+const title = "Contact Us | Huxridge Accountants & Tax Consultants";
+const description =
+  "Get in touch with the Huxridge team — by form, email, or phone. We respond within one business day.";
+
 export const metadata: Metadata = {
-  title: "Contact Us | Huxridge Accountants & Tax Consultants",
-  description:
-    "Get in touch with the Huxridge team — by form, email, or phone. We respond within one business day.",
+  title,
+  description,
+  alternates: { canonical: "/contact" },
+  openGraph: { title, description, url: "/contact" },
+  twitter: { title, description },
 };
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbList([
+          { label: "Home", href: "/" },
+          { label: "Contact" },
+        ])}
+      />
+
       {/* ── Hero ── */}
       <Section padding="lg" background="default">
         <Container size="narrow">

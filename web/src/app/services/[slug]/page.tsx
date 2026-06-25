@@ -17,6 +17,12 @@ import { Icon, type IconName } from "@/components/ui/icon";
 import { Badge } from "@/components/ui/badge";
 import { services } from "@/lib/site";
 import { mockServices, mockTestimonials } from "@/lib/mock-data";
+import { JsonLd } from "@/components/ui/json-ld";
+import {
+  buildServiceJsonLd,
+  buildFaqPageJsonLd,
+  buildBreadcrumbList,
+} from "@/lib/jsonld";
 import { CheckCircle2, Star, Users } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -30,9 +36,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const service = mockServices.find((s) => s.slug === slug);
   if (!service) return { title: "Service Not Found" };
+  const siteService = services.find((s) => s.slug === slug);
+  const title = `${siteService?.title ?? service.title} | Huxridge Accountants`;
   return {
-    title: `${service.title} | Huxridge Accountants`,
+    title,
     description: service.description,
+    alternates: { canonical: `/services/${slug}` },
+    openGraph: {
+      title,
+      description: service.description,
+      url: `/services/${slug}`,
+    },
+    twitter: {
+      title,
+      description: service.description,
+    },
   };
 }
 
@@ -52,6 +70,22 @@ export default async function ServicePage({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        data={buildServiceJsonLd({
+          title,
+          description: service.description,
+          slug,
+        })}
+      />
+      <JsonLd data={buildFaqPageJsonLd(service.faqs)} />
+      <JsonLd
+        data={buildBreadcrumbList([
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/services" },
+          { label: title },
+        ])}
+      />
+
       {/* ── Breadcrumb ── */}
       <div className="bg-muted border-border border-b py-3">
         <Container>
