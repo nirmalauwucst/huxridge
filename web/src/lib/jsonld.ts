@@ -86,7 +86,7 @@ export function buildServiceJsonLd(service: {
 }
 
 export function buildFaqPageJsonLd(
-  faqs: ReadonlyArray<{ question: string; answer: string }>
+  faqs: ReadonlyArray<{ question: string; answer: string }>,
 ) {
   return {
     "@context": "https://schema.org",
