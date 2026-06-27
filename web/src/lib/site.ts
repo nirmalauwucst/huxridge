@@ -37,7 +37,7 @@ export const industries = mockIndustries.map(({ slug, title }) => ({
 
 export const primaryNav = [
   { label: "Services", href: "/services" },
-  { label: "Industries", href: "/industries" },
+  { label: "Who We Help", href: "/who-we-help" },
   { label: "About", href: "/about" },
   { label: "Testimonials", href: "/testimonials" },
   { label: "Blog", href: "/blog" },
@@ -53,7 +53,7 @@ export const footerNav = {
   })),
   industries: industries.map((i) => ({
     label: i.title,
-    href: `/industries/${i.slug}`,
+    href: `/who-we-help/${i.slug}`,
   })),
   company: [
     { label: "About", href: "/about" },

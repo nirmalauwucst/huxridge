@@ -61,7 +61,7 @@ export function Footer() {
           </div>
 
           <FooterColumn title="Services" links={footerNav.services} />
-          <FooterColumn title="Industries" links={footerNav.industries} />
+          <FooterColumn title="Who We Help" links={footerNav.industries} />
           <FooterColumn title="Company" links={footerNav.company} />
         </div>
 

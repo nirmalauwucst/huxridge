@@ -23,8 +23,8 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: "/industries" },
-  openGraph: { title, description, url: "/industries" },
+  alternates: { canonical: "/who-we-help" },
+  openGraph: { title, description, url: "/who-we-help" },
   twitter: { title, description },
 };
 
@@ -34,7 +34,7 @@ export default function IndustriesPage() {
       <JsonLd
         data={buildBreadcrumbList([
           { label: "Home", href: "/" },
-          { label: "Industries" },
+          { label: "Who We Help" },
         ])}
       />
 
@@ -42,10 +42,10 @@ export default function IndustriesPage() {
       <Section padding="lg" background="default">
         <Container size="narrow">
           <p className="text-accent-600 mb-3 text-sm font-semibold tracking-widest uppercase">
-            Industries
+            Who We Help
           </p>
           <h1 className="text-primary-900 font-serif text-4xl leading-tight font-semibold sm:text-5xl">
-            Accountancy Tailored to Your Industry
+            Built for your profession, not just your accounts
           </h1>
           <p className="text-muted-foreground mt-5 text-xl leading-relaxed">
             Every industry has its own tax rules, regulatory requirements, and
@@ -89,7 +89,7 @@ export default function IndustriesPage() {
                   </p>
                   <CardFooter className="mt-6">
                     <Link
-                      href={`/industries/${industry.slug}`}
+                      href={`/who-we-help/${industry.slug}`}
                       className="text-primary-700 text-sm font-medium hover:underline"
                     >
                       Learn more about our {ind?.title ?? industry.title}{" "}

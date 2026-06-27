@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
     },
     {
-      url: `${base}/industries`,
+      url: `${base}/who-we-help`,
       priority: 0.9,
       changeFrequency: "monthly" as const,
     },
@@ -58,7 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const industryRoutes: MetadataRoute.Sitemap = industries.map((i) => ({
-    url: `${base}/industries/${i.slug}`,
+    url: `${base}/who-we-help/${i.slug}`,
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.85,

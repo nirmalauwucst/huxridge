@@ -40,11 +40,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description: industry.description,
-    alternates: { canonical: `/industries/${slug}` },
+    alternates: { canonical: `/who-we-help/${slug}` },
     openGraph: {
       title,
       description: industry.description,
-      url: `/industries/${slug}`,
+      url: `/who-we-help/${slug}`,
     },
     twitter: {
       title,
@@ -72,7 +72,7 @@ export default async function IndustryPage({ params }: Props) {
       <JsonLd
         data={buildBreadcrumbList([
           { label: "Home", href: "/" },
-          { label: "Industries", href: "/industries" },
+          { label: "Who We Help", href: "/who-we-help" },
           { label: siteIndustry?.title ?? title },
         ])}
       />
@@ -83,7 +83,7 @@ export default async function IndustryPage({ params }: Props) {
           <Breadcrumb
             items={[
               { label: "Home", href: "/" },
-              { label: "Industries", href: "/industries" },
+              { label: "Who We Help", href: "/who-we-help" },
               { label: siteIndustry?.title ?? title },
             ]}
           />
@@ -266,7 +266,7 @@ export default async function IndustryPage({ params }: Props) {
         title={`Specialist Accountants for ${siteIndustry?.title ?? title}`}
         subtitle="Book a free consultation with our sector specialist and see what better accountancy looks like."
         primary={{ label: "Book a Free Consultation", href: "/book" }}
-        secondary={{ label: "View All Industries", href: "/industries" }}
+        secondary={{ label: "View All Industries", href: "/who-we-help" }}
       />
     </>
   );

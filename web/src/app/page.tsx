@@ -215,7 +215,7 @@ export default function HomePage() {
                 <CardDescription>{industry.tagline}</CardDescription>
                 <CardFooter className="mt-4">
                   <Link
-                    href={`/industries/${industry.slug}`}
+                    href={`/who-we-help/${industry.slug}`}
                     className="text-primary-700 text-sm font-medium hover:underline"
                   >
                     Learn more →
@@ -226,7 +226,7 @@ export default function HomePage() {
           </div>
           <div className="mt-10 text-center">
             <Button asChild variant="outline" size="lg">
-              <Link href="/industries">View All Industries</Link>
+              <Link href="/who-we-help">View All Industries</Link>
             </Button>
           </div>
         </Container>
