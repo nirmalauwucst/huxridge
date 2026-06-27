@@ -821,7 +821,8 @@ export const mockIndustries = [
           "Term-time cash flow is one of the most common financial pressures for nursery owners, particularly those who operate primarily on funded places. We build a 12-month rolling cash flow forecast for each nursery client that maps income receipts against payroll runs, rent payments, and supplier costs, giving you early warning of any shortfalls and time to act.",
       },
       {
-        question: "Should my nursery operate as a sole trader, partnership, or limited company?",
+        question:
+          "Should my nursery operate as a sole trader, partnership, or limited company?",
         answer:
           "The right structure depends on the size of the nursery, the level of profit, and your personal tax position. Limited company status can deliver significant tax savings at higher profit levels, but also introduces additional administration. We model both structures side by side before making a recommendation tailored to your specific nursery.",
       },
