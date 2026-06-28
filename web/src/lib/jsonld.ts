@@ -22,7 +22,7 @@ export function buildOrganisation() {
     "@id": `${site.url}/#organisation`,
     name: site.name,
     url: site.url,
-    logo: `${site.url}/logo.png`,
+    logo: `${site.url}/logo/huxridge-logo-1200.png`,
     foundingDate: String(site.founded),
     description: site.description,
     contactPoint: {
@@ -44,7 +44,7 @@ export function buildLocalBusiness() {
     "@id": `${site.url}/#business`,
     name: site.name,
     url: site.url,
-    logo: `${site.url}/logo.png`,
+    logo: `${site.url}/logo/huxridge-logo-1200.png`,
     foundingDate: String(site.founded),
     description: site.description,
     telephone: site.contact.phone,

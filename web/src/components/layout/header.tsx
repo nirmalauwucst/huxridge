@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -22,17 +23,15 @@ export function Header() {
     <header className="border-border bg-background/85 supports-[backdrop-filter]:bg-background/70 sticky top-0 z-50 border-b backdrop-blur">
       <Container>
         <div className="flex h-16 items-center justify-between gap-6 lg:h-20">
-          <Link
-            href="/"
-            className="text-primary-900 flex items-center gap-2 font-serif text-xl font-semibold"
-          >
-            <span
-              aria-hidden="true"
-              className="bg-primary-900 text-accent-300 inline-flex h-9 w-9 items-center justify-center rounded-md text-base font-bold"
-            >
-              H
-            </span>
-            <span className="hidden sm:inline">{site.shortName}</span>
+          <Link href="/" aria-label={site.shortName}>
+            <Image
+              src="/logo/huxridge-logo.svg"
+              alt={site.shortName}
+              width={240}
+              height={72}
+              priority
+              className="h-16 w-auto"
+            />
           </Link>
 
           <nav

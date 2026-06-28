@@ -57,7 +57,7 @@ export const footerNav = {
   })),
   resources: [
     { label: "Resources & Guides", href: "/resources" },
-    { label: "Tax Calculators", href: "/resources" },
+    { label: "Tax Calculators", href: "/calculators" },
   ],
   company: [
     { label: "About", href: "/about" },
