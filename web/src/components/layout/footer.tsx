@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { footerNav, site } from "@/lib/site";
@@ -19,17 +20,14 @@ export function Footer() {
       <Container>
         <div className="grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-6 lg:gap-8">
           <div className="lg:col-span-2">
-            <Link
-              href="/"
-              className="flex items-center gap-2 font-serif text-xl font-semibold text-white"
-            >
-              <span
-                aria-hidden="true"
-                className="text-primary-900 inline-flex h-9 w-9 items-center justify-center rounded-md bg-white text-base font-bold"
-              >
-                H
-              </span>
-              {site.shortName}
+            <Link href="/" aria-label={site.shortName}>
+              <Image
+                src="/logo/huxridge-logo-white.svg"
+                alt={site.shortName}
+                width={240}
+                height={72}
+                className="h-16 w-auto"
+              />
             </Link>
             <p className="text-primary-200 mt-4 max-w-sm text-sm leading-relaxed">
               {site.description}
