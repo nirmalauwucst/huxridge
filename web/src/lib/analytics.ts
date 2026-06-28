@@ -69,3 +69,19 @@ export function trackResourceDownloadClick(slug: string, title: string): void {
     resource_title: title,
   });
 }
+
+export function trackCalculatorViewed(slug: string): void {
+  trackEvent("calculator_viewed", { calculator_slug: slug });
+}
+
+export function trackCalculatorStarted(slug: string): void {
+  trackEvent("calculator_started", { calculator_slug: slug });
+}
+
+export function trackCalculatorCompleted(slug: string): void {
+  trackEvent("calculator_completed", { calculator_slug: slug });
+}
+
+export function trackCalculatorCtaClicked(slug: string, ctaType: string): void {
+  trackEvent("calculator_cta_clicked", { calculator_slug: slug, cta_type: ctaType });
+}

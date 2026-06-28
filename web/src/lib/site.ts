@@ -55,11 +55,14 @@ export const footerNav = {
     label: i.title,
     href: `/who-we-help/${i.slug}`,
   })),
+  resources: [
+    { label: "Resources & Guides", href: "/resources" },
+    { label: "Tax Calculators", href: "/resources" },
+  ],
   company: [
     { label: "About", href: "/about" },
     { label: "Testimonials", href: "/testimonials" },
     { label: "Blog", href: "/blog" },
-    { label: "Resources", href: "/resources" },
     { label: "Contact", href: "/contact" },
   ],
   legal: [

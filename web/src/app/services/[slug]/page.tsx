@@ -17,6 +17,8 @@ import { Icon, type IconName } from "@/components/ui/icon";
 import { Badge } from "@/components/ui/badge";
 import { services } from "@/lib/site";
 import { mockServices, mockTestimonials } from "@/lib/mock-data";
+import { getCalculatorsForService } from "@/lib/tax-calculators";
+import { CalculatorCard } from "@/components/calculators/calculator-card";
 import { JsonLd } from "@/components/ui/json-ld";
 import {
   buildServiceJsonLd,
@@ -67,6 +69,7 @@ export default async function ServicePage({ params }: Props) {
     .filter(Boolean) as (typeof mockServices)[number][];
 
   const testimonials = mockTestimonials.slice(0, 2);
+  const relatedCalculators = getCalculatorsForService(slug);
 
   return (
     <>
@@ -299,6 +302,25 @@ export default async function ServicePage({ params }: Props) {
           </div>
         </Container>
       </Section>
+
+      {/* ── Related Calculators ── */}
+      {relatedCalculators.length > 0 && (
+        <Section background="muted">
+          <Container>
+            <SectionHeading
+              eyebrow="Free Tax Tools"
+              title="Useful calculators for this service"
+              subtitle="Get a quick estimate before speaking to our team."
+              className="mb-8"
+            />
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedCalculators.map((calc) => (
+                <CalculatorCard key={calc.slug} calculator={calc} />
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
 
       {/* ── CTA ── */}
       <CTABanner

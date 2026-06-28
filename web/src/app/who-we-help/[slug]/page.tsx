@@ -21,6 +21,8 @@ import {
   mockServices,
   mockTestimonials,
 } from "@/lib/mock-data";
+import { getCalculatorsForIndustry } from "@/lib/tax-calculators";
+import { CalculatorCard } from "@/components/calculators/calculator-card";
 import { JsonLd } from "@/components/ui/json-ld";
 import { buildBreadcrumbList } from "@/lib/jsonld";
 import { AlertCircle, CheckCircle2, Star } from "lucide-react";
@@ -66,6 +68,7 @@ export default async function IndustryPage({ params }: Props) {
     .filter(Boolean) as (typeof mockServices)[number][];
 
   const industryTestimonials = mockTestimonials.slice(0, 2);
+  const relatedCalculators = getCalculatorsForIndustry(slug);
 
   return (
     <>
@@ -260,6 +263,25 @@ export default async function IndustryPage({ params }: Props) {
           </div>
         </Container>
       </Section>
+
+      {/* ── Related Calculators ── */}
+      {relatedCalculators.length > 0 && (
+        <Section background="default">
+          <Container>
+            <SectionHeading
+              eyebrow="Free Tax Tools"
+              title="Useful calculators for your situation"
+              subtitle="Quick estimates to help you understand your tax position."
+              className="mb-8"
+            />
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedCalculators.map((calc) => (
+                <CalculatorCard key={calc.slug} calculator={calc} />
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
 
       {/* ── CTA ── */}
       <CTABanner
