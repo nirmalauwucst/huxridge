@@ -2,17 +2,6 @@ We need to add a new **Tax Calculators** feature to the Huxridge Accountants & T
 
 Project context:
 
-* Website: Huxridge Accountants & Tax Consultants
-* Stack: Next.js App Router, TypeScript, Tailwind CSS 4, Sanity CMS, Vercel
-* Existing site already has:
-
-  * `/resources`
-  * `/services`
-  * `/services/[slug]`
-  * `/industries`
-  * `/industries/[slug]`
-  * `/book`
-  * `/contact`
 * The website is for a UK accountancy and tax advisory firm.
 * The calculators should support lead generation, SEO, and user experience.
 * The calculators must not replace professional tax advice. Always include a clear disclaimer.
