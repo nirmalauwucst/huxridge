@@ -17,10 +17,13 @@ export type CorporationTaxResult = {
   breakdown: Array<{ label: string; value: number; isTotal?: boolean }>;
 };
 
-export function calculateCorporationTax(input: CorporationTaxInput): CorporationTaxResult {
+export function calculateCorporationTax(
+  input: CorporationTaxInput,
+): CorporationTaxResult {
   const profit = Math.max(0, input.taxableProfit);
   const divisor = 1 + Math.max(0, Math.floor(input.associatedCompanies));
-  const prorate = Math.min(365, Math.max(1, Math.floor(input.periodDays))) / 365;
+  const prorate =
+    Math.min(365, Math.max(1, Math.floor(input.periodDays))) / 365;
 
   const lower = (CORPORATION_TAX.smallProfitsLimit / divisor) * prorate;
   const upper = (CORPORATION_TAX.mainRateLimit / divisor) * prorate;
@@ -48,7 +51,8 @@ export function calculateCorporationTax(input: CorporationTaxInput): Corporation
     ];
   } else {
     const grossTax = profit * CORPORATION_TAX.mainRate;
-    const marginalRelief = CORPORATION_TAX.marginalReliefFraction * (upper - profit);
+    const marginalRelief =
+      CORPORATION_TAX.marginalReliefFraction * (upper - profit);
     taxDue = grossTax - marginalRelief;
     band = "marginal";
     bandLabel = "Marginal rate";

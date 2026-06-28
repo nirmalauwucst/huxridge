@@ -52,7 +52,7 @@ You only pay tax on profit after allowable costs, so claiming everything you're 
 
 - Stock and raw materials
 
-A few things are specifically *not* deductible — client entertaining is the classic example, and so is depreciation in your accounts (capital allowances take its place instead, see below). Drawing the line correctly matters because disallowable costs claimed in error are exactly what HMRC looks for.
+A few things are specifically _not_ deductible — client entertaining is the classic example, and so is depreciation in your accounts (capital allowances take its place instead, see below). Drawing the line correctly matters because disallowable costs claimed in error are exactly what HMRC looks for.
 
 ## Capital Allowances on Equipment
 
@@ -112,4 +112,4 @@ One more point that catches dormant-company owners: if HMRC issues a notice to f
 
 Corporation tax rewards a bit of planning and punishes the last-minute scramble. The rates, thresholds, and deadlines above reflect the position for the 2025/26 financial year, but tax rules shift with each Budget — and where your company's situation is anything beyond straightforward, a short conversation with an accountant usually pays for itself many times over.
 
-*This article is general guidance for the 2025/26 UK financial year and reflects HMRC rules and rates at the time of writing. It is not a substitute for professional advice. For anything specific to your company, speak to a qualified accountant.*
+_This article is general guidance for the 2025/26 UK financial year and reflects HMRC rules and rates at the time of writing. It is not a substitute for professional advice. For anything specific to your company, speak to a qualified accountant._

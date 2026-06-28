@@ -6,7 +6,8 @@ import { buildBreadcrumbList } from "@/lib/jsonld";
 import { ResourcesFilter } from "./resources-filter";
 import type { Metadata } from "next";
 
-const title = "Free Guides & Tax Calculators | Huxridge Accountants & Tax Consultants";
+const title =
+  "Free Guides & Tax Calculators | Huxridge Accountants & Tax Consultants";
 const description =
   "Free guides, tax calculators, and reference articles on UK tax, Making Tax Digital, property investment, contracting, and more — from Huxridge Accountants.";
 

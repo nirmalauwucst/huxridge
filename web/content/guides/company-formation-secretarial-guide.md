@@ -32,7 +32,7 @@ The essentials:
 
 - Every **director** and every **person with significant control** must verify their identity with Companies House
 
-- For **new incorporations and new appointments** from 18 November 2025, verification must happen *before* the company is formed or the appointment is registered
+- For **new incorporations and new appointments** from 18 November 2025, verification must happen _before_ the company is formed or the appointment is registered
 
 - **Existing** directors and PSCs have a transition period ending **18 November 2026**, but in practice the trigger is usually your company's next confirmation statement — often well before that backstop
 
@@ -100,4 +100,4 @@ Company formation and secretarial work rarely feel urgent, which is exactly why 
 
 A company is straightforward to start and not difficult to maintain — but it does demand a little ongoing attention, and the recent reforms have raised the stakes for getting it wrong. The fees and rules above reflect the position at the time of writing, including the changes that took effect in late 2025 and February 2026, though Companies House requirements continue to evolve. If you'd rather not track it all yourself, a company secretarial service or accountant can carry the burden — which, given how easily a missed deadline can escalate, is often a sensible investment.
 
-*This article is general guidance and reflects Companies House rules, fees, and the ECCTA identity verification regime at the time of writing. It is not a substitute for professional advice. For help forming a company or managing its statutory filings, speak to a qualified accountant or company secretarial provider.*
+_This article is general guidance and reflects Companies House rules, fees, and the ECCTA identity verification regime at the time of writing. It is not a substitute for professional advice. For help forming a company or managing its statutory filings, speak to a qualified accountant or company secretarial provider._

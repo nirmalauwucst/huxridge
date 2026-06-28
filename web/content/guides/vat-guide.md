@@ -80,13 +80,13 @@ Most businesses file VAT returns **quarterly**, though monthly filing is availab
 
 - For example, for a quarter ending **31 March**, the return and payment are due by **7 May**
 
-All VAT filing is now done through **Making Tax Digital**. Since April 2022, every VAT-registered business — regardless of turnover — must keep digital records and submit returns through MTD-compatible software. The old HMRC online portal for typing in figures is closed; the process has to be digital from record-keeping through to submission. Importantly, MTD changed the *method*, not the deadlines — the month-and-seven-days rule is unchanged.
+All VAT filing is now done through **Making Tax Digital**. Since April 2022, every VAT-registered business — regardless of turnover — must keep digital records and submit returns through MTD-compatible software. The old HMRC online portal for typing in figures is closed; the process has to be digital from record-keeping through to submission. Importantly, MTD changed the _method_, not the deadlines — the month-and-seven-days rule is unchanged.
 
 ## Penalties for Getting It Wrong
 
 HMRC uses a **points-based penalty system** for late VAT returns, much like points on a driving licence. You collect a point for each late return, and a **£200 penalty** applies once you reach the threshold — four points for quarterly filers — with a further £200 for each subsequent late return while you're at the threshold. Points clear after a sustained period of compliance.
 
-Late *payment* is handled separately: interest runs on overdue VAT from the day it was due, and percentage-based penalties build the longer payment is outstanding. On top of all this, **inaccurate returns** can attract penalties of up to 100% of the VAT involved where errors are careless or deliberate. None of these is usually catastrophic for a single slip, but they add up quickly for a business that repeatedly misses deadlines.
+Late _payment_ is handled separately: interest runs on overdue VAT from the day it was due, and percentage-based penalties build the longer payment is outstanding. On top of all this, **inaccurate returns** can attract penalties of up to 100% of the VAT involved where errors are careless or deliberate. None of these is usually catastrophic for a single slip, but they add up quickly for a business that repeatedly misses deadlines.
 
 ## A Few Habits Worth Building
 
@@ -102,4 +102,4 @@ Late *payment* is handled separately: interest runs on overdue VAT from the day 
 
 VAT rewards good record-keeping and steady routine, and punishes the last-minute scramble. The thresholds, rates, and deadlines above reflect the position for the 2025/26 tax year, but VAT rules and scheme limits do change — and given how easily registration timing and partial exemption can go wrong, a conversation with an accountant is usually a sound investment, particularly around the point of registration.
 
-*This article is general guidance for the 2025/26 UK tax year and reflects HMRC's VAT rules and rates at the time of writing. It is not a substitute for professional advice. For help with registration, scheme choice, or partial exemption, speak to a qualified accountant.*
+_This article is general guidance for the 2025/26 UK tax year and reflects HMRC's VAT rules and rates at the time of writing. It is not a substitute for professional advice. For help with registration, scheme choice, or partial exemption, speak to a qualified accountant._

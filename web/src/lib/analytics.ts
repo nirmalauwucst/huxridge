@@ -83,5 +83,8 @@ export function trackCalculatorCompleted(slug: string): void {
 }
 
 export function trackCalculatorCtaClicked(slug: string, ctaType: string): void {
-  trackEvent("calculator_cta_clicked", { calculator_slug: slug, cta_type: ctaType });
+  trackEvent("calculator_cta_clicked", {
+    calculator_slug: slug,
+    cta_type: ctaType,
+  });
 }

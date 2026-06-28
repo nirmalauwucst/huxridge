@@ -28,21 +28,37 @@ export type Ir35Result = {
   annualDifference: number;
 };
 
-function outsideIr35TakeHome(grossIncome: number, expenses: number): Ir35ScenarioResult {
+function outsideIr35TakeHome(
+  grossIncome: number,
+  expenses: number,
+): Ir35ScenarioResult {
   const salary = OPTIMAL_DIRECTOR_SALARY;
-  const employerNi = Math.max(0, salary - NI_EMPLOYER.secondaryThreshold) * NI_EMPLOYER.rate;
-  const companyProfit = Math.max(0, grossIncome - salary - employerNi - expenses);
+  const employerNi =
+    Math.max(0, salary - NI_EMPLOYER.secondaryThreshold) * NI_EMPLOYER.rate;
+  const companyProfit = Math.max(
+    0,
+    grossIncome - salary - employerNi - expenses,
+  );
 
-  const corpTax = companyProfit <= CORPORATION_TAX.smallProfitsLimit
-    ? companyProfit * CORPORATION_TAX.smallProfitsRate
-    : companyProfit >= CORPORATION_TAX.mainRateLimit
-    ? companyProfit * CORPORATION_TAX.mainRate
-    : companyProfit * CORPORATION_TAX.mainRate - CORPORATION_TAX.marginalReliefFraction * (CORPORATION_TAX.mainRateLimit - companyProfit);
+  const corpTax =
+    companyProfit <= CORPORATION_TAX.smallProfitsLimit
+      ? companyProfit * CORPORATION_TAX.smallProfitsRate
+      : companyProfit >= CORPORATION_TAX.mainRateLimit
+        ? companyProfit * CORPORATION_TAX.mainRate
+        : companyProfit * CORPORATION_TAX.mainRate -
+          CORPORATION_TAX.marginalReliefFraction *
+            (CORPORATION_TAX.mainRateLimit - companyProfit);
 
   const dividends = Math.max(0, companyProfit - corpTax);
 
   // Employee NI on salary
-  const niMain = Math.max(0, Math.min(salary - NI_EMPLOYEE.primaryThreshold, NI_EMPLOYEE.upperEarningsLimit - NI_EMPLOYEE.primaryThreshold));
+  const niMain = Math.max(
+    0,
+    Math.min(
+      salary - NI_EMPLOYEE.primaryThreshold,
+      NI_EMPLOYEE.upperEarningsLimit - NI_EMPLOYEE.primaryThreshold,
+    ),
+  );
   const employeeNi = niMain * NI_EMPLOYEE.mainRate;
 
   // Income tax on salary + dividends
@@ -52,20 +68,30 @@ function outsideIr35TakeHome(grossIncome: number, expenses: number): Ir35Scenari
 
   const salTaxable = Math.max(0, salary - pa);
   const basicBand = INCOME_TAX.basicRateLimit - pa;
-  const higherBand = INCOME_TAX.additionalRateThreshold - INCOME_TAX.basicRateLimit;
+  const higherBand =
+    INCOME_TAX.additionalRateThreshold - INCOME_TAX.basicRateLimit;
 
   const basicSal = Math.min(salTaxable, basicBand);
   const higherSal = Math.min(Math.max(0, salTaxable - basicBand), higherBand);
   const addSal = Math.max(0, salTaxable - basicBand - higherBand);
-  const salTax = basicSal * INCOME_TAX.basicRate + higherSal * INCOME_TAX.higherRate + addSal * INCOME_TAX.additionalRate;
+  const salTax =
+    basicSal * INCOME_TAX.basicRate +
+    higherSal * INCOME_TAX.higherRate +
+    addSal * INCOME_TAX.additionalRate;
 
   const remBasic = Math.max(0, basicBand - salTaxable);
-  const remHigher = Math.max(0, higherBand - Math.max(0, salTaxable - basicBand));
+  const remHigher = Math.max(
+    0,
+    higherBand - Math.max(0, salTaxable - basicBand),
+  );
   const divAbove = Math.max(0, dividends - DIVIDENDS.allowance);
   const divBasic = Math.min(divAbove, remBasic);
   const divHigher = Math.min(Math.max(0, divAbove - divBasic), remHigher);
   const divAdd = Math.max(0, divAbove - divBasic - divHigher);
-  const divTax = divBasic * DIVIDENDS.basicRate + divHigher * DIVIDENDS.higherRate + divAdd * DIVIDENDS.additionalRate;
+  const divTax =
+    divBasic * DIVIDENDS.basicRate +
+    divHigher * DIVIDENDS.higherRate +
+    divAdd * DIVIDENDS.additionalRate;
 
   const incomeTax = salTax + divTax;
   const totalTax = corpTax + incomeTax + employeeNi + employerNi;
@@ -77,7 +103,8 @@ function outsideIr35TakeHome(grossIncome: number, expenses: number): Ir35Scenari
     totalTax,
     takeHome,
     effectiveRate: grossIncome > 0 ? (totalTax / grossIncome) * 100 : 0,
-    notes: "Salary at secondary NI threshold, remaining profit drawn as dividends",
+    notes:
+      "Salary at secondary NI threshold, remaining profit drawn as dividends",
   };
 }
 
@@ -85,7 +112,9 @@ function insideIr35TakeHome(grossIncome: number): Ir35ScenarioResult {
   // Inside IR35: effectively treated as employment — employer NI deducted, remainder taxed as salary
   // 5% expenses allowance still applies but treat gross as deemed employment income
   const deemedEmployment = grossIncome * 0.95; // 5% expenses offset (⚠️ VERIFY — may be abolished)
-  const employerNi = Math.max(0, deemedEmployment - NI_EMPLOYER.secondaryThreshold) * NI_EMPLOYER.rate;
+  const employerNi =
+    Math.max(0, deemedEmployment - NI_EMPLOYER.secondaryThreshold) *
+    NI_EMPLOYER.rate;
   const employmentIncome = Math.max(0, deemedEmployment - employerNi);
 
   const excess = Math.max(0, employmentIncome - INCOME_TAX.taperStart);
@@ -93,16 +122,30 @@ function insideIr35TakeHome(grossIncome: number): Ir35ScenarioResult {
 
   const taxable = Math.max(0, employmentIncome - pa);
   const basicBand = INCOME_TAX.basicRateLimit - pa;
-  const higherBand = INCOME_TAX.additionalRateThreshold - INCOME_TAX.basicRateLimit;
+  const higherBand =
+    INCOME_TAX.additionalRateThreshold - INCOME_TAX.basicRateLimit;
 
   const basic = Math.min(taxable, basicBand);
   const higher = Math.min(Math.max(0, taxable - basicBand), higherBand);
   const additional = Math.max(0, taxable - basicBand - higherBand);
-  const incomeTax = basic * INCOME_TAX.basicRate + higher * INCOME_TAX.higherRate + additional * INCOME_TAX.additionalRate;
+  const incomeTax =
+    basic * INCOME_TAX.basicRate +
+    higher * INCOME_TAX.higherRate +
+    additional * INCOME_TAX.additionalRate;
 
-  const niMain = Math.max(0, Math.min(employmentIncome - NI_EMPLOYEE.primaryThreshold, NI_EMPLOYEE.upperEarningsLimit - NI_EMPLOYEE.primaryThreshold));
-  const niUpper = Math.max(0, employmentIncome - NI_EMPLOYEE.upperEarningsLimit);
-  const employeeNi = niMain * NI_EMPLOYEE.mainRate + niUpper * NI_EMPLOYEE.upperRate;
+  const niMain = Math.max(
+    0,
+    Math.min(
+      employmentIncome - NI_EMPLOYEE.primaryThreshold,
+      NI_EMPLOYEE.upperEarningsLimit - NI_EMPLOYEE.primaryThreshold,
+    ),
+  );
+  const niUpper = Math.max(
+    0,
+    employmentIncome - NI_EMPLOYEE.upperEarningsLimit,
+  );
+  const employeeNi =
+    niMain * NI_EMPLOYEE.mainRate + niUpper * NI_EMPLOYEE.upperRate;
 
   const totalTax = incomeTax + employeeNi + employerNi;
   const takeHome = employmentIncome - incomeTax - employeeNi;
@@ -113,7 +156,8 @@ function insideIr35TakeHome(grossIncome: number): Ir35ScenarioResult {
     totalTax,
     takeHome,
     effectiveRate: grossIncome > 0 ? (totalTax / grossIncome) * 100 : 0,
-    notes: "Deemed employment calculation — 5% expenses offset applied to contract income",
+    notes:
+      "Deemed employment calculation — 5% expenses offset applied to contract income",
   };
 }
 

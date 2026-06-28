@@ -108,4 +108,4 @@ None of this is complicated in isolation. The difficulty is that the pieces inte
 
 Personal tax rewards attention and punishes neglect, which is a slightly unforgiving design but a consistent one. The figures above are accurate for the 2025/26 tax year, though thresholds and rates do move — and where your circumstances are anything other than straightforward, a conversation with an accountant usually pays for itself several times over.
 
-*This article is general guidance for the 2025/26 UK tax year and reflects HMRC rates and thresholds at the time of writing. It is not personal tax advice. For anything specific to your own situation, speak to a qualified accountant or tax adviser.*
+_This article is general guidance for the 2025/26 UK tax year and reflects HMRC rates and thresholds at the time of writing. It is not personal tax advice. For anything specific to your own situation, speak to a qualified accountant or tax adviser._

@@ -18,10 +18,17 @@ export type TakeHomePayResult = {
   netMonthly: number;
   netWeekly: number;
   effectiveRate: number;
-  breakdown: Array<{ label: string; value: number; isDeduction?: boolean; isTotal?: boolean }>;
+  breakdown: Array<{
+    label: string;
+    value: number;
+    isDeduction?: boolean;
+    isTotal?: boolean;
+  }>;
 };
 
-export function calculateTakeHomePay(input: TakeHomePayInput): TakeHomePayResult {
+export function calculateTakeHomePay(
+  input: TakeHomePayInput,
+): TakeHomePayResult {
   const { grossSalary, pensionPercent, studentLoanPlan } = input;
 
   const pensionContribution = Math.max(0, grossSalary * (pensionPercent / 100));
@@ -34,26 +41,39 @@ export function calculateTakeHomePay(input: TakeHomePayInput): TakeHomePayResult
   // Income tax
   const taxable = Math.max(0, adjSalary - pa);
   const basicBand = INCOME_TAX.basicRateLimit - pa;
-  const higherBand = INCOME_TAX.additionalRateThreshold - INCOME_TAX.basicRateLimit;
+  const higherBand =
+    INCOME_TAX.additionalRateThreshold - INCOME_TAX.basicRateLimit;
 
   const basic = Math.min(taxable, basicBand);
   const higher = Math.min(Math.max(0, taxable - basicBand), higherBand);
   const additional = Math.max(0, taxable - basicBand - higherBand);
-  const incomeTax = basic * INCOME_TAX.basicRate + higher * INCOME_TAX.higherRate + additional * INCOME_TAX.additionalRate;
+  const incomeTax =
+    basic * INCOME_TAX.basicRate +
+    higher * INCOME_TAX.higherRate +
+    additional * INCOME_TAX.additionalRate;
 
   // NI
-  const niMain = Math.max(0, Math.min(grossSalary - NI_EMPLOYEE.primaryThreshold, NI_EMPLOYEE.upperEarningsLimit - NI_EMPLOYEE.primaryThreshold));
+  const niMain = Math.max(
+    0,
+    Math.min(
+      grossSalary - NI_EMPLOYEE.primaryThreshold,
+      NI_EMPLOYEE.upperEarningsLimit - NI_EMPLOYEE.primaryThreshold,
+    ),
+  );
   const niUpper = Math.max(0, grossSalary - NI_EMPLOYEE.upperEarningsLimit);
-  const nationalInsurance = niMain * NI_EMPLOYEE.mainRate + niUpper * NI_EMPLOYEE.upperRate;
+  const nationalInsurance =
+    niMain * NI_EMPLOYEE.mainRate + niUpper * NI_EMPLOYEE.upperRate;
 
   // Student loan
   let studentLoanRepayment = 0;
   if (studentLoanPlan !== "none") {
     const plan = STUDENT_LOANS[studentLoanPlan];
-    studentLoanRepayment = Math.max(0, grossSalary - plan.threshold) * plan.rate;
+    studentLoanRepayment =
+      Math.max(0, grossSalary - plan.threshold) * plan.rate;
   }
 
-  const totalDeductions = incomeTax + nationalInsurance + pensionContribution + studentLoanRepayment;
+  const totalDeductions =
+    incomeTax + nationalInsurance + pensionContribution + studentLoanRepayment;
   const netAnnual = grossSalary - totalDeductions;
 
   return {
@@ -70,9 +90,29 @@ export function calculateTakeHomePay(input: TakeHomePayInput): TakeHomePayResult
     breakdown: [
       { label: "Gross salary", value: grossSalary },
       { label: "Income tax", value: incomeTax, isDeduction: true },
-      { label: "National Insurance", value: nationalInsurance, isDeduction: true },
-      ...(pensionContribution > 0 ? [{ label: `Pension (${pensionPercent}%)`, value: pensionContribution, isDeduction: true }] : []),
-      ...(studentLoanRepayment > 0 ? [{ label: "Student loan repayment", value: studentLoanRepayment, isDeduction: true }] : []),
+      {
+        label: "National Insurance",
+        value: nationalInsurance,
+        isDeduction: true,
+      },
+      ...(pensionContribution > 0
+        ? [
+            {
+              label: `Pension (${pensionPercent}%)`,
+              value: pensionContribution,
+              isDeduction: true,
+            },
+          ]
+        : []),
+      ...(studentLoanRepayment > 0
+        ? [
+            {
+              label: "Student loan repayment",
+              value: studentLoanRepayment,
+              isDeduction: true,
+            },
+          ]
+        : []),
       { label: "Take-home pay (annual)", value: netAnnual, isTotal: true },
     ],
   };

@@ -20,7 +20,7 @@ The aim, in HMRC's words, is a more accurate and efficient tax system with fewer
 
 If you're VAT-registered, you're already living with MTD. Since April 2022, **every VAT-registered business** — regardless of turnover — has had to keep digital records and file VAT returns through MTD-compatible software. The old HMRC online portal for typing in VAT figures is closed to these businesses.
 
-A reassuring point for anyone anxious about the income tax changes: MTD for VAT didn't change *when* you file or pay. VAT return and payment deadlines remain one calendar month and seven days after the end of your VAT period — only the method of filing changed, from portal to software. The income tax rollout follows the same philosophy: changing the mechanism rather than inventing new payment dates.
+A reassuring point for anyone anxious about the income tax changes: MTD for VAT didn't change _when_ you file or pay. VAT return and payment deadlines remain one calendar month and seven days after the end of your VAT period — only the method of filing changed, from portal to software. The income tax rollout follows the same philosophy: changing the mechanism rather than inventing new payment dates.
 
 ## MTD for Income Tax: The Big One, Arriving in Stages
 
@@ -42,7 +42,7 @@ The threshold isn't based on profit, and it isn't based on any single income sou
 
 - It's **combined** — someone with £35,000 of self-employed income and £25,000 of rental income has £60,000 of qualifying income and is in the April 2026 wave, even though neither source alone crosses £50,000
 
-It's also assessed *per individual*. For jointly held property, it's your share of the gross rents that counts. And one quirk worth flagging: if a return showing qualifying income above the threshold is filed late, you can still be treated as mandated from the original start date — so the obligation can effectively be backdated.
+It's also assessed _per individual_. For jointly held property, it's your share of the gross rents that counts. And one quirk worth flagging: if a return showing qualifying income above the threshold is filed late, you can still be treated as mandated from the original start date — so the obligation can effectively be backdated.
 
 ## How Quarterly Reporting Works
 
@@ -62,13 +62,13 @@ After the fourth update, the **Final Declaration** replaces the old Self-Assessm
 
 ## Reporting Changes — Paying Doesn't
 
-This is the single most important reassurance, because it's where the anxiety usually sits. Quarterly updates do **not** mean quarterly tax bills. What changes is how often you *report*, not how often you *pay*. Your tax is still calculated at the year end and paid under the existing January timetable, with payments on account where they already apply. The quarterly figures give HMRC — and you — a running estimate, but they don't trigger a payment.
+This is the single most important reassurance, because it's where the anxiety usually sits. Quarterly updates do **not** mean quarterly tax bills. What changes is how often you _report_, not how often you _pay_. Your tax is still calculated at the year end and paid under the existing January timetable, with payments on account where they already apply. The quarterly figures give HMRC — and you — a running estimate, but they don't trigger a payment.
 
 ## Penalties and the First-Year Soft Landing
 
 MTD for Income Tax uses a **points-based penalty system** for late updates, working much like points on a driving licence. You collect one point per missed quarterly deadline, and a **£200 penalty** applies once you reach four points. Points reset after a sustained period of compliance.
 
-Crucially, HMRC has confirmed a **soft landing for 2026/27**: no penalty points for late quarterly updates during that first year for the initial cohort. That said, the soft landing does *not* cover the Final Declaration, which remains under the normal late-filing rules, and it offers no protection against late-payment penalties or interest, which run on a separate regime entirely. The grace applies to the new quarterly habit, not to paying your tax late.
+Crucially, HMRC has confirmed a **soft landing for 2026/27**: no penalty points for late quarterly updates during that first year for the initial cohort. That said, the soft landing does _not_ cover the Final Declaration, which remains under the normal late-filing rules, and it offers no protection against late-payment penalties or interest, which run on a separate regime entirely. The grace applies to the new quarterly habit, not to paying your tax late.
 
 ## Are You Exempt?
 
@@ -100,4 +100,4 @@ Preparation is genuinely the difference between a smooth transition and a stress
 
 MTD is a meaningful change in habit, but it isn't a change in how much tax you owe or when you pay it — and the businesses that adapt early tend to find the quarterly rhythm becomes routine quickly. The dates and thresholds above reflect the confirmed position at the time of writing, though details can shift with government announcements. If you're unsure whether you're in scope or which software fits your situation, a short conversation with an accountant is well worth it — getting the setup right once saves a great deal of correction later.
 
-*This article is general guidance and reflects HMRC's confirmed Making Tax Digital rules and timeline at the time of writing. It is not a substitute for professional advice. For help confirming whether MTD applies to you and choosing compatible software, speak to a qualified accountant.*
+_This article is general guidance and reflects HMRC's confirmed Making Tax Digital rules and timeline at the time of writing. It is not a substitute for professional advice. For help confirming whether MTD applies to you and choosing compatible software, speak to a qualified accountant._

@@ -112,4 +112,4 @@ For many smaller organisations, the practical answer isn't a permanent in-house 
 
 Internal audit, done well, is less about policing and more about giving a business owner the confidence that the foundations are solid — and the early warning to fix them when they're not. Where your organisation is large or complex enough that this matters, a conversation with a specialist about a review scaled to your needs is usually a sound investment.
 
-*This article is general guidance and reflects recognised internal audit practice at the time of writing. It is not a substitute for professional advice. For a review scaled to your organisation's size and risk, speak to a qualified adviser.*
+_This article is general guidance and reflects recognised internal audit practice at the time of writing. It is not a substitute for professional advice. For a review scaled to your organisation's size and risk, speak to a qualified adviser._

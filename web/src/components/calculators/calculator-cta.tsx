@@ -10,9 +10,12 @@ export function CalculatorCta({ variant = "result" }: CalculatorCtaProps) {
   if (variant === "result") {
     return (
       <div className="bg-primary-50 border-primary-100 mt-6 rounded-xl border p-5">
-        <p className="text-primary-900 text-sm font-semibold">Want a precise figure?</p>
+        <p className="text-primary-900 text-sm font-semibold">
+          Want a precise figure?
+        </p>
         <p className="text-muted-foreground mt-1 text-sm">
-          This estimate is a useful starting point. For advice tailored to your situation, speak to one of our accountants.
+          This estimate is a useful starting point. For advice tailored to your
+          situation, speak to one of our accountants.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
           <Button asChild variant="primary" size="sm">
@@ -34,9 +37,12 @@ export function CalculatorCta({ variant = "result" }: CalculatorCtaProps) {
 
   return (
     <div className="bg-primary-900 mt-8 rounded-2xl p-6 text-white sm:p-8">
-      <h2 className="text-xl font-semibold sm:text-2xl">Ready for personalised advice?</h2>
+      <h2 className="text-xl font-semibold sm:text-2xl">
+        Ready for personalised advice?
+      </h2>
       <p className="text-primary-200 mt-2 text-sm leading-relaxed">
-        Our calculators give you a useful estimate. For tax planning specific to your circumstances, our team is ready to help.
+        Our calculators give you a useful estimate. For tax planning specific to
+        your circumstances, our team is ready to help.
       </p>
       <div className="mt-5 flex flex-wrap gap-3">
         <Button asChild variant="secondary" size="md">

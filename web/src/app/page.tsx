@@ -407,7 +407,12 @@ export default function HomePage() {
               title="Useful Tax Calculators"
               subtitle="Quick estimates for the most common UK tax questions — free to use, no sign-up required."
             />
-            <Button asChild variant="outline" size="sm" className="shrink-0 self-start sm:self-auto">
+            <Button
+              asChild
+              variant="outline"
+              size="sm"
+              className="shrink-0 self-start sm:self-auto"
+            >
               <Link href="/resources">View all calculators</Link>
             </Button>
           </div>

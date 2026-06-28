@@ -118,4 +118,4 @@ HMRC runs a separate penalty system for a late CT600: £100 immediately, another
 
 Annual accounts reward a bit of order and punish last-minute scrambling, which is true of most things in running a company. The figures and deadlines above reflect the position for the 2025/26 tax year, but rules and thresholds do shift — and if your situation involves anything beyond a straightforward small company, a short conversation with an accountant tends to save far more than it costs.
 
-*This article is general guidance for the 2025/26 UK tax year and reflects Companies House and HMRC rules at the time of writing. It is not a substitute for professional advice. For anything specific to your company, speak to a qualified accountant.*
+_This article is general guidance for the 2025/26 UK tax year and reflects Companies House and HMRC rules at the time of writing. It is not a substitute for professional advice. For anything specific to your company, speak to a qualified accountant._

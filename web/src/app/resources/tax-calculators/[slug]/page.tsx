@@ -56,15 +56,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 function getFormComponent(slug: string) {
   switch (slug) {
-    case "personal-tax-calculator":       return <PersonalTaxForm />;
-    case "corporation-tax-calculator":    return <CorporationTaxForm />;
-    case "vat-calculator":                return <VatForm />;
-    case "dividend-tax-calculator":       return <DividendTaxForm />;
-    case "salary-vs-dividend-calculator": return <SalaryVsDividendForm />;
-    case "landlord-tax-calculator":       return <LandlordTaxForm />;
-    case "take-home-pay-calculator":      return <TakeHomePayForm />;
-    case "ir35-calculator":              return <Ir35Form />;
-    default:                              return null;
+    case "personal-tax-calculator":
+      return <PersonalTaxForm />;
+    case "corporation-tax-calculator":
+      return <CorporationTaxForm />;
+    case "vat-calculator":
+      return <VatForm />;
+    case "dividend-tax-calculator":
+      return <DividendTaxForm />;
+    case "salary-vs-dividend-calculator":
+      return <SalaryVsDividendForm />;
+    case "landlord-tax-calculator":
+      return <LandlordTaxForm />;
+    case "take-home-pay-calculator":
+      return <TakeHomePayForm />;
+    case "ir35-calculator":
+      return <Ir35Form />;
+    default:
+      return null;
   }
 }
 
@@ -106,7 +115,9 @@ export default async function CalculatorPage({ params }: Props) {
           <h1 className="text-primary-900 font-serif text-4xl leading-tight font-semibold sm:text-5xl">
             {calc.title}
           </h1>
-          <p className="text-muted-foreground mt-4 text-xl leading-relaxed">{calc.description}</p>
+          <p className="text-muted-foreground mt-4 text-xl leading-relaxed">
+            {calc.description}
+          </p>
           <div className="mt-6">
             <Link
               href="/book"
@@ -148,9 +159,16 @@ export default async function CalculatorPage({ params }: Props) {
             />
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {relatedServices.map((service) => (
-                <div key={service.slug} className="bg-background border-border rounded-xl border p-5">
-                  <h3 className="text-primary-900 font-semibold">{service.title}</h3>
-                  <p className="text-muted-foreground mt-2 text-sm leading-relaxed">{service.tagline}</p>
+                <div
+                  key={service.slug}
+                  className="bg-background border-border rounded-xl border p-5"
+                >
+                  <h3 className="text-primary-900 font-semibold">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
+                    {service.tagline}
+                  </p>
                   <Link
                     href={`/services/${service.slug}`}
                     className="text-primary-700 mt-3 inline-block text-sm font-medium hover:underline"
@@ -168,7 +186,11 @@ export default async function CalculatorPage({ params }: Props) {
       {calc.faqs.length > 0 && (
         <Section background="default" padding="sm">
           <Container size="narrow">
-            <SectionHeading eyebrow="FAQs" title="Frequently asked questions" className="mb-8" />
+            <SectionHeading
+              eyebrow="FAQs"
+              title="Frequently asked questions"
+              className="mb-8"
+            />
             <Accordion items={calc.faqs} />
           </Container>
         </Section>
@@ -178,7 +200,11 @@ export default async function CalculatorPage({ params }: Props) {
       {relatedCalculators.length > 0 && (
         <Section background="muted" padding="sm">
           <Container>
-            <SectionHeading eyebrow="More Tools" title="Related calculators" className="mb-8" />
+            <SectionHeading
+              eyebrow="More Tools"
+              title="Related calculators"
+              className="mb-8"
+            />
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {relatedCalculators.map((c) => (
                 <CalculatorCard key={c.slug} calculator={c} />

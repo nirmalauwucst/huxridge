@@ -144,7 +144,10 @@ export function ResourcesFilter() {
                   <CardFooter className="mt-5">
                     <Button asChild variant="outline" size="sm">
                       <Link href={`/resources/${resource.slug}`}>
-                        <BookOpen className="mr-1.5 h-4 w-4" aria-hidden="true" />
+                        <BookOpen
+                          className="mr-1.5 h-4 w-4"
+                          aria-hidden="true"
+                        />
                         View Guide
                       </Link>
                     </Button>
@@ -207,17 +210,17 @@ export function ResourcesFilter() {
           {/* Disclaimer */}
           <div
             role="note"
-            className="bg-amber-50 border-amber-200 mt-10 flex items-start gap-3 rounded-xl border p-4 text-sm"
+            className="mt-10 flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm"
           >
             <AlertTriangle
-              className="text-amber-600 mt-0.5 h-4 w-4 shrink-0"
+              className="mt-0.5 h-4 w-4 shrink-0 text-amber-600"
               aria-hidden="true"
             />
             <p className="text-amber-900">
-              <strong>Estimates only — not tax advice.</strong> These calculators
-              provide estimates based on {TAX_YEAR_LABEL} UK tax rates. Tax rules
-              and personal circumstances vary. Always speak to a qualified
-              accountant before acting on any estimate.
+              <strong>Estimates only — not tax advice.</strong> These
+              calculators provide estimates based on {TAX_YEAR_LABEL} UK tax
+              rates. Tax rules and personal circumstances vary. Always speak to
+              a qualified accountant before acting on any estimate.
             </p>
           </div>
 
@@ -230,10 +233,7 @@ export function ResourcesFilter() {
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {howToUse.map((item) => (
-              <div
-                key={item.title}
-                className="bg-muted rounded-xl p-5"
-              >
+              <div key={item.title} className="bg-muted rounded-xl p-5">
                 <h3 className="text-primary-900 font-semibold">{item.title}</h3>
                 <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
                   {item.body}
