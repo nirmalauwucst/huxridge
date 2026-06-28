@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VAT calculator — UK</title>
+<style>
+  :root {
+    --c-text: #1b1b1b;
+    --c-text-muted: #5b5f63;
+    --c-bg: #ffffff;
+    --c-surface: #f6f6f4;
+    --c-border: #d8d8d4;
+    --c-input-border: #6b6f73;
+    --c-accent: #1d70b8;
+    --c-focus: #ffbf47;
+    --c-blue-bg: #e6f0fb;
+    --c-blue-tx: #0c447c;
+    --c-amber-bg: #fdf2e0;
+    --c-amber-tx: #8a5800;
+    --radius: 8px;
+  }
+
+  .vc-wrap * { box-sizing: border-box; }
+
+  .vc-wrap {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--c-text);
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 24px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .vc-head { border-top: 4px solid var(--c-accent); padding-top: 16px; margin-bottom: 22px; }
+  .vc-title { font-size: 24px; font-weight: 600; margin: 0 0 4px; }
+  .vc-sub { font-size: 14px; color: var(--c-text-muted); margin: 0; }
+
+  .vc-fields {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 760px) { .vc-fields { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 440px) { .vc-fields { grid-template-columns: 1fr; } }
+
+  .vc-field label { display: block; font-size: 13px; font-weight: 500; color: var(--c-text-muted); margin-bottom: 6px; }
+
+  .vc-field input,
+  .vc-field select {
+    width: 100%;
+    height: 42px;
+    font-size: 16px;
+    padding: 6px 10px;
+    border: 1px solid var(--c-input-border);
+    border-radius: var(--radius);
+    background: var(--c-bg);
+    color: var(--c-text);
+    font-family: inherit;
+  }
+  .vc-field input:focus,
+  .vc-field select:focus {
+    outline: 3px solid var(--c-focus);
+    outline-offset: 0;
+    border-color: var(--c-text);
+  }
+  .vc-field input:disabled {
+    background: var(--c-surface);
+    color: var(--c-text-muted);
+    cursor: not-allowed;
+  }
+
+  .vc-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 760px) { .vc-cards { grid-template-columns: 1fr; } }
+
+  .vc-card { border-radius: var(--radius); padding: 16px 18px; }
+  .vc-card .lbl { font-size: 12px; margin: 0 0 5px; font-weight: 500; }
+  .vc-card .val { font-size: 23px; font-weight: 600; margin: 0; }
+  .vc-card.blue { background: var(--c-blue-bg); }
+  .vc-card.blue .lbl, .vc-card.blue .val { color: var(--c-blue-tx); }
+  .vc-card.amber { background: var(--c-amber-bg); }
+  .vc-card.amber .lbl, .vc-card.amber .val { color: var(--c-amber-tx); }
+
+  .vc-breakdown {
+    background: var(--c-bg);
+    border: 1px solid var(--c-border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 18px;
+  }
+  .vc-breakdown h2 { font-size: 14px; font-weight: 600; color: var(--c-text-muted); margin: 0 0 12px; }
+  .vc-breakdown table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .vc-breakdown td { padding: 9px 0; border-top: 1px solid var(--c-border); }
+  .vc-breakdown tr:first-child td { border-top: none; }
+  .vc-breakdown td.lbl { color: var(--c-text-muted); }
+  .vc-breakdown td.amt { text-align: right; font-weight: 500; }
+  .vc-breakdown tr.total td { font-weight: 600; }
+  .vc-breakdown tr.total td.amt { color: var(--c-accent); }
+
+  .vc-note {
+    background: var(--c-surface);
+    border-left: 4px solid var(--c-accent);
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--c-text-muted);
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="vc-wrap">
+  <div class="vc-head">
+    <h1 class="vc-title">VAT calculator</h1>
+    <p class="vc-sub">UK VAT &middot; standard 20%, reduced 5%, zero 0%</p>
+  </div>
+
+  <div class="vc-fields">
+    <div class="vc-field">
+      <label for="vc-amount">Amount (&pound;)</label>
+      <input type="number" id="vc-amount" value="1000" min="0" step="0.01" inputmode="decimal" />
+    </div>
+    <div class="vc-field">
+      <label for="vc-mode">Calculation</label>
+      <select id="vc-mode">
+        <option value="add" selected>Add VAT to amount</option>
+        <option value="remove">Remove VAT from amount</option>
+      </select>
+    </div>
+    <div class="vc-field">
+      <label for="vc-rate">VAT rate</label>
+      <select id="vc-rate">
+        <option value="20" selected>Standard &mdash; 20%</option>
+        <option value="5">Reduced &mdash; 5%</option>
+        <option value="0">Zero &mdash; 0%</option>
+        <option value="custom">Custom</option>
+      </select>
+    </div>
+    <div class="vc-field">
+      <label for="vc-custom">Custom rate (%)</label>
+      <input type="number" id="vc-custom" value="20" min="0" max="100" step="0.1" inputmode="decimal" disabled />
+    </div>
+  </div>
+
+  <div class="vc-cards" id="vc-cards"></div>
+
+  <div class="vc-breakdown">
+    <h2>Breakdown</h2>
+    <table id="vc-table"></table>
+  </div>
+
+  <p class="vc-note">Based on current UK VAT rates published by HMRC (standard 20%, reduced 5%, zero 0%). Some goods and services are exempt or outside the scope of VAT and are not covered here. This tool is a guide only and does not constitute financial or tax advice.</p>
+</div>
+
+<script>
+(function () {
+  function fmt(v) {
+    return '\u00A3' + v.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  var amountEl = document.getElementById('vc-amount');
+  var modeEl = document.getElementById('vc-mode');
+  var rateEl = document.getElementById('vc-rate');
+  var customEl = document.getElementById('vc-custom');
+
+  function calc() {
+    var amount = parseFloat(amountEl.value) || 0;
+    var mode = modeEl.value;
+    var isCustom = rateEl.value === 'custom';
+
+    customEl.disabled = !isCustom;
+
+    var ratePct = isCustom ? (parseFloat(customEl.value) || 0) : parseFloat(rateEl.value);
+    var rate = ratePct / 100;
+
+    var net, vat, gross;
+    if (mode === 'add') {
+      net = amount;
+      vat = net * rate;
+      gross = net + vat;
+    } else {
+      gross = amount;
+      net = gross / (1 + rate);
+      vat = gross - net;
+    }
+
+    var cards = [
+      { cls: 'blue', lbl: 'Net (excluding VAT)', val: fmt(net) },
+      { cls: 'amber', lbl: 'VAT at ' + ratePct + '%', val: fmt(vat) },
+      { cls: 'blue', lbl: 'Gross (including VAT)', val: fmt(gross) }
+    ];
+    cards[0].lbl = 'Net (excluding VAT)';
+    document.getElementById('vc-cards').innerHTML = cards.map(function (c) {
+      return '<div class="vc-card ' + c.cls + '"><p class="lbl">' + c.lbl + '</p><p class="val">' + c.val + '</p></div>';
+    }).join('');
+
+    var modeLabel = mode === 'add' ? 'Add VAT to amount' : 'Remove VAT from amount';
+    var rows = [
+      ['Amount entered', fmt(amount), false],
+      ['Calculation', modeLabel, false],
+      ['VAT rate', ratePct + '%', false],
+      ['Net amount (excluding VAT)', fmt(net), true],
+      ['VAT amount', fmt(vat), true],
+      ['Gross amount (including VAT)', fmt(gross), true]
+    ];
+
+    document.getElementById('vc-table').innerHTML = rows.map(function (r) {
+      return '<tr class="' + (r[2] ? 'total' : '') + '"><td class="lbl">' + r[0] + '</td><td class="amt">' + r[1] + '</td></tr>';
+    }).join('');
+  }
+
+  [amountEl, modeEl, rateEl, customEl].forEach(function (el) {
+    el.addEventListener('input', calc);
+    el.addEventListener('change', calc);
+  });
+  calc();
+})();
+</script>
+
+</body>
+</html>

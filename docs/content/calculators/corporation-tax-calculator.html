@@ -1,0 +1,291 @@
+<!-- ============================================================= -->
+<!-- UK Corporation Tax Calculator  —  embeddable widget           -->
+<!-- Paste this entire block anywhere in your page's HTML.         -->
+<!-- All styles are scoped to #ctc so they won't affect your site. -->
+<!-- To rebrand, change the colour values in the :root-style block -->
+<!-- at the top of the <style> section (search "BRAND COLOURS").   -->
+<!-- ============================================================= -->
+<section id="ctc" aria-label="UK corporation tax calculator">
+  <style>
+    /* ---- BRAND COLOURS (edit these to match your site) ---- */
+    #ctc{
+      --ctc-blue:#2563eb;
+      --ctc-blue-dark:#1e3a8a;
+      --ctc-navy:#0f2a5e;
+      --ctc-blue-50:#eff6ff;
+      --ctc-blue-100:#dbeafe;
+      --ctc-blue-200:#bfdbfe;
+      --ctc-ink:#1e293b;
+      --ctc-muted:#5b6b85;
+      --ctc-faint:#8a99b3;
+      --ctc-line:#e3e9f3;
+      --ctc-white:#ffffff;
+    }
+    /* ---- scoped reset ---- */
+    #ctc,#ctc *{box-sizing:border-box}
+    #ctc{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ctc-ink);line-height:1.55;
+      max-width:760px;margin:0 auto;padding:4px;
+      -webkit-font-smoothing:antialiased;text-align:left;
+    }
+    #ctc .ctc-head{margin:0 0 18px}
+    #ctc .ctc-eyebrow{
+      font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+      color:var(--ctc-blue);font-weight:600;margin:0 0 6px
+    }
+    #ctc h2.ctc-title{font-size:26px;font-weight:700;color:var(--ctc-navy);margin:0 0 4px;line-height:1.2}
+    #ctc .ctc-sub{font-size:14px;color:var(--ctc-muted);margin:0}
+
+    #ctc .ctc-card{
+      background:var(--ctc-white);border:1px solid var(--ctc-line);
+      border-radius:16px;overflow:hidden;
+      box-shadow:0 1px 2px rgba(15,42,94,.04),0 8px 24px rgba(15,42,94,.06)
+    }
+    #ctc .ctc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+    #ctc .ctc-inputs{padding:22px 22px 24px}
+    #ctc .ctc-results{
+      padding:22px;background:var(--ctc-blue-50);
+      border-left:1px solid var(--ctc-line)
+    }
+
+    #ctc .ctc-field{margin-bottom:16px}
+    #ctc .ctc-field:last-child{margin-bottom:0}
+    #ctc label{display:block;font-size:13px;font-weight:600;color:var(--ctc-navy);margin-bottom:7px}
+    #ctc .ctc-hint{font-weight:400;color:var(--ctc-faint);font-size:12px}
+    #ctc .ctc-inputwrap{position:relative}
+    #ctc .ctc-prefix{
+      position:absolute;left:14px;top:50%;transform:translateY(-50%);
+      color:var(--ctc-muted);font-size:16px;pointer-events:none
+    }
+    #ctc input[type=number]{
+      width:100%;height:46px;border:1px solid var(--ctc-line);
+      border-radius:10px;background:var(--ctc-white);
+      font-size:16px;color:var(--ctc-ink);font-family:inherit;
+      padding:0 14px;transition:border-color .15s,box-shadow .15s;
+      -moz-appearance:textfield
+    }
+    #ctc input.ctc-money{padding-left:30px}
+    #ctc input[type=number]:hover{border-color:var(--ctc-blue-200)}
+    #ctc input[type=number]:focus{
+      outline:none;border-color:var(--ctc-blue);
+      box-shadow:0 0 0 3px rgba(37,99,235,.16)
+    }
+    #ctc .ctc-twocol{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+    #ctc .ctc-reslabel{font-size:13px;color:var(--ctc-muted);margin:0 0 4px}
+    #ctc .ctc-taxbig{font-size:34px;font-weight:700;color:var(--ctc-navy);font-variant-numeric:tabular-nums;line-height:1.1}
+    #ctc .ctc-band{
+      display:inline-block;margin-top:10px;font-size:12px;font-weight:600;
+      padding:5px 12px;border-radius:999px;
+      background:var(--ctc-blue-100);color:var(--ctc-blue-dark)
+    }
+
+    /* rate-band position bar */
+    #ctc .ctc-bar-wrap{margin:20px 0 4px}
+    #ctc .ctc-bar{
+      position:relative;height:10px;border-radius:999px;overflow:visible;
+      background:linear-gradient(to right,#bfdbfe 0%,#bfdbfe 100%);
+      display:flex
+    }
+    #ctc .ctc-seg{height:100%}
+    #ctc .ctc-seg.s1{background:#93c5fd}
+    #ctc .ctc-seg.s2{background:#3b82f6}
+    #ctc .ctc-seg.s3{background:#1e3a8a}
+    #ctc .ctc-bar .seg-first{border-radius:999px 0 0 999px}
+    #ctc .ctc-bar .seg-last{border-radius:0 999px 999px 0}
+    #ctc .ctc-marker{
+      position:absolute;top:-5px;width:4px;height:20px;border-radius:2px;
+      background:var(--ctc-navy);transform:translateX(-2px);
+      box-shadow:0 0 0 3px var(--ctc-blue-50)
+    }
+    #ctc .ctc-barscale{display:flex;justify-content:space-between;margin-top:8px;font-size:11px;color:var(--ctc-faint)}
+
+    #ctc .ctc-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+    #ctc .ctc-metric{background:var(--ctc-white);border:1px solid var(--ctc-line);border-radius:10px;padding:12px 14px}
+    #ctc .ctc-metric .m-lbl{font-size:12px;color:var(--ctc-muted);margin:0 0 2px}
+    #ctc .ctc-metric .m-val{font-size:20px;font-weight:700;color:var(--ctc-navy);font-variant-numeric:tabular-nums}
+
+    #ctc .ctc-breakdown{margin-top:16px;border-top:1px solid var(--ctc-line);padding-top:12px}
+    #ctc .ctc-brow{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;font-size:13px}
+    #ctc .ctc-brow .b-lbl{color:var(--ctc-muted)}
+    #ctc .ctc-brow .b-val{font-weight:600;color:var(--ctc-ink);font-variant-numeric:tabular-nums}
+    #ctc .ctc-brow.total{border-top:1px solid var(--ctc-line);margin-top:4px;padding-top:9px}
+    #ctc .ctc-brow.total .b-lbl{color:var(--ctc-navy);font-weight:600}
+
+    /* key points */
+    #ctc .ctc-points{margin-top:26px}
+    #ctc .ctc-points h3{font-size:16px;font-weight:700;color:var(--ctc-navy);margin:0 0 14px}
+    #ctc .ctc-pointgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    #ctc .ctc-point{
+      background:var(--ctc-white);border:1px solid var(--ctc-line);
+      border-radius:12px;padding:16px 18px;border-top:3px solid var(--ctc-blue)
+    }
+    #ctc .ctc-point h4{font-size:14px;font-weight:700;color:var(--ctc-navy);margin:0 0 6px}
+    #ctc .ctc-point p{font-size:13px;color:var(--ctc-muted);margin:0;line-height:1.55}
+    #ctc .ctc-point strong{color:var(--ctc-ink)}
+
+    #ctc .ctc-foot{
+      margin-top:18px;font-size:12px;color:var(--ctc-faint);line-height:1.55;
+      padding:14px 16px;background:var(--ctc-blue-50);border-radius:10px
+    }
+
+    /* responsive */
+    @media (max-width:640px){
+      #ctc h2.ctc-title{font-size:22px}
+      #ctc .ctc-grid{grid-template-columns:1fr}
+      #ctc .ctc-results{border-left:none;border-top:1px solid var(--ctc-line)}
+      #ctc .ctc-pointgrid{grid-template-columns:1fr}
+    }
+    @media (prefers-reduced-motion:reduce){
+      #ctc input[type=number]{transition:none}
+    }
+  </style>
+
+  <div class="ctc-head">
+    <p class="ctc-eyebrow">Tax year 2025/26</p>
+    <h2 class="ctc-title">Corporation tax calculator</h2>
+    <p class="ctc-sub">Estimate your company's corporation tax, including marginal relief, in a few seconds.</p>
+  </div>
+
+  <div class="ctc-card">
+    <div class="ctc-grid">
+      <!-- inputs -->
+      <div class="ctc-inputs">
+        <div class="ctc-field">
+          <label for="ctc-profit">Taxable profit for the period</label>
+          <div class="ctc-inputwrap">
+            <span class="ctc-prefix">£</span>
+            <input class="ctc-money" type="number" id="ctc-profit" value="100000" min="0" step="1000" inputmode="numeric">
+          </div>
+        </div>
+        <div class="ctc-twocol">
+          <div class="ctc-field">
+            <label for="ctc-assoc">Associated <span class="ctc-hint">companies</span></label>
+            <input type="number" id="ctc-assoc" value="0" min="0" step="1" inputmode="numeric">
+          </div>
+          <div class="ctc-field">
+            <label for="ctc-days">Period <span class="ctc-hint">(days)</span></label>
+            <input type="number" id="ctc-days" value="365" min="1" max="365" step="1" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="ctc-bar-wrap" aria-hidden="true">
+          <div class="ctc-bar" id="ctc-bar">
+            <div class="ctc-seg s1 seg-first" id="ctc-seg1"></div>
+            <div class="ctc-seg s2" id="ctc-seg2"></div>
+            <div class="ctc-seg s3 seg-last" id="ctc-seg3"></div>
+            <div class="ctc-marker" id="ctc-marker"></div>
+          </div>
+          <div class="ctc-barscale">
+            <span>19%</span><span id="ctc-scale-mid">marginal relief</span><span>25%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- results -->
+      <div class="ctc-results">
+        <p class="ctc-reslabel">Estimated corporation tax</p>
+        <div class="ctc-taxbig" id="ctc-tax">£22,750</div>
+        <span class="ctc-band" id="ctc-bandlabel">Marginal rate</span>
+
+        <div class="ctc-metrics">
+          <div class="ctc-metric">
+            <p class="m-lbl">Effective rate</p>
+            <div class="m-val" id="ctc-eff">22.75%</div>
+          </div>
+          <div class="ctc-metric">
+            <p class="m-lbl">Profit after tax</p>
+            <div class="m-val" id="ctc-pat">£77,250</div>
+          </div>
+        </div>
+
+        <div class="ctc-breakdown" id="ctc-breakdown"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- key points -->
+  <div class="ctc-points">
+    <h3>Points to understand</h3>
+    <div class="ctc-pointgrid">
+      <div class="ctc-point">
+        <h4>The two main rates</h4>
+        <p>Profits up to <strong>£50,000</strong> are taxed at the <strong>19%</strong> small profits rate. Profits of <strong>£250,000</strong> or more are taxed at the <strong>25%</strong> main rate.</p>
+      </div>
+      <div class="ctc-point">
+        <h4>Marginal relief</h4>
+        <p>Between £50,000 and £250,000, tax is charged at 25% but reduced by marginal relief (fraction <strong>3⁄200</strong>), giving a gradually rising effective rate.</p>
+      </div>
+      <div class="ctc-point">
+        <h4>Associated companies</h4>
+        <p>The £50k and £250k thresholds are <strong>divided</strong> between the company and its associated companies, so profits can reach the higher rate sooner.</p>
+      </div>
+      <div class="ctc-point">
+        <h4>Short accounting periods</h4>
+        <p>If your accounting period is shorter than 12 months, the thresholds are <strong>pro-rated</strong> for the number of days in the period.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="ctc-foot">
+    This calculator provides an estimate based on UK corporation tax rates for financial years 2023–2025 and assumes no franked investment income (dividends received from non-group companies). It is for general guidance only and is not a substitute for professional advice. Figures should be confirmed before filing.
+  </p>
+
+  <script>
+  (function(){
+    var $=function(id){return document.getElementById(id);};
+    var profitEl=$("ctc-profit"),assocEl=$("ctc-assoc"),daysEl=$("ctc-days");
+    var taxEl=$("ctc-tax"),bandEl=$("ctc-bandlabel"),effEl=$("ctc-eff"),patEl=$("ctc-pat"),bdEl=$("ctc-breakdown");
+    var seg1=$("ctc-seg1"),seg2=$("ctc-seg2"),seg3=$("ctc-seg3"),marker=$("ctc-marker"),scaleMid=$("ctc-scale-mid");
+
+    var fmt=function(n){return new Intl.NumberFormat("en-GB",{style:"currency",currency:"GBP",maximumFractionDigits:2}).format(n);};
+    var fmt0=function(n){return new Intl.NumberFormat("en-GB",{style:"currency",currency:"GBP",maximumFractionDigits:0}).format(n);};
+
+    function row(lbl,val,cls){return '<div class="ctc-brow '+(cls||"")+'"><span class="b-lbl">'+lbl+'</span><span class="b-val">'+val+'</span></div>';}
+
+    function calc(){
+      var profit=Math.max(0,parseFloat(profitEl.value)||0);
+      var assoc=Math.max(0,Math.floor(parseFloat(assocEl.value)||0));
+      var days=Math.min(365,Math.max(1,Math.floor(parseFloat(daysEl.value)||365)));
+      var divisor=1+assoc, prorate=days/365;
+      var lower=(50000/divisor)*prorate, upper=(250000/divisor)*prorate;
+      var F=3/200, tax=0, band="", html="";
+
+      if(profit<=lower){
+        tax=profit*0.19; band="Small profits rate · 19%";
+        html=row("Taxable profit",fmt(profit))+row("Tax at 19%",fmt(tax),"total");
+      }else if(profit>=upper){
+        tax=profit*0.25; band="Main rate · 25%";
+        html=row("Taxable profit",fmt(profit))+row("Tax at 25%",fmt(tax),"total");
+      }else{
+        var gross=profit*0.25, mr=F*(upper-profit); tax=gross-mr;
+        band="Marginal rate";
+        html=row("Profit at 25%",fmt(gross))+row("Less marginal relief","− "+fmt(mr))+row("Tax due",fmt(tax),"total");
+      }
+
+      if(assoc>0||days<365){
+        html+=row("Adjusted thresholds",fmt0(lower)+" – "+fmt0(upper));
+      }
+
+      var eff=profit>0?(tax/profit*100):0;
+      taxEl.textContent=fmt0(tax);
+      bandEl.textContent=band;
+      effEl.textContent=eff.toFixed(2)+"%";
+      patEl.textContent=fmt0(profit-tax);
+      bdEl.innerHTML=html;
+
+      // band bar: proportions across 0 .. upper*1.25 visual scale
+      var visMax=upper*1.25;
+      var p1=(lower/visMax)*100, p2=((upper-lower)/visMax)*100, p3=100-p1-p2;
+      seg1.style.width=p1+"%"; seg2.style.width=p2+"%"; seg3.style.width=p3+"%";
+      var pos=Math.min(profit/visMax,1)*100;
+      marker.style.left=pos+"%";
+      scaleMid.textContent=fmt0(lower)+" – "+fmt0(upper);
+    }
+
+    [profitEl,assocEl,daysEl].forEach(function(el){el.addEventListener("input",calc);});
+    calc();
+  })();
+  </script>
+</section>

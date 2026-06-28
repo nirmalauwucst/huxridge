@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Take-home pay calculator — 2026/27</title>
+<style>
+  :root {
+    --c-text: #1b1b1b;
+    --c-text-muted: #5b5f63;
+    --c-bg: #ffffff;
+    --c-surface: #f6f6f4;
+    --c-border: #d8d8d4;
+    --c-input-border: #6b6f73;
+    --c-accent: #1d70b8;
+    --c-focus: #ffbf47;
+    --c-blue-bg: #e6f0fb;
+    --c-blue-tx: #0c447c;
+    --c-red-bg: #fce8e6;
+    --c-red-tx: #b3261e;
+    --c-amber-bg: #fdf2e0;
+    --c-amber-tx: #8a5800;
+    --radius: 8px;
+  }
+
+  .pc-wrap * { box-sizing: border-box; }
+
+  .pc-wrap {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--c-text);
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 24px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .pc-head { border-top: 4px solid var(--c-accent); padding-top: 16px; margin-bottom: 22px; }
+  .pc-title { font-size: 24px; font-weight: 600; margin: 0 0 4px; }
+  .pc-sub { font-size: 14px; color: var(--c-text-muted); margin: 0; }
+
+  .pc-fields {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 760px) { .pc-fields { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 440px) { .pc-fields { grid-template-columns: 1fr; } }
+
+  .pc-field label { display: block; font-size: 13px; font-weight: 500; color: var(--c-text-muted); margin-bottom: 6px; }
+
+  .pc-field input,
+  .pc-field select {
+    width: 100%;
+    height: 42px;
+    font-size: 16px;
+    padding: 6px 10px;
+    border: 1px solid var(--c-input-border);
+    border-radius: var(--radius);
+    background: var(--c-bg);
+    color: var(--c-text);
+    font-family: inherit;
+  }
+  .pc-field input:focus,
+  .pc-field select:focus {
+    outline: 3px solid var(--c-focus);
+    outline-offset: 0;
+    border-color: var(--c-text);
+  }
+
+  .pc-cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 760px) { .pc-cards { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 440px) { .pc-cards { grid-template-columns: 1fr; } }
+
+  .pc-card { border-radius: var(--radius); padding: 14px 16px; }
+  .pc-card .lbl { font-size: 12px; margin: 0 0 5px; font-weight: 500; }
+  .pc-card .val { font-size: 21px; font-weight: 600; margin: 0; }
+  .pc-card.blue { background: var(--c-blue-bg); }
+  .pc-card.blue .lbl, .pc-card.blue .val { color: var(--c-blue-tx); }
+  .pc-card.red { background: var(--c-red-bg); }
+  .pc-card.red .lbl, .pc-card.red .val { color: var(--c-red-tx); }
+  .pc-card.amber { background: var(--c-amber-bg); }
+  .pc-card.amber .lbl, .pc-card.amber .val { color: var(--c-amber-tx); }
+
+  .pc-breakdown {
+    background: var(--c-bg);
+    border: 1px solid var(--c-border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 18px;
+  }
+  .pc-breakdown h2 { font-size: 14px; font-weight: 600; color: var(--c-text-muted); margin: 0 0 12px; }
+  .pc-breakdown table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .pc-breakdown td { padding: 9px 0; border-top: 1px solid var(--c-border); }
+  .pc-breakdown tr:first-child td { border-top: none; }
+  .pc-breakdown td.lbl { color: var(--c-text-muted); }
+  .pc-breakdown td.amt { text-align: right; font-weight: 500; }
+  .pc-breakdown tr.total td { font-weight: 600; }
+  .pc-breakdown tr.total td.amt { color: var(--c-accent); }
+
+  .pc-note {
+    background: var(--c-surface);
+    border-left: 4px solid var(--c-accent);
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--c-text-muted);
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="pc-wrap">
+  <div class="pc-head">
+    <h1 class="pc-title">Take-home pay calculator</h1>
+    <p class="pc-sub">2026/27 tax year &middot; England, Wales &amp; Northern Ireland</p>
+  </div>
+
+  <div class="pc-fields">
+    <div class="pc-field">
+      <label for="pc-salary">Gross salary (&pound;)</label>
+      <input type="number" id="pc-salary" value="50000" min="0" inputmode="numeric" />
+    </div>
+    <div class="pc-field">
+      <label for="pc-freq">Pay frequency</label>
+      <select id="pc-freq">
+        <option value="1">Yearly</option>
+        <option value="12" selected>Monthly</option>
+        <option value="52">Weekly</option>
+      </select>
+    </div>
+    <div class="pc-field">
+      <label for="pc-taxcode">Tax code</label>
+      <input type="text" id="pc-taxcode" value="1257L" />
+    </div>
+    <div class="pc-field">
+      <label for="pc-pension">Pension (%)</label>
+      <input type="number" id="pc-pension" value="0" min="0" max="100" inputmode="decimal" />
+    </div>
+    <div class="pc-field">
+      <label for="pc-sloan">Student loan</label>
+      <select id="pc-sloan">
+        <option value="none">None</option>
+        <option value="plan1">Plan 1</option>
+        <option value="plan2">Plan 2</option>
+        <option value="plan4">Plan 4</option>
+        <option value="plan5">Plan 5</option>
+        <option value="postgrad">Postgrad</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="pc-cards" id="pc-cards"></div>
+
+  <div class="pc-breakdown">
+    <h2>Breakdown</h2>
+    <table id="pc-table"></table>
+  </div>
+
+  <p class="pc-note">Estimate only, based on 2026/27 HMRC rates for England, Wales &amp; Northern Ireland. Standard personal allowance &pound;12,570 (adjusts to the tax code entered). Your actual pay may differ depending on your employer's payroll, benefits or bonuses. This tool does not constitute financial advice.</p>
+</div>
+
+<script>
+(function () {
+  function parseAllowance(code) {
+    var m = (code || '1257L').toUpperCase().trim().match(/^[SC]?(\d+)/);
+    return m ? parseInt(m[1], 10) * 10 : 12570;
+  }
+  function fmt(v) { return '\u00A3' + Math.round(v).toLocaleString('en-GB'); }
+
+  var ids = ['pc-salary', 'pc-freq', 'pc-taxcode', 'pc-pension', 'pc-sloan'];
+
+  function calc() {
+    var payAmt = parseFloat(document.getElementById('pc-salary').value) || 0;
+    var freq = parseInt(document.getElementById('pc-freq').value, 10);
+    var gross = payAmt * freq;
+    var taxCode = document.getElementById('pc-taxcode').value || '1257L';
+    var pensionPct = parseFloat(document.getElementById('pc-pension').value) || 0;
+    var slPlan = document.getElementById('pc-sloan').value;
+
+    var pensionAmt = gross * pensionPct / 100;
+    var taxableIncome = Math.max(0, gross - pensionAmt);
+
+    var pa = parseAllowance(taxCode);
+    if (taxableIncome > 100000) {
+      pa = Math.max(0, pa - (taxableIncome - 100000) / 2);
+    }
+
+    var taxable = Math.max(0, taxableIncome - pa);
+    var basic = Math.min(taxable, 37700);
+    var higher = Math.min(Math.max(taxable - 37700, 0), 125140 - 37700);
+    var additional = Math.max(taxable - 125140, 0);
+    var incomeTax = basic * 0.20 + higher * 0.40 + additional * 0.45;
+
+    var niLow = Math.min(Math.max(gross - 12570, 0), 50270 - 12570);
+    var niHigh = Math.max(gross - 50270, 0);
+    var ni = niLow * 0.08 + niHigh * 0.02;
+
+    var thresholds = { plan1: 26900, plan2: 29385, plan4: 33795, plan5: 25000, postgrad: 21000 };
+    var rates = { plan1: 0.09, plan2: 0.09, plan4: 0.09, plan5: 0.09, postgrad: 0.06 };
+    var sl = slPlan !== 'none' ? Math.max(0, (gross - thresholds[slPlan]) * rates[slPlan]) : 0;
+
+    var totalDeductions = incomeTax + ni + pensionAmt + sl;
+    var takeHome = gross - totalDeductions;
+    var effRate = gross > 0 ? (incomeTax / gross * 100) : 0;
+
+    var cards = [
+      { cls: 'blue', lbl: 'Take-home (year)', val: fmt(takeHome) },
+      { cls: 'blue', lbl: 'Take-home (month)', val: fmt(takeHome / 12) },
+      { cls: 'blue', lbl: 'Take-home (week)', val: fmt(takeHome / 52) },
+      { cls: 'red', lbl: 'Income tax', val: fmt(incomeTax) },
+      { cls: 'amber', lbl: 'National insurance', val: fmt(ni) }
+    ];
+    document.getElementById('pc-cards').innerHTML = cards.map(function (c) {
+      return '<div class="pc-card ' + c.cls + '"><p class="lbl">' + c.lbl + '</p><p class="val">' + c.val + '</p></div>';
+    }).join('');
+
+    var freqLabel = { 1: 'yearly', 12: 'monthly', 52: 'weekly' };
+    var rows = [
+      ['Gross pay (' + freqLabel[freq] + ')', fmt(payAmt), false],
+      ['Gross salary (annual)', fmt(gross), false]
+    ];
+    if (pensionAmt > 0) rows.push(['Pension contribution', '\u2212 ' + fmt(pensionAmt), false]);
+    rows.push(['Income tax', '\u2212 ' + fmt(incomeTax), false]);
+    rows.push(['National insurance', '\u2212 ' + fmt(ni), false]);
+    if (sl > 0) rows.push(['Student loan repayment', '\u2212 ' + fmt(sl), false]);
+    rows.push(['Total deductions', '\u2212 ' + fmt(totalDeductions), false]);
+    rows.push(['Net take-home (year)', fmt(takeHome), true]);
+    rows.push(['Net take-home (month)', fmt(takeHome / 12), true]);
+    rows.push(['Net take-home (week)', fmt(takeHome / 52), true]);
+    rows.push(['Effective income tax rate', effRate.toFixed(1) + '%', false]);
+
+    document.getElementById('pc-table').innerHTML = rows.map(function (r) {
+      return '<tr class="' + (r[2] ? 'total' : '') + '"><td class="lbl">' + r[0] + '</td><td class="amt">' + r[1] + '</td></tr>';
+    }).join('');
+  }
+
+  ids.forEach(function (id) {
+    document.getElementById(id).addEventListener('input', calc);
+    document.getElementById(id).addEventListener('change', calc);
+  });
+  calc();
+})();
+</script>
+
+</body>
+</html>

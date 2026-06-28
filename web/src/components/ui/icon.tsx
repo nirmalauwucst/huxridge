@@ -17,6 +17,7 @@ import {
   Smile,
   HeartHandshake,
   Stethoscope,
+  School,
   type LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -41,6 +42,7 @@ const iconMap = {
   dentists: Smile,
   "care-homes": HeartHandshake,
   "nurses-clinicians": Stethoscope,
+  nurseries: School,
 } as const satisfies Record<string, LucideIcon>;
 
 export type IconName = keyof typeof iconMap;

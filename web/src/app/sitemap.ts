@@ -1,6 +1,7 @@
 import { type MetadataRoute } from "next";
 import { site, services, industries } from "@/lib/site";
 import { mockBlogPosts } from "@/lib/mock-data";
+import { taxCalculators } from "@/lib/tax-calculators";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.url;
@@ -15,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
     },
     {
-      url: `${base}/industries`,
+      url: `${base}/who-we-help`,
       priority: 0.9,
       changeFrequency: "monthly" as const,
     },
@@ -58,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const industryRoutes: MetadataRoute.Sitemap = industries.map((i) => ({
-    url: `${base}/industries/${i.slug}`,
+    url: `${base}/who-we-help/${i.slug}`,
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.85,
@@ -71,5 +72,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.65,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...industryRoutes, ...blogRoutes];
+  const calculatorRoutes: MetadataRoute.Sitemap = taxCalculators.map((c) => ({
+    url: `${base}/resources/tax-calculators/${c.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
+  return [
+    ...staticRoutes,
+    ...serviceRoutes,
+    ...industryRoutes,
+    ...blogRoutes,
+    ...calculatorRoutes,
+  ];
 }
