@@ -21,6 +21,8 @@ import {
   mockServices,
   mockTestimonials,
 } from "@/lib/mock-data";
+import { getCalculatorsForIndustry } from "@/lib/tax-calculators";
+import { CalculatorCard } from "@/components/calculators/calculator-card";
 import { JsonLd } from "@/components/ui/json-ld";
 import { buildBreadcrumbList } from "@/lib/jsonld";
 import { AlertCircle, CheckCircle2, Star } from "lucide-react";
@@ -40,11 +42,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description: industry.description,
-    alternates: { canonical: `/industries/${slug}` },
+    alternates: { canonical: `/who-we-help/${slug}` },
     openGraph: {
       title,
       description: industry.description,
-      url: `/industries/${slug}`,
+      url: `/who-we-help/${slug}`,
     },
     twitter: {
       title,
@@ -66,13 +68,14 @@ export default async function IndustryPage({ params }: Props) {
     .filter(Boolean) as (typeof mockServices)[number][];
 
   const industryTestimonials = mockTestimonials.slice(0, 2);
+  const relatedCalculators = getCalculatorsForIndustry(slug);
 
   return (
     <>
       <JsonLd
         data={buildBreadcrumbList([
           { label: "Home", href: "/" },
-          { label: "Industries", href: "/industries" },
+          { label: "Who We Help", href: "/who-we-help" },
           { label: siteIndustry?.title ?? title },
         ])}
       />
@@ -83,7 +86,7 @@ export default async function IndustryPage({ params }: Props) {
           <Breadcrumb
             items={[
               { label: "Home", href: "/" },
-              { label: "Industries", href: "/industries" },
+              { label: "Who We Help", href: "/who-we-help" },
               { label: siteIndustry?.title ?? title },
             ]}
           />
@@ -261,12 +264,31 @@ export default async function IndustryPage({ params }: Props) {
         </Container>
       </Section>
 
+      {/* ── Related Calculators ── */}
+      {relatedCalculators.length > 0 && (
+        <Section background="default">
+          <Container>
+            <SectionHeading
+              eyebrow="Free Tax Tools"
+              title="Useful calculators for your situation"
+              subtitle="Quick estimates to help you understand your tax position."
+              className="mb-8"
+            />
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedCalculators.map((calc) => (
+                <CalculatorCard key={calc.slug} calculator={calc} />
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
+
       {/* ── CTA ── */}
       <CTABanner
         title={`Specialist Accountants for ${siteIndustry?.title ?? title}`}
         subtitle="Book a free consultation with our sector specialist and see what better accountancy looks like."
         primary={{ label: "Book a Free Consultation", href: "/book" }}
-        secondary={{ label: "View All Industries", href: "/industries" }}
+        secondary={{ label: "View All Industries", href: "/who-we-help" }}
       />
     </>
   );

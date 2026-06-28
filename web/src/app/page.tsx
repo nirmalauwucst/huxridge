@@ -23,6 +23,8 @@ import {
 } from "@/lib/mock-data";
 import { buildOrganisation, buildLocalBusiness } from "@/lib/jsonld";
 import { site } from "@/lib/site";
+import { getFeaturedCalculators } from "@/lib/tax-calculators";
+import { CalculatorCard } from "@/components/calculators/calculator-card";
 import { CheckCircle2, Star } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -73,6 +75,7 @@ const whyHuxridge = [
 export default function HomePage() {
   const featuredTestimonials = mockTestimonials.slice(0, 3);
   const featuredPosts = mockBlogPosts.slice(0, 3);
+  const featuredCalculators = getFeaturedCalculators();
 
   return (
     <>
@@ -215,7 +218,7 @@ export default function HomePage() {
                 <CardDescription>{industry.tagline}</CardDescription>
                 <CardFooter className="mt-4">
                   <Link
-                    href={`/industries/${industry.slug}`}
+                    href={`/who-we-help/${industry.slug}`}
                     className="text-primary-700 text-sm font-medium hover:underline"
                   >
                     Learn more →
@@ -226,7 +229,7 @@ export default function HomePage() {
           </div>
           <div className="mt-10 text-center">
             <Button asChild variant="outline" size="lg">
-              <Link href="/industries">View All Industries</Link>
+              <Link href="/who-we-help">View All Industries</Link>
             </Button>
           </div>
         </Container>
@@ -391,6 +394,32 @@ export default function HomePage() {
             <Button asChild variant="outline">
               <Link href="/blog">View All Articles</Link>
             </Button>
+          </div>
+        </Container>
+      </Section>
+
+      {/* ── Useful Tax Tools ── */}
+      <Section background="muted">
+        <Container>
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <SectionHeading
+              eyebrow="Free Tax Tools"
+              title="Useful Tax Calculators"
+              subtitle="Quick estimates for the most common UK tax questions — free to use, no sign-up required."
+            />
+            <Button
+              asChild
+              variant="outline"
+              size="sm"
+              className="shrink-0 self-start sm:self-auto"
+            >
+              <Link href="/resources">View all calculators</Link>
+            </Button>
+          </div>
+          <div className="mt-10 grid gap-5 sm:grid-cols-3">
+            {featuredCalculators.map((calc) => (
+              <CalculatorCard key={calc.slug} calculator={calc} />
+            ))}
           </div>
         </Container>
       </Section>

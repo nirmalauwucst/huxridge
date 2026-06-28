@@ -773,6 +773,61 @@ export const mockIndustries = [
       },
     ],
   },
+  {
+    slug: "nurseries",
+    title: "Nurseries",
+    tagline: "Private nursery owners and childcare providers.",
+    description:
+      "Running a nursery means managing one of the most financially complex small businesses in the UK. High staffing costs, complex government funding streams, razor-thin margins, and ever-changing EYFS and Ofsted requirements all create a demanding financial environment. We help nursery owners get a clear picture of their finances, manage their cash flow, and build a sustainable childcare business.",
+    challenges: [
+      "High staffing costs as a proportion of revenue, with strict staff-to-child ratios leaving little room to flex the wage bill",
+      "Complex government funding reconciliation across 15- and 30-hour funded places, tax-free childcare, and universal credit childcare",
+      "Thin operating margins that make accurate cash flow forecasting essential, particularly around term-time income gaps",
+      "Business rates liability on nursery premises and understanding eligibility for charitable or small business relief",
+      "VAT exemption on childcare income and the impact this has on recovering VAT on costs such as equipment and refurbishments",
+    ],
+    howWeHelp: [
+      "Preparing accurate annual accounts and monthly management accounts that give a clear breakdown of funded and private fee income alongside staffing and overhead costs",
+      "Managing payroll for nursery staff including pension auto-enrolment, holiday pay accruals, and accurate RTI submissions to HMRC",
+      "Reconciling government funding receipts against expected entitlements and identifying any shortfalls or overpayments",
+      "Advising on business rates relief eligibility and working with local authorities to ensure the nursery is not overpaying",
+      "Producing cash flow forecasts that plan ahead for term-time income gaps and capital expenditure on equipment or refurbishment",
+    ],
+    relatedServiceSlugs: [
+      "bookkeeping-management-accounts",
+      "annual-accounts",
+      "corporation-tax",
+      "vat-services",
+    ],
+    faqs: [
+      {
+        question: "Is childcare income exempt from VAT?",
+        answer:
+          "Yes. The provision of childcare by a nursery is exempt from VAT as a welfare service. This means you do not charge VAT on fees, but you also cannot reclaim VAT on most of your costs. We review your income streams in detail to confirm the correct VAT treatment across all activities, including any taxable ancillary income such as meals or after-school activities.",
+      },
+      {
+        question: "How do you handle government funding reconciliation?",
+        answer:
+          "Government funding for 15- and 30-hour funded places is paid by the local authority based on headcount returns. Errors in those returns — or differences between the rate paid and the rate expected — can create significant discrepancies over a term. We work through funding statements each term, reconcile receipts against headcount data, and flag any variances to the local authority on your behalf.",
+      },
+      {
+        question: "Can my nursery claim business rates relief?",
+        answer:
+          "Many nurseries qualify for small business rates relief or charitable rates relief depending on how the business is structured and the rateable value of the premises. We assess your eligibility and liaise with the local authority to ensure the correct relief is applied. We also review whether any capital expenditure on the building qualifies for relief through the empty property or improvement relief schemes.",
+      },
+      {
+        question: "How do I manage cash flow around term-time gaps?",
+        answer:
+          "Term-time cash flow is one of the most common financial pressures for nursery owners, particularly those who operate primarily on funded places. We build a 12-month rolling cash flow forecast for each nursery client that maps income receipts against payroll runs, rent payments, and supplier costs, giving you early warning of any shortfalls and time to act.",
+      },
+      {
+        question:
+          "Should my nursery operate as a sole trader, partnership, or limited company?",
+        answer:
+          "The right structure depends on the size of the nursery, the level of profit, and your personal tax position. Limited company status can deliver significant tax savings at higher profit levels, but also introduces additional administration. We model both structures side by side before making a recommendation tailored to your specific nursery.",
+      },
+    ],
+  },
 ] as const;
 
 // ─── Testimonials ─────────────────────────────────────────────────────────────
@@ -1083,45 +1138,59 @@ export const mockFaqs = {
 
 export const mockResources = [
   {
-    title: "MTD for ITSA: Your Readiness Checklist",
+    title: "Making Tax Digital: A Practical Guide",
     description:
-      "A step-by-step checklist for landlords and self-employed individuals to prepare for Making Tax Digital for Income Tax Self Assessment before April 2026.",
+      "A clear walkthrough of what MTD means for UK businesses — from VAT (already live) to income tax (arriving from April 2026) — with what you need to do now.",
     category: "Making Tax Digital",
-    cta: "Download Guide" as const,
+    cta: "View Guide" as const,
+    slug: "making-tax-digital-guide",
   },
   {
-    title: "Limited Company vs Sole Trader: The Tax Comparison",
+    title: "Company Formation & Company Secretarial: A Complete Guide",
     description:
-      "A worked-example guide comparing the tax treatment of operating as a sole trader versus a limited company at different profit levels.",
+      "Everything you need to know about incorporating a UK limited company and keeping it compliant — from identity verification to confirmation statements and ongoing filings.",
     category: "Business Structure",
-    cta: "Download Guide" as const,
+    cta: "View Guide" as const,
+    slug: "company-formation-secretarial-guide",
   },
   {
-    title: "The Landlord's Guide to Section 24",
+    title: "Corporation Tax: A Practical Guide for Company Directors",
     description:
-      "Everything UK residential landlords need to know about the mortgage interest restriction, with illustrative examples showing the impact at different income and profit levels.",
-    category: "Property Tax",
-    cta: "Download Guide" as const,
-  },
-  {
-    title: "Cloud Accounting Software Comparison",
-    description:
-      "An independent comparison of Xero, QuickBooks, and FreeAgent for UK small businesses, covering features, pricing, and MTD compatibility.",
-    category: "Cloud Accounting",
-    cta: "Read Article" as const,
-  },
-  {
-    title: "R&D Tax Credits: Eligibility and Claim Guide",
-    description:
-      "A practical guide to R&D tax relief for UK SMEs — what activities qualify, how much you can claim, and how to document your claim robustly.",
+      "A plain-English guide to UK corporation tax in 2025/26 — rates, taxable profits, allowable reliefs including R&D credits, and the deadlines you cannot afford to miss.",
     category: "Corporation Tax",
-    cta: "Download Guide" as const,
+    cta: "View Guide" as const,
+    slug: "corporation-tax-guide",
   },
   {
-    title: "IR35 Working Practices Evidence Pack",
+    title: "Annual Accounts: A Plain Guide for Company Directors",
     description:
-      "A template evidence pack for contractors to document their working practices and support an outside-IR35 determination.",
-    category: "Contractors",
-    cta: "Download Guide" as const,
+      "What statutory accounts actually are, which documents your company must prepare, how size thresholds affect your obligations, and the filing deadlines for Companies House and HMRC.",
+    category: "Annual Accounts",
+    cta: "View Guide" as const,
+    slug: "annual-accounts-guide",
+  },
+  {
+    title: "VAT: A Practical Guide for UK Businesses",
+    description:
+      "A complete guide to UK VAT — registration thresholds, the rates that apply to different supplies, VAT schemes that can simplify life, MTD for VAT, and the penalties for non-compliance.",
+    category: "VAT",
+    cta: "View Guide" as const,
+    slug: "vat-guide",
+  },
+  {
+    title: "Personal Tax: What You Actually Need to Know",
+    description:
+      "The 2025/26 personal tax guide covering income tax bands, Self Assessment, dividend and savings taxation, and planning opportunities for directors, landlords, and healthcare professionals.",
+    category: "Personal Tax",
+    cta: "View Guide" as const,
+    slug: "personal-tax-guide",
+  },
+  {
+    title: "Internal Audit: A Practical Guide for Business Owners",
+    description:
+      "What internal audit actually is, how it differs from external audit, the areas it typically covers, and why an independent periodic review is valuable for growing SMEs, care providers, and regulated businesses.",
+    category: "Governance",
+    cta: "View Guide" as const,
+    slug: "internal-audit-guide",
   },
 ] as const;

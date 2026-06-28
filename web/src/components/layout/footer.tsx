@@ -17,7 +17,7 @@ export function Footer() {
   return (
     <footer className="bg-primary-950 text-primary-100 mt-auto">
       <Container>
-        <div className="grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-5 lg:gap-8">
+        <div className="grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-6 lg:gap-8">
           <div className="lg:col-span-2">
             <Link
               href="/"
@@ -61,7 +61,8 @@ export function Footer() {
           </div>
 
           <FooterColumn title="Services" links={footerNav.services} />
-          <FooterColumn title="Industries" links={footerNav.industries} />
+          <FooterColumn title="Who We Help" links={footerNav.industries} />
+          <FooterColumn title="Resources" links={footerNav.resources} />
           <FooterColumn title="Company" links={footerNav.company} />
         </div>
 
